@@ -2,6 +2,7 @@ import React from "react";
 import profile_img from "../assets/samia.jpg";
 import right_arrow_white from "../assets/right-arrow-white.png";
 import resume_pdf from "../assets/resume.pdf"; // Chemin correct vers votre CV
+import these_pdf from "../assets/resume.pdf";
 
 const Header = () => {
   return (
@@ -38,6 +39,18 @@ const Header = () => {
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           Mon CV{" "}
+          <img
+            src={right_arrow_white}
+            alt="Icône de téléchargement"
+            className="w-4"
+          />
+        </a>
+        <a
+          href={these_pdf} // Lien correct vers le PDF du tableau de thèse
+          download="Samia_Boutezrout_These.pdf" // Définir un nom de fichier correct pour le téléchargement
+          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
+        >
+          Tableau de Thèse{" "}
           <img
             src={right_arrow_white}
             alt="Icône de téléchargement"

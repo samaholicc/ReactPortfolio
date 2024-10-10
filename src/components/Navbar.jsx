@@ -95,24 +95,12 @@ const Navbar = () => {
 
       <nav
         ref={navRef}
-        className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
+        className="w-full fixed px-5 lg:px-8 xl:px-[6%] py-4 flex items-center justify-between z-50"
       >
-        <img
-          src={logo}
-          alt="Logo"
-          className="w-28 cursor-pointer mr-14 dark:hidden"
-        />
-
-        <img
-          src={logo_dark}
-          alt="Logo"
-          className="w-28 cursor-pointer mr-14 hidden dark:block"
-        />
-
         <ul
           ref={navLinkRef}
-          className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-5 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo
-    dark:border dark:border-white/50 dark:bg-transparent"
+          className="hidden md:flex items-center gap-12 lg:gap-16 rounded-full px-10 py-4 bg-white shadow-sm bg-opacity-50 font-Ovo
+    dark:border dark:border-white/50 dark:bg-transparent w-full justify-around"
         >
           <li className="hover:border-b-2 border-purple-500">
             <a
@@ -121,8 +109,7 @@ const Navbar = () => {
             >
               À propos
             </a>
-          </li>{" "}
-          {/* Added "À propos" here */}
+          </li>
           <li className="hover:border-b-2 border-purple-500">
             <a
               href="#educations"
@@ -132,13 +119,11 @@ const Navbar = () => {
             </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#services"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Veille-technologique
+            <a href="#contact" onClick={closeMenu} className="no-underline">
+              Ecole et Entreprise
             </a>
           </li>
+
           <li className="hover:border-b-2 border-purple-500">
             <a
               href="#work"
@@ -157,6 +142,14 @@ const Navbar = () => {
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a
+              href="#services"
+              className="no-underline hover:border-b-2 border-purple-500"
+            >
+              Veille-technologique
+            </a>
+          </li>
+          <li className="hover:border-b-2 border-purple-500">
+            <a
               href="#contact"
               className="no-underline hover:border-b-2 border-purple-500"
             >
@@ -165,30 +158,6 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="flex items-center gap-4">
-          <button onClick={toggleTheme}>
-            <img src={moon_icon} alt="" className="w-6 dark:hidden" />
-            <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
-          </button>
-
-          <a
-            href="#contact"
-            className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50"
-          >
-            Contact
-            <img src={arrow_icon} alt="" className="w-3 dark:hidden" />
-            <img
-              src={arrow_icon_dark}
-              alt=""
-              className="w-3 hidden dark:block"
-            />
-          </a>
-
-          <button className="block md:hidden ml-3" onClick={openMenu}>
-            <img src={menu_black} alt="" className="w-6 dark:hidden" />
-            <img src={menu_white} alt="" className="w-6 hidden dark:block" />
-          </button>
-        </div>
         {/* -- ----- menu mobile ------  -- */}
         <ul
           ref={sideMenuRef}
@@ -217,6 +186,11 @@ const Navbar = () => {
           <li className="hover:border-b-2 border-purple-500">
             <a href="#educations" onClick={closeMenu} className="no-underline">
               BTS SIO
+            </a>
+          </li>
+          <li className="hover:border-b-2 border-purple-500">
+            <a href="#contact" onClick={closeMenu} className="no-underline">
+              Ecole et Projets
             </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
