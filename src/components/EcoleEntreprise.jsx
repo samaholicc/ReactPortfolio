@@ -1,4 +1,4 @@
-// EcoleEntreprise.jsx
+
 import React from 'react';
 import sampleImage from '../assets/Webitech.png'; 
 import sampleImage1 from '../assets/Vinci.png'
