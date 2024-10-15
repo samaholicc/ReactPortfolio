@@ -1,6 +1,6 @@
 
 import React from 'react';
-import sampleImage from '../assets/Webitech.png'; 
+import sampleImage from '../assets/webitech.jpg'; 
 import sampleImage1 from '../assets/Vinci.png'
 
 const EcoleEntreprise = () => {
