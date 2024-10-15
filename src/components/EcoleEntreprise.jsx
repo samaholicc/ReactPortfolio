@@ -6,16 +6,18 @@ import sampleImage1 from '../assets/Vinci.png'
 const EcoleEntreprise = () => {
   return (
     <div style={styles.container}>
-      <div style={styles.card}>
-        <h2>Webitech Paris </h2>
-        <img src={sampleImage} alt="Webitech" style={styles.image} />
-        <p>Mon  école</p>
-      </div>
-      <div style={styles.card}>
-        <h2>Vinci Sa</h2>
-        <img src={sampleImage1} alt="Vinci" style={styles.image} />
-        <p>Alternance Support applicatif transverse</p>
-      </div>
+      <Card title="Webitech Paris" image={sampleImage} description="Mon école" />
+      <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif transverse" />
+    </div>
+  );
+};
+
+const Card = ({ title, image, description }) => {
+  return (
+    <div style={styles.card}>
+      <h2>{title}</h2>
+      <img src={image} alt={title} style={styles.image} />
+      <p>{description}</p>
     </div>
   );
 };
