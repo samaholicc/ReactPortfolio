@@ -111,7 +111,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#EcoleEntreprise" onClick={closeMenu} className="no-underline">
+            <a href="#EcoleEntreprise" className="no-underline">
               Ecole et Entreprise
             </a>
           </li>
