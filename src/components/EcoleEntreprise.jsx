@@ -26,8 +26,8 @@ const styles = {
   container: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
     gap: '20px',
     padding: '20px',
   },
