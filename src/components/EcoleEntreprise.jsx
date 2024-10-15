@@ -6,6 +6,7 @@ import sampleImage1 from '../assets/Vinci.png'
 const EcoleEntreprise = () => {
   return (
     <div style={styles.container}>
+      <h2 className="text-center text-5xl font-Ovo">Ecole et Entreprise</h2>
       <Card title="Webitech Paris" image={sampleImage} description="Mon école" />
       <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif transverse" />
     </div>
