@@ -1,6 +1,6 @@
 
 import React from 'react';
-import sampleImage from '../assets/Webitech.png'; 
+import sampleImage from '../assets/webitech.jpg'; 
 import sampleImage1 from '../assets/Vinci.png'
 
 const EcoleEntreprise = () => {
@@ -26,9 +26,9 @@ const styles = {
   container: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    gap: '20px',
+    alignItems: 'flex-start',
+    flexDirection: 'row', 
+    gap: '20px', 
     padding: '20px',
   },
   card: {
@@ -44,5 +44,6 @@ const styles = {
     borderRadius: '5px',
   },
 };
+
 
 export default EcoleEntreprise;
