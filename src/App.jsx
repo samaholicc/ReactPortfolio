@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
-import EcoleEntreprise from "./components/EcoleEntreprise"
+import EcoleEntreprise from "./components/EcoleEntreprise";
 
 const App = () => {
   return (
