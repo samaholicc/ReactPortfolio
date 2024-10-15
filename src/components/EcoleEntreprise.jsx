@@ -16,7 +16,7 @@ const EcoleEntreprise = () => {
 
 const Card = ({ title, image, description }) => {
   return (
-    <div style={styles.card}>
+    <div id="EcoleEntreprise" style={styles.card}>
       <h2>{title}</h2>
       <img src={image} alt={title} style={styles.image} />
       <p>{description}</p>
