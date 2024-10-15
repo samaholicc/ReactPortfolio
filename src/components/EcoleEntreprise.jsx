@@ -7,8 +7,8 @@ const EcoleEntreprise = () => {
     <div style={styles.wrapper}>
       <h2 style={styles.heading}>Ecole et Entreprise</h2>
       <div style={styles.container}>
-        <Card title="Webitech Paris" image={sampleImage} description="Mon école" />
-        <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif transverse" />
+        <Card title="Webitech Paris" image={sampleImage} description="Formation BTS SIO SLAM" />
+        <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif" />
       </div>
     </div>
   );
