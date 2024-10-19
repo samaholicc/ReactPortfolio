@@ -22,24 +22,29 @@ const Services = () => {
     const fetchRSS = async () => {
       try {
         const response = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.arstechnica.com/arstechnica/ai"
+          "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
         );
         const data = await response.json();
-        
+        console.log(data); // Voir la réponse ici
+  
         if (data.status === 'ok') {
           setArticles(data.items); // Set articles from the API response
         } else {
+          console.error("Erreur lors du chargement : ", data.message); // Voir le message d'erreur
           setError("Erreur lors du chargement des articles.");
         }
       } catch (error) {
+        console.error("Erreur lors de la requête :", error); // Voir l'erreur dans la console
         setError("Impossible de charger les actualités.");
       } finally {
-        setLoading(false); // Set loading to false once fetch is done
+        setLoading(false); // Arrêter l'état de chargement
       }
     };
-
-    fetchRSS();
-  }, []);
+  
+    fetchRSS(); // Appel de la fonction
+  
+  }, []); // Ne pas oublier les crochets vides pour exécuter une seule fois
+  
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
