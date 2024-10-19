@@ -31,10 +31,9 @@ const Services = () => {
       }
     };
     
-    useEffect(() => {
-      fetchRSS();
+
     }, []);
-  }, []);
+  };
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
@@ -252,6 +251,6 @@ const Services = () => {
       )}
     </div>
   );
-};
+;
 
 export default Services;
