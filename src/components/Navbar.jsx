@@ -72,11 +72,9 @@ const Navbar = () => {
     });
 
     // -------- light mode and dark mode -----------
-
     if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      localStorage.theme === "dark" || 
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       document.documentElement.classList.add("dark");
     } else {
@@ -86,10 +84,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div
-        className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]
-    dark:hidden"
-      >
+      <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
         <img src={header_bg_color} alt="" className="w-full" />
       </div>
 
@@ -99,8 +94,7 @@ const Navbar = () => {
       >
         <ul
           ref={navLinkRef}
-          className="hidden md:flex items-center gap-12 lg:gap-16 rounded-full px-10 py-4 bg-white shadow-sm bg-opacity-50 font-Ovo
-    dark:border dark:border-white/50 dark:bg-transparent w-full justify-around"
+          className="hidden md:flex items-center gap-12 lg:gap-16 rounded-full px-10 py-4 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent w-full justify-around"
         >
           <li className="hover:border-b-2 border-purple-500">
             <a
