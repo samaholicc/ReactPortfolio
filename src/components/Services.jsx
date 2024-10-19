@@ -126,64 +126,121 @@ const Services = () => {
   return (
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Veille Technologique</h2>
-
-      {/* Carousel des articles */}
-      <div className="lg:pl-8 my-10">
-        <h3 className="text-3xl font-semibold text-gray-700 mb-6">
-          Actualités sur l'IA
-        </h3>
-
-        {loading ? (
-          <p>Chargement des actualités...</p>
-        ) : error ? (
-          <p className="text-red-500">{error}</p>
-        ) : (
-          <Slider {...settings}>
-            {articles.slice(0, 10).map((article, index) => {
-              const imageUrl = extractImage(article);
-              const cleanDescription = sanitizeHtml(article.description, {
-                allowedTags: ["p", "b", "i", "em", "strong", "a"],
-              });
-
-              return (
-                <div key={index} className="px-4">
-                  <div className="border border-gray-300 p-4 rounded-lg shadow-md">
-                    {imageUrl && (
-                      <img
-                        src={imageUrl}
-                        alt={article.title}
-                        className="w-full h-auto mb-4 rounded"
-                      />
-                    )}
-                    <h4 className="text-lg font-semibold text-gray-800">
-                      {article.title}
-                    </h4>
-                    <p
-                      className="text-sm text-gray-600 mb-2"
-                      dangerouslySetInnerHTML={{ __html: cleanDescription }}
-                    ></p>
-                    <a
-                      href={article.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
-                    >
-                      Lire plus
-                    </a>
+  
+      {/* Grille à deux colonnes pour garder la carte IA à gauche et le carousel à droite */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
+        {/* Colonne gauche pour la carte IA */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-xl cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
+          >
+            <img
+              src={interestImage}
+              alt="Intelligence Artificielle"
+              className="w-22 h-22 mx-auto mb-4 rounded-full"
+            />
+            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
+              Intelligence Artificielle (IA)
+            </h3>
+            <p className="text-center text-gray-600 dark:text-white/80 mb-4">
+              L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.
+            </p>
+            <div className="text-center">
+              <a
+                href="https://fr.wikipedia.org/wiki/Intelligence_artificielle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Plus d'informations 1
+              </a>
+              <br />
+              <a
+                href="https://www.ibm.com/fr-fr/cloud/learn/what-is-artificial-intelligence"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Plus d'informations 2
+              </a>
+            </div>
+            <button
+              className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
+              onClick={() =>
+                handleShowDetails({
+                  title: "IA",
+                  details: "Détails sur l'IA",
+                  advantages: ["Automatisation", "Personnalisation"],
+                })
+              }
+            >
+              Voir les détails
+            </button>
+          </motion.div>
+        </div>
+  
+        {/* Colonne droite pour le carousel */}
+        <div className="lg:pl-8">
+          <h3 className="text-3xl font-semibold text-gray-700 mb-6">
+            Actualités sur l'IA
+          </h3>
+  
+          {loading ? (
+            <p>Chargement des actualités...</p>
+          ) : error ? (
+            <p className="text-red-500">{error}</p>
+          ) : (
+            <Slider {...settings}>
+              {articles.slice(0, 10).map((article, index) => {
+                const imageUrl = extractImage(article);
+                const cleanDescription = sanitizeHtml(article.description, {
+                  allowedTags: ["p", "b", "i", "em", "strong", "a"],
+                });
+  
+                return (
+                  <div key={index} className="px-4">
+                    <div className="border border-gray-300 p-4 rounded-lg shadow-md">
+                      {imageUrl && (
+                        <img
+                          src={imageUrl}
+                          alt={article.title}
+                          className="w-full h-auto mb-4 rounded"
+                        />
+                      )}
+                      <h4 className="text-lg font-semibold text-gray-800">
+                        {article.title}
+                      </h4>
+                      <p
+                        className="text-sm text-gray-600 mb-2"
+                        dangerouslySetInnerHTML={{ __html: cleanDescription }}
+                      ></p>
+                      <a
+                        href={article.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:underline"
+                      >
+                        Lire plus
+                      </a>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </Slider>
-        )}
+                );
+              })}
+            </Slider>
+          )}
+        </div>
       </div>
-
+  
       {/* Section des livres PDF */}
       <div className="my-10">
         <h2 className="text-center text-3xl font-semibold mb-6">
           Livres sur l'IA (PDF)
         </h2>
-
+  
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {pdfFiles.map((pdf, index) => (
             <div
