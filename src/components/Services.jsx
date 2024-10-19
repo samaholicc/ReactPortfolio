@@ -19,28 +19,27 @@ const Services = () => {
 
   // Fetch RSS feed
   useEffect(() => {
-    let isMounted = true;
-    
+    const parser = new Parser();
+  
     const fetchRSS = async () => {
-      const parser = new Parser();
       try {
         const feed = await parser.parseURL("https://www.aitrends.com/feed/");
-        if (isMounted) {
-          setArticles(feed.items);
-        }
+        setArticles(feed.items);
       } catch (error) {
-        if (isMounted) {
-          setError("Impossible de charger les actualités.");
-        }
+        setError("Impossible de charger les actualités.");
       }
     };
   
     fetchRSS();
   
+    // Cleanup function to avoid memory leaks or async issues
     return () => {
-      isMounted = false;  // Cleanup to prevent updates on unmounted component
+      if (parser.removeAllListeners) {
+        parser.removeAllListeners();  // Safely remove listeners if available
+      }
     };
   }, []);
+  
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
