@@ -156,6 +156,7 @@ const Navbar = () => {
               Contact
             </a>
           </li>
+          
         </ul>
 
         {/* -- ----- menu mobile ------  -- */}
