@@ -4,7 +4,7 @@ import right_arrow_white from "../assets/right-arrow-white.png"; // Import right
 import resume_pdf from "../assets/resume.pdf"; // Link to your resume PDF
 import these_pdf from "../assets/these.pdf"; // Ensure this file exists in assets
 import right_arrows from "../assets/right_arrows.png"; // Ensure import matches the filename
-import hand_icon from "../assets/hand-icon.png"; 
+import hand_icon from "../assets/hand-icon.png"; // Import hand icon
 
 const Header = () => {
   return (
@@ -16,7 +16,7 @@ const Header = () => {
         <img src={hand_icon} alt="Hand Icon" className="w-6" />
       </h3>
       <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
-      Étudiante en BTS SIO SLAM
+        Étudiante en BTS SIO SLAM
       </h1>
       <p className="max-w-2xl mx-auto font-Ovo">
         Je me permets de vous présenter mon portfolio où vous pourrez découvrir
@@ -50,8 +50,7 @@ const Header = () => {
         >
           Tableau de Thèse{" "}
           <img
-            src={right_arrows}
-            alt="Download Thesis icon"
+            src={right_arrows} alt="Download Thesis icon"
             className="w-4"
           />
         </a>
