@@ -17,11 +17,13 @@ const Navbar = () => {
   const navLinkRef = useRef();
 
   const openMenu = () => {
+    sideMenuRef.current.style.transform = "translateX(0)";
+  };
+
+  const closeMenu = () => {
     sideMenuRef.current.style.transform = "translateX(-16rem)";
   };
-  const closeMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(16rem)";
-  };
+
   const toggleTheme = () => {
     document.documentElement.classList.toggle("dark");
 
@@ -71,8 +73,7 @@ const Navbar = () => {
       }
     });
 
-    // -------- light mode and dark mode -----------
-
+    // Set the initial theme based on localStorage or system preferences
     if (
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) &&
@@ -86,10 +87,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div
-        className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]
-    dark:hidden"
-      >
+      <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
         <img src={header_bg_color} alt="" className="w-full" />
       </div>
 
@@ -99,64 +97,47 @@ const Navbar = () => {
       >
         <ul
           ref={navLinkRef}
-          className="hidden md:flex items-center gap-12 lg:gap-16 rounded-full px-10 py-4 bg-white shadow-sm bg-opacity-50 font-Ovo
-    dark:border dark:border-white/50 dark:bg-transparent w-full justify-around"
+          className="hidden md:flex items-center gap-12 lg:gap-16 rounded-full px-10 py-4 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent w-full justify-around"
         >
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#about"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              À propos
-            </a>
+            <a href="#about" className="no-underline hover:border-b-2 border-purple-500">À propos</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#educations"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              BTS SIO
-            </a>
+            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">Ecole et Entreprise</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#contact" onClick={closeMenu} className="no-underline">
-              Ecole et Entreprise
-            </a>
-          </li>
-
-          <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#work"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Realisations
-            </a>
+            <a href="#educations" className="no-underline hover:border-b-2 border-purple-500">BTS SIO</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#projects"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Projets
-            </a>
+            <a href="#services" className="no-underline hover:border-b-2 border-purple-500">Veille-technologique</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#services"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Veille-technologique
-            </a>
+            <a href="#work" className="no-underline hover:border-b-2 border-purple-500">Realisations</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#contact"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Contact
-            </a>
+            <a href="#projects" className="no-underline hover:border-b-2 border-purple-500">Projets</a>
+          </li>
+          <li className="hover:border-b-2 border-purple-500">
+            <a href="#contact" className="no-underline hover:border-b-2 border-purple-500">Contact</a>
           </li>
         </ul>
+
+        {/* Toggle Theme Button */}
+        <button 
+          onClick={toggleTheme} 
+          className="ml-4 px-3 py-1 border rounded text-white transition"
+        >
+          {/* Show moon icon for light mode */}
+          <img src={moon_icon} alt="Switch to dark mode" className="w-6 block dark:hidden" />
+          
+          {/* Show sun icon for dark mode */}
+          <img src={sun_icon} alt="Switch to light mode" className="w-6 hidden dark:block" />
+        </button>
+
+        <button className="block md:hidden ml-3" onClick={openMenu}>
+          <img src={menu_black} alt="" className="w-6 dark:hidden" />
+          <img src={menu_white} alt="" className="w-6 hidden dark:block" />
+        </button>
 
         {/* -- ----- menu mobile ------  -- */}
         <ul
@@ -181,9 +162,6 @@ const Navbar = () => {
             <a href="#about" onClick={closeMenu} className="no-underline">
               À propos
             </a>
-          </li>
-          <li className="hover:border-b-2 border-purple-500">
-            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">Ecole et Entreprise</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#educations" onClick={closeMenu} className="no-underline">
@@ -216,21 +194,6 @@ const Navbar = () => {
               Contact
             </a>
           </li>
-                  {/* Toggle Theme Button with margin */}
-        <button 
-          onClick={toggleTheme} 
-          className="ml-4 px-3 py-1 border rounded text-white  transition"
-        >
-          <img src={moon_icon} alt="" className="w-6 dark:hidden" />
-          <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
-        </button>
-          
-
-          <button className="block md:hidden ml-3" onClick={openMenu}>
-            <img src={menu_black} alt="" className="w-6 dark:hidden" />
-            <img src={menu_white} alt="" className="w-6 hidden dark:block" />
-          </button>
-
         </ul>
       </nav>
     </>
