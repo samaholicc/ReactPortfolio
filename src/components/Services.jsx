@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; 
 import sanitizeHtml from "sanitize-html"; 
+import Parser from "rss-parser";
 
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
