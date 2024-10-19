@@ -1,35 +1,187 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Parser from "rss-parser";
+import Slider from "react-slick"; // Importation de react-slick pour le carrousel
 
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Work from "./components/Work";
-import Services from "./components/Services";
-import About from "./components/About";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Experience from "./components/Experience";
-import Education from "./components/Education";
-import Projects from "./components/Projects";
-import EcoleEntreprise from "./components/EcoleEntreprise";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// Importation des PDF
+import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
+import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf";
+import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
+import aiBook4 from "../assets/Coding_with AI_For_Dummies_by_Chris_Minnick.pdf";
+import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
+import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide to_Artificial_Intelligence_Education_by_Brad_Weinstein.pdf";
 
-const App = () => {
+const Services = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchRSS = async () => {
+      try {
+        const response = await fetch(
+          "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
+        );
+        const data = await response.json();
+        setArticles(data.items);
+      } catch (error) {
+        console.error("Erreur lors du chargement du flux RSS :", error);
+      }
+    };
+    fetchRSS();
+  }, []);
+
+  // Liste des PDF sur l'IA
+  const pdfFiles = [
+    { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
+    { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2 },
+    { name: "ChatGPT Decoded by David Wiens", url: aiBook3 },
+    { name: "Coding with AI For Dummies by Chris Minnick", url: aiBook4 },
+    { name: "Introduction to ChatGPT by Imre Barta", url: aiBook5 },
+    { name: "The AI Classroom by Brad Weinstein", url: aiBook6 },
+  ];
+
+  // Fonction pour afficher la modale avec les détails du service sélectionné
+  const handleShowDetails = (service) => {
+    setSelectedService(service);
+    setShowModal(true);
+  };
+
+  // Fonction pour fermer la modale
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedService(null);
+  };
+
+  // Paramètres du carrousel
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
-    <>
-      <Navbar />
-      <Header />
-      <About />
-      <EcoleEntreprise/>
-      <Experience />
-      <Education />
-      <Services />
-      <Work />
-      <Projects />
-      <Contact />
-      <Footer />
-    </>
+    <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
+      <h2 className="text-center text-5xl font-Ovo">Veille Technologique</h2>
+
+      {/* Grille avec la carte IA à gauche et les actualités à droite */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
+        {/* Services Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+          {/* Section des actualités avec carrousel */}
+          <div className="lg:pl-8">
+            <h3 className="text-3xl font-semibold text-gray-700 mb-6">
+              Actualités sur l'IA
+            </h3>
+            {articles.length === 0 ? (
+              <p>Chargement des actualités...</p>
+            ) : (
+              <Slider {...sliderSettings}>
+                {articles.map((article, index) => {
+                  // Récupération de l'image
+                  const imageUrl =
+                    article.enclosure?.link || // Si l'image est dans 'enclosure'
+                    article["media:content"]?.url || // Si l'image est dans 'media:content'
+                    ""; // Par défaut, pas d'image
+
+                  return (
+                    <div key={index} className="p-4">
+                      <div className="border border-gray-300 p-4 rounded-lg shadow-md">
+                        {imageUrl && (
+                          <img
+                            src={imageUrl}
+                            alt={article.title}
+                            className="w-full h-auto mb-4 rounded"
+                          />
+                        )}
+                        <h4 className="text-lg font-semibold text-gray-800">
+                          {article.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 mb-2">
+                          {article.description}
+                        </p>
+                        <a
+                          href={article.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:underline"
+                        >
+                          Lire plus
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </Slider>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Section des livres PDF */}
+      <div className="my-10">
+        <h2 className="text-center text-3xl font-semibold mb-6">
+          Livres sur l'IA (PDF)
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {pdfFiles.map((pdf, index) => (
+            <div
+              key={index}
+              className="border border-gray-400 rounded-lg p-6 shadow-lg text-center"
+            >
+              <h3 className="text-lg font-semibold mb-4">{pdf.name}</h3>
+              <a
+                href={pdf.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Télécharger / Voir le PDF
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Popup Modale */}
+      {showModal && selectedService && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white rounded-lg p-8 w-[90%] md:w-[40%] shadow-lg"
+          >
+            <h3 className="text-2xl font-semibold text-gray-700 mb-4">
+              Détails sur {selectedService.title}
+            </h3>
+            <p className="text-gray-600 text-sm mb-4">
+              {selectedService.details}
+            </p>
+            <h4 className="text-xl font-semibold text-gray-700 mb-2">
+              Avantages
+            </h4>
+            <ul className="space-y-2 text-gray-600 text-sm">
+              {selectedService.advantages.map((advantage, idx) => (
+                <li key={idx}>• {advantage}</li>
+              ))}
+            </ul>
+            <button
+              className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+              onClick={handleCloseModal}
+            >
+              Fermer
+            </button>
+          </motion.div>
+        </div>
+      )}
+    </div>
   );
 };
 
-export default App;
+export default Services;
