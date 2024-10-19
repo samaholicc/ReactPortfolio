@@ -51,27 +51,42 @@ const Services = () => {
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
-    let imageUrl = article.enclosure?.link || article["media:content"]?.url || "";
-  
-    if (imageUrl.includes("100x70") && article.description) {
-      const srcsetMatch = article.description.match(/srcset="([^"]+)"/);
-      if (srcsetMatch) {
-        const srcset = srcsetMatch[1].split(",");
-        const largerImage = srcset.find((src) => src.includes("300x200"));
-        return largerImage ? largerImage.trim().split(" ")[0] : imageUrl;
-      }
-    }
-  
-    if (imageUrl) {
-      return imageUrl.replace("100x70", "300x200");
-    }
-  
-    if (article.description) {
-      const match = article.description.match(/<img[^>]+src="([^">]+)"/);
-      return match ? match[1].replace("100x70", "300x200") : null;
-    }
-  
-    return imageUrl;
+    {articles.slice(0, 10).map((article, index) => {
+      const imageUrl = extractImage(article);
+      const cleanDescription = sanitizeHtml(article.description, {
+        allowedTags: ["p", "b", "i", "em", "strong", "a"],
+      });
+    
+      return (
+        <div key={index} className="px-4">
+          <div className="border border-gray-300 p-4 rounded-lg shadow-md">
+            {imageUrl && (
+              <img
+                src={imageUrl}
+                alt={article.title}
+                className="w-full h-auto mb-4 rounded"
+              />
+            )}
+            <h4 className="text-lg font-semibold text-gray-800">
+              {article.title}
+            </h4>
+            <p
+              className="text-sm text-gray-600 mb-2"
+              dangerouslySetInnerHTML={{ __html: cleanDescription }}
+            ></p>
+            <a
+              href={article.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              Lire plus
+            </a>
+          </div>
+        </div>
+      );
+    })}
+    
   };
   
   // Configuration du carousel
