@@ -158,18 +158,7 @@ const Navbar = () => {
             <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
           </button>
 
-          <a
-            href="#contact"
-            className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50"
-          >
-            Contact
-            <img src={arrow_icon} alt="" className="w-3 dark:hidden" />
-            <img
-              src={arrow_icon_dark}
-              alt=""
-              className="w-3 hidden dark:block"
-            />
-          </a>
+          
 
           <button className="block md:hidden ml-3" onClick={openMenu}>
             <img src={menu_black} alt="" className="w-6 dark:hidden" />
