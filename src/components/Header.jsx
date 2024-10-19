@@ -15,7 +15,7 @@ const Header = () => {
         <img src="./assets/hand-icon.png" alt="" className="w-6" />
       </h3>
       <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
-        Etudiante en BTS SIO SLAM
+        Ingénieure Support & Développeuse Web
       </h1>
       <p className="max-w-2xl mx-auto font-Ovo">
         Je me permets de vous présenter mon portfolio où vous pourrez découvrir
