@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; 
 import sanitizeHtml from "sanitize-html"; 
-import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick"; // Importation du carousel
 
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
-import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf";
+import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf"; 
 import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
 import aiBook4 from "../assets/Coding_with AI_For_Dummies_by_Chris_Minnick.pdf";
 import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
@@ -30,10 +29,11 @@ const Services = () => {
         );
         const data = await response.json();
         console.log(data); // Voir la réponse ici
-
+  
         if (data.status === 'ok') {
           setArticles(data.items); // Set articles from the API response
         } else {
+          console.error("Erreur lors du chargement : ", data.message); // Voir le message d'erreur
           setError("Erreur lors du chargement des articles.");
         }
       } catch (error) {
@@ -43,29 +43,38 @@ const Services = () => {
         setLoading(false); // Arrêter l'état de chargement
       }
     };
-
-    fetchRSS();
-  }, []);
+  
+    fetchRSS(); // Appel de la fonction
+  
+  }, []); // Ne pas oublier les crochets vides pour exécuter une seule fois
+  
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
     let imageUrl = article.enclosure?.link || article["media:content"]?.url || "";
-
-    // Si une image est trouvée mais en basse résolution, remplacer par une meilleure résolution
+  
+    if (imageUrl.includes("100x70") && article.description) {
+      const srcsetMatch = article.description.match(/srcset="([^"]+)"/);
+      if (srcsetMatch) {
+        const srcset = srcsetMatch[1].split(",");
+        const largerImage = srcset.find((src) => src.includes("300x200"));
+        return largerImage ? largerImage.trim().split(" ")[0] : imageUrl;
+      }
+    }
+  
     if (imageUrl) {
       return imageUrl.replace("100x70", "300x200");
     }
-
-    // Si aucune image n'est trouvée, extraire l'image de la description
+  
     if (article.description) {
       const match = article.description.match(/<img[^>]+src="([^">]+)"/);
       return match ? match[1].replace("100x70", "300x200") : null;
     }
-
-    return imageUrl || "URL_DE_TA_IMAGE_PAR_DEFAUT";
+  
+    return imageUrl;
   };
-
-  // Configuration du carousel (react-slick)
+  
+  // Configuration du carousel
   const settings = {
     dots: true,
     infinite: true,
@@ -90,6 +99,28 @@ const Services = () => {
         },
       },
     ],
+  };
+
+  // Liste des PDF sur l'IA
+  const pdfFiles = [
+    { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
+    { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2 },
+    { name: "ChatGPT Decoded by David Wiens", url: aiBook3 },
+    { name: "Coding with AI For Dummies by Chris Minnick", url: aiBook4 },
+    { name: "Introduction to ChatGPT by Imre Barta", url: aiBook5 },
+    { name: "The AI Classroom by Brad Weinstein", url: aiBook6 },
+  ];
+
+  // Fonction pour afficher la modale avec les détails du service sélectionné
+  const handleShowDetails = (service) => {
+    setSelectedService(service);
+    setShowModal(true);
+  };
+
+  // Fonction pour fermer la modale
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedService(null);
   };
 
   return (
@@ -198,7 +229,7 @@ const Services = () => {
             </ul>
             <button
               className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-              onClick={() => setShowModal(false)}
+              onClick={handleCloseModal}
             >
               Fermer
             </button>
