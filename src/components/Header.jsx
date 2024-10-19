@@ -16,7 +16,7 @@ const Header = () => {
         <img src={hand_icon} alt="Hand Icon" className="w-6" />
       </h3>
       <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
-        Etudiante en BTS SIO SLAM
+      Étudiante en BTS SIO SLAM
       </h1>
       <p className="max-w-2xl mx-auto font-Ovo">
         Je me permets de vous présenter mon portfolio où vous pourrez découvrir
@@ -50,7 +50,7 @@ const Header = () => {
         >
           Tableau de Thèse{" "}
           <img
-            src={right_arrow_white}
+            src={right_arrows}
             alt="Download Thesis icon"
             className="w-4"
           />
