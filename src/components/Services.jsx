@@ -1,16 +1,29 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion"; // Importation de framer-motion pour l'animation
 
-// Importation des images depuis le dossier assets
+// Importation des images et des PDF depuis le dossier assets
 import cloudImage from "../assets/pwa.png";
 import interestImage from "../assets/ia.png";
+import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
+import aiBook2 from "../assets/src/assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf";
 
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
+  // List of predefined PDF files about AI
+  const pdfFiles = [
+    {
+      name: "AI for Absolute Beginners by Oliver Theobald",
+      url: aiBook1,
+    },
+    {
+      name: "Artificial Intelligence: The Ultimate Guide to AI",
+      url: aiBook2,
+    },
+  ];
+
   const services = [
-   
     {
       title: "Intelligence Artificielle (IA)",
       desc: "L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.",
@@ -44,13 +57,9 @@ const Services = () => {
 
   return (
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-Ovo">Ce que j'offre</h4>
       <h2 className="text-center text-5xl font-Ovo">Veille Technologique</h2>
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
-        J'apporte mon expertise dans le support informatique, le développement
-        web, les technologies cloud et les méthodologies agiles.
-      </p>
 
+      {/* Services Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 my-10">
         {services.map((service, index) => (
           <motion.div
@@ -99,6 +108,33 @@ const Services = () => {
             </button>
           </motion.div>
         ))}
+      </div>
+
+      {/* PDF Display Section */}
+      <div className="my-10">
+        <h2 className="text-center text-3xl font-semibold mb-6">
+          Livres sur l'IA (PDF)
+        </h2>
+
+        {/* Display PDF Books */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {pdfFiles.map((pdf, index) => (
+            <div
+              key={index}
+              className="border border-gray-400 rounded-lg p-6 shadow-lg text-center"
+            >
+              <h3 className="text-lg font-semibold mb-4">{pdf.name}</h3>
+              <a
+                href={pdf.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Télécharger / Voir le PDF
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Popup Modale */}
