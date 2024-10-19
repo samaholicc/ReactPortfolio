@@ -21,7 +21,7 @@ const Services = () => {
     const fetchRSS = async () => {
       try {
         const response = await fetch(
-          "https://techcrunch.com/tag/artificial-intelligence/feed/"
+          "https://venturebeat.com/category/ai/feed/"
         );
         const data = await response.json();
         setArticles(data.items);
