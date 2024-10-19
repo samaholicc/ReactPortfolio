@@ -3,7 +3,7 @@ import profile_img from "../assets/samia.jpg";
 import right_arrow_white from "../assets/right-arrow-white.png";
 import resume_pdf from "../assets/resume.pdf"; // Chemin correct vers votre CV
 import these_pdf from "../assets/resume.pdf";
-import resume from "../assets/resume.png";
+import right_arrows from "../assets/right-arrows.png";
 
 const Header = () => {
   return (
@@ -36,12 +36,12 @@ const Header = () => {
 
         <a
           href={resume_pdf} // Lien correct vers le CV PDF
-          download="Samia_Boutezrout_CV.pdf" // Définir un nom de fichier correct pour le téléchargement
+          download="resume.pdf" // Définir un nom de fichier correct pour le téléchargement
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           Mon CV{" "}
           <img
-            src={resume}
+            src={right-arrows}
             alt="Icône de téléchargement"
             className="w-4"
           />
