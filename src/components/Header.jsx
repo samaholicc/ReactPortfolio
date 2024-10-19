@@ -1,19 +1,18 @@
 import React from "react";
 import profile_img from "../assets/samia.jpg";
 import right_arrow_white from "../assets/right-arrow-white.png";
-import resume_pdf from "../assets/resume.pdf"; // Chemin correct vers votre CV
-import these_pdf from "../assets/resume.pdf";
-import right_arrows from "../assets/right-arrows.png";
+import resume_pdf from "../assets/resume.pdf"; // Link to your resume PDF
+import these_pdf from "../assets/these.pdf"; // Assuming a different file for the thesis
+import right_arrows from "../assets/right-arrows.png"; // Correct the import name
 
 const Header = () => {
   return (
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
-      {/* Déplacer l'image légèrement vers le bas avec margin-top */}
-      <img src={profile_img} alt="Profil" className="rounded-full w-32 mt-40" />
+      <img src={profile_img} alt="Profile of Samia Boutezrout" className="rounded-full w-32 mt-40" />
 
       <h3 className="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">
         Bonjour ! Je suis Samia Boutezrout{" "}
-        <img src="./assets/hand-icon.png" alt="" className="w-6" />
+        <img src="./assets/hand-icon.png" alt="Hand Icon" className="w-6" />
       </h3>
       <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
         Etudiante en BTS SIO SLAM
@@ -35,26 +34,26 @@ const Header = () => {
         </a>
 
         <a
-          href={resume_pdf} // Lien correct vers le CV PDF
-          download="resume.pdf" // Définir un nom de fichier correct pour le téléchargement
+          href={resume_pdf}
+          download="resume.pdf"
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           Mon CV{" "}
           <img
-            src={right-arrows}
-            alt="Icône de téléchargement"
+            src={right_arrows}
+            alt="Download icon"
             className="w-4"
           />
         </a>
         <a
-          href={these_pdf} // Lien correct vers le PDF du tableau de thèse
-          download="Samia_Boutezrout_These.pdf" // Définir un nom de fichier correct pour le téléchargement
+          href={these_pdf} 
+          download="Samia_Boutezrout_These.pdf" 
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           Tableau de Thèse{" "}
           <img
             src={right_arrow_white}
-            alt="Icône de téléchargement"
+            alt="Download icon"
             className="w-4"
           />
         </a>
