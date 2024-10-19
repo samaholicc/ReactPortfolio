@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; // Importation de framer-motion pour l'animation
-import Parser from "rss-parser"; // Importation de rss-parser pour les flux RSS
 
 // Importation des images et des PDF depuis le dossier assets
 import cloudImage from "../assets/pwa.png";
@@ -18,10 +17,16 @@ const Services = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const parser = new Parser();
     const fetchRSS = async () => {
-      const feed = await parser.parseURL("https://www.aitrends.com/feed/");
-      setArticles(feed.items);
+      try {
+        const response = await fetch(
+          "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
+        );
+        const data = await response.json();
+        setArticles(data.items);
+      } catch (error) {
+        console.error("Erreur lors du chargement du flux RSS :", error);
+      }
     };
     fetchRSS();
   }, []);
@@ -56,53 +61,50 @@ const Services = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
         {/* Services Section */}
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              key={index}
-              className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-xl cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-22 h-22 mx-auto mb-4 rounded-full"
-              />
-              <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
-                {service.title}
-              </h3>
-              <p className="text-center text-gray-600 dark:text-white/80 mb-4">
-                {service.desc}
-              </p>
-              <div className="text-center">
-                <a
-                  href={service.moreInfoLink1}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  Plus d'informations 1
-                </a>
-                <br />
-                <a
-                  href={service.moreInfoLink2}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  Plus d'informations 2
-                </a>
-              </div>
-              <button
-                className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
-                onClick={() => handleShowDetails(service)}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-xl cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
+          >
+            <img
+              src={interestImage}
+              alt="Intelligence Artificielle"
+              className="w-22 h-22 mx-auto mb-4 rounded-full"
+            />
+            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
+              Intelligence Artificielle (IA)
+            </h3>
+            <p className="text-center text-gray-600 dark:text-white/80 mb-4">
+              L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.
+            </p>
+            <div className="text-center">
+              <a
+                href="https://fr.wikipedia.org/wiki/Intelligence_artificielle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
               >
-                Voir les détails
-              </button>
-            </motion.div>
-          ))}
+                Plus d'informations 1
+              </a>
+              <br />
+              <a
+                href="https://www.ibm.com/fr-fr/cloud/learn/what-is-artificial-intelligence"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Plus d'informations 2
+              </a>
+            </div>
+            <button
+              className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
+              onClick={() => handleShowDetails({ title: "IA", details: "Détails sur l'IA", advantages: ["Automatisation", "Personnalisation"] })}
+            >
+              Voir les détails
+            </button>
+          </motion.div>
         </div>
 
         {/* Section des actualités */}
@@ -115,9 +117,7 @@ const Services = () => {
               articles.slice(0, 5).map((article, index) => (
                 <div key={index} className="border border-gray-300 p-4 rounded-lg shadow-md">
                   <h4 className="text-lg font-semibold text-gray-800">{article.title}</h4>
-                  <p className="text-sm text-gray-600 mb-2">
-                    {article.contentSnippet}
-                  </p>
+                  <p className="text-sm text-gray-600 mb-2">{article.description}</p>
                   <a
                     href={article.link}
                     target="_blank"
@@ -171,12 +171,8 @@ const Services = () => {
             <h3 className="text-2xl font-semibold text-gray-700 mb-4">
               Détails sur {selectedService.title}
             </h3>
-            <p className="text-gray-600 text-sm mb-4">
-              {selectedService.details}
-            </p>
-            <h4 className="text-xl font-semibold text-gray-700 mb-2">
-              Avantages
-            </h4>
+            <p className="text-gray-600 text-sm mb-4">{selectedService.details}</p>
+            <h4 className="text-xl font-semibold text-gray-700 mb-2">Avantages</h4>
             <ul className="space-y-2 text-gray-600 text-sm">
               {selectedService.advantages.map((advantage, idx) => (
                 <li key={idx}>• {advantage}</li>
