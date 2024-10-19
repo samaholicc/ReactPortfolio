@@ -19,7 +19,7 @@ import {
 } from "react-icons/si"; // Importer les autres icônes d'outils
 import user_image from "../assets/samia.jpg";
 import circular_text from "../assets/ev.png";
-import hand_icon from "../assets/hand-icon.png";
+
 const About = () => {
   return (
     <div id="about" className="w-full px-[12%] py-10 scroll-mt-2 mt-36">
