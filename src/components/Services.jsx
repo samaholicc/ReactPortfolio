@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; 
 import sanitizeHtml from "sanitize-html"; 
-import Parser from "rss-parser";
 
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
@@ -16,38 +15,35 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // To track loading state
 
-  // Fetch RSS feed
+  // Fetch RSS feed using rss2json
   useEffect(() => {
-    let isMounted = true;
-    
     const fetchRSS = async () => {
-      const parser = new Parser();
       try {
-        const feed = await parser.parseURL("https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/");
-        if (isMounted) {
-          setArticles(feed.items);
+        const response = await fetch(
+          "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
+        );
+        const data = await response.json();
+        
+        if (data.status === 'ok') {
+          setArticles(data.items); // Set articles from the API response
+        } else {
+          setError("Erreur lors du chargement des articles.");
         }
       } catch (error) {
-        if (isMounted) {
-          setError("Impossible de charger les actualités.");
-        }
+        setError("Impossible de charger les actualités.");
+      } finally {
+        setLoading(false); // Set loading to false once fetch is done
       }
     };
-  
+
     fetchRSS();
-  
-    return () => {
-      isMounted = false;  // Cleanup to prevent updates on unmounted component
-    };
   }, []);
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
-    let imageUrl =
-      article.enclosure?.link || 
-      article["media:content"]?.url || 
-      "";
+    let imageUrl = article.enclosure?.link || article["media:content"]?.url || "";
 
     if (imageUrl.includes("100x70") && article.description) {
       const srcsetMatch = article.description.match(/srcset="([^"]+)"/);
@@ -152,10 +148,10 @@ const Services = () => {
             Actualités sur l'IA
           </h3>
           <div className="space-y-4">
-            {error ? (
-              <p className="text-red-500">{error}</p>
-            ) : articles.length === 0 ? (
+            {loading ? (
               <p>Chargement des actualités...</p>
+            ) : error ? (
+              <p className="text-red-500">{error}</p>
             ) : (
               articles.slice(0, 5).map((article, index) => {
                 const imageUrl = extractImage(article);
