@@ -53,10 +53,7 @@ const Services = () => {
   const extractImage = (article) => {
     {articles.slice(0, 10).map((article, index) => {
       const imageUrl = extractImage(article);
-      const cleanDescription = sanitizeHtml(article.description, {
-        allowedTags: ["p", "b", "i", "em", "strong", "a"],
-      });
-    
+      
       return (
         <div key={index} className="px-4">
           <div className="border border-gray-300 p-4 rounded-lg shadow-md">
@@ -70,10 +67,6 @@ const Services = () => {
             <h4 className="text-lg font-semibold text-gray-800">
               {article.title}
             </h4>
-            <p
-              className="text-sm text-gray-600 mb-2"
-              dangerouslySetInnerHTML={{ __html: cleanDescription }}
-            ></p>
             <a
               href={article.link}
               target="_blank"
@@ -86,6 +79,7 @@ const Services = () => {
         </div>
       );
     })}
+    
     
   };
   
