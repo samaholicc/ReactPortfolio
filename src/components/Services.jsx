@@ -21,12 +21,14 @@ const Services = () => {
     const fetchRSS = async () => {
       try {
         const response = await fetch(
-          "https://venturebeat.com/category/ai/feed/"
+          "https://techcrunch.com/tag/artificial-intelligence/feed/"
         );
         const data = await response.json();
+        console.log(data); // Vérifie la réponse ici
         setArticles(data.items);
       } catch (error) {
         console.error("Erreur lors du chargement du flux RSS :", error);
+        setError("Impossible de charger les actualités.");
       }
     };
     fetchRSS();
