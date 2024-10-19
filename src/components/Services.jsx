@@ -22,7 +22,7 @@ const Services = () => {
     const fetchRSS = async () => {
       try {
         const response = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
+          "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.arstechnica.com/arstechnica/ai"
         );
         const data = await response.json();
         
