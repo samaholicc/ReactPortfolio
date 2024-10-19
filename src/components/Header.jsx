@@ -1,9 +1,9 @@
 import React from "react";
-import profile_img from "../assets/samia.jpg";
-import right_arrow_white from "../assets/right-arrow-white.png";
+import profile_img from "../assets/samia.jpg"; // Import profile image
+import right_arrow_white from "../assets/right-arrow-white.png"; // Import right arrow image
 import resume_pdf from "../assets/resume.pdf"; // Link to your resume PDF
-import these_pdf from "../assets/these.pdf"; // Assuming a different file for the thesis
-import right_arrows from "../assets/right_arrows.png"; // Correct the import name
+import these_pdf from "../assets/these.pdf"; // Ensure this file exists in assets
+import right_arrows from "../assets/right_arrows.png"; // Ensure import matches the filename
 
 const Header = () => {
   return (
@@ -30,7 +30,7 @@ const Header = () => {
           className="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"
         >
           Contactez-moi{" "}
-          <img src={right_arrow_white} alt="Flèche" className="w-4" />
+          <img src={right_arrow_white} alt="Arrow pointing right" className="w-4" />
         </a>
 
         <a
@@ -39,17 +39,18 @@ const Header = () => {
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           Mon CV{" "}
-          <img src={right_arrows} alt="Flèche" className="w-4" />
+          <img src={right_arrows} alt="CV download icon" className="w-4" />
         </a>
+
         <a
-          href={these_pdf} 
-          download="Samia_Boutezrout_These.pdf" 
+          href={these_pdf}
+          download="Samia_Boutezrout_These.pdf"
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           Tableau de Thèse{" "}
           <img
             src={right_arrow_white}
-            alt="Download icon"
+            alt="Download Thesis icon"
             className="w-4"
           />
         </a>
