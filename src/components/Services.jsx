@@ -24,8 +24,9 @@ const Services = () => {
   useEffect(() => {
     const fetchRSS = async () => {
       try {
+        // Remplacer l'URL actuelle par celle du flux RSS de Science Daily
         const response = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
+          "https://api.rss2json.com/v1/api.json?rss_url=https://www.sciencedaily.com/rss/all.xml"
         );
         const data = await response.json();
         
