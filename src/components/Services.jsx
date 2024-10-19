@@ -24,7 +24,7 @@ const Services = () => {
     const fetchRSS = async () => {
       const parser = new Parser();
       try {
-        const feed = await parser.parseURL("https://www.aitrends.com/feed/");
+        const feed = await parser.parseURL("https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/");
         if (isMounted) {
           setArticles(feed.items);
         }
