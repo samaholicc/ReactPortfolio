@@ -16,69 +16,32 @@ const Navbar = () => {
   const navRef = useRef();
   const navLinkRef = useRef();
 
+  // Function to open the side menu
   const openMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(-16rem)";
+    sideMenuRef.current.style.transform = "translateX(0)"; // Show menu
   };
+
+  // Function to close the side menu
   const closeMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(16rem)";
+    sideMenuRef.current.style.transform = "translateX(-16rem)"; // Hide menu
   };
+
+  // Function to toggle theme
   const toggleTheme = () => {
     document.documentElement.classList.toggle("dark");
 
     if (document.documentElement.classList.contains("dark")) {
-      localStorage.theme = "dark";
+      localStorage.setItem('theme', 'dark');
     } else {
-      localStorage.theme = "light";
+      localStorage.setItem('theme', 'light');
     }
   };
 
+  // Effect to set theme from local storage on component mount
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (scrollY > 50) {
-        navRef.current.classList.add(
-          "bg-white",
-          "bg-opacity-50",
-          "backdrop-blur-lg",
-          "shadow-sm",
-          "dark:bg-darkTheme",
-          "dark:shadow-white/20"
-        );
-        navLinkRef.current.classList.remove(
-          "bg-white",
-          "shadow-sm",
-          "bg-opacity-50",
-          "dark:border",
-          "dark:border-white/50",
-          "dark:bg-transparent"
-        );
-      } else {
-        navRef.current.classList.remove(
-          "bg-white",
-          "bg-opacity-50",
-          "backdrop-blur-lg",
-          "shadow-sm",
-          "dark:bg-darkTheme",
-          "dark:shadow-white/20"
-        );
-        navLinkRef.current.classList.add(
-          "bg-white",
-          "shadow-sm",
-          "bg-opacity-50",
-          "dark:border",
-          "dark:border-white/50",
-          "dark:bg-transparent"
-        );
-      }
-    });
-
-    // -------- light mode and dark mode -----------
-    if (
-      localStorage.theme === "dark" || 
-      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
@@ -97,66 +60,38 @@ const Navbar = () => {
           className="hidden md:flex items-center gap-12 lg:gap-16 rounded-full px-10 py-4 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent w-full justify-around"
         >
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#about"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              À propos
-            </a>
+            <a href="#about" className="no-underline hover:border-b-2 border-purple-500">À propos</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#EcoleEntreprise" className="no-underline">
-              Ecole et Entreprise
-            </a>
+            <a href="#EcoleEntreprise" className="no-underline">Ecole et Entreprise</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#educations"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              BTS SIO
-            </a>
+            <a href="#educations" className="no-underline hover:border-b-2 border-purple-500">BTS SIO</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#services"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Veille-technologique
-            </a>
+            <a href="#services" className="no-underline hover:border-b-2 border-purple-500">Veille-technologique</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#work"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Realisations
-            </a>
+            <a href="#work" className="no-underline hover:border-b-2 border-purple-500">Realisations</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#projects"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Projets
-            </a>
+            <a href="#projects" className="no-underline hover:border-b-2 border-purple-500">Projets</a>
           </li>
-
           <li className="hover:border-b-2 border-purple-500">
-            <a
-              href="#contact"
-              className="no-underline hover:border-b-2 border-purple-500"
-            >
-              Contact
-            </a>
+            <a href="#contact" className="no-underline hover:border-b-2 border-purple-500">Contact</a>
           </li>
-          
         </ul>
-        <div className="flex items-center gap-4">
-          <button onClick={toggleTheme}>
-            <img src={moon_icon} alt="" className="w-6 dark:hidden" />
-            <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
-          </button>
+
+        {/* Toggle Theme Button with margin */}
+        <button 
+          onClick={toggleTheme} 
+          className="ml-4 px-3 py-1 border rounded bg-purple-500 text-white hover:bg-purple-600 transition"
+        >
+          <img src={moon_icon} alt="" className="w-6 dark:hidden" />
+          <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
+        </button>
+
+
 
           
 
@@ -164,7 +99,7 @@ const Navbar = () => {
             <img src={menu_black} alt="" className="w-6 dark:hidden" />
             <img src={menu_white} alt="" className="w-6 hidden dark:block" />
           </button>
-        </div>
+        
 
         {/* -- ----- menu mobile ------  -- */}
         <ul
