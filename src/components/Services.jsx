@@ -22,7 +22,7 @@ const Services = () => {
     const fetchRSS = async () => {
       try {
         const response = await fetch(
-          "https://techcrunch.com/tag/artificial-intelligence/feed/"
+          "hhttps://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
         );
         const data = await response.json();
         console.log(data); // Vérifie la réponse ici
