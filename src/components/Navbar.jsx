@@ -59,7 +59,7 @@ const Navbar = () => {
             <a href="#about" className="no-underline hover:border-b-2 border-purple-500">À propos</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#EcoleEntreprise" className="no-underline">Ecole et Entreprise</a>
+            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">Ecole et Entreprise</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#educations" className="no-underline hover:border-b-2 border-purple-500">BTS SIO</a>
