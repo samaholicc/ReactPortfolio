@@ -3,7 +3,7 @@ import profile_img from "../assets/samia.jpg";
 import right_arrow_white from "../assets/right-arrow-white.png";
 import resume_pdf from "../assets/resume.pdf"; // Link to your resume PDF
 import these_pdf from "../assets/these.pdf"; // Assuming a different file for the thesis
-import right_arrows from "../assets/right-arrows.png"; // Correct the import name
+import right_arrows from "../assets/right_arrows.png"; // Correct the import name
 
 const Header = () => {
   return (
@@ -39,11 +39,7 @@ const Header = () => {
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           Mon CV{" "}
-          <img
-            src={right_arrows}
-            alt="Download icon"
-            className="w-4"
-          />
+          <img src={right_arrows} alt="Flèche" className="w-4" />
         </a>
         <a
           href={these_pdf} 
