@@ -16,17 +16,14 @@ const Navbar = () => {
   const navRef = useRef();
   const navLinkRef = useRef();
 
-  // Function to open the side menu
   const openMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(0)"; // Show menu
+    sideMenuRef.current.style.transform = "translateX(0)";
   };
 
-  // Function to close the side menu
   const closeMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(-16rem)"; // Hide menu
+    sideMenuRef.current.style.transform = "translateX(-16rem)";
   };
 
-  // Function to toggle theme
   const toggleTheme = () => {
     document.documentElement.classList.toggle("dark");
 
@@ -37,7 +34,6 @@ const Navbar = () => {
     }
   };
 
-  // Effect to set theme from local storage on component mount
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
