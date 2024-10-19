@@ -5,7 +5,7 @@ import { motion } from "framer-motion"; // Importation de framer-motion pour l'a
 import cloudImage from "../assets/pwa.png";
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
-import aiBook2 from "../assets/src/assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf";
+import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf"; // Corrected import path
 
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
@@ -15,11 +15,11 @@ const Services = () => {
   const pdfFiles = [
     {
       name: "AI for Absolute Beginners by Oliver Theobald",
-      url: aiBook1,
+      url: aiBook1, // Correct URL for the PDF
     },
     {
       name: "Artificial Intelligence: The Ultimate Guide to AI",
-      url: aiBook2,
+      url: aiBook2, // Correct URL for the PDF
     },
   ];
 
@@ -125,7 +125,7 @@ const Services = () => {
             >
               <h3 className="text-lg font-semibold mb-4">{pdf.name}</h3>
               <a
-                href={pdf.name}
+                href={pdf.url} // Corrected href to use the PDF URL
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
