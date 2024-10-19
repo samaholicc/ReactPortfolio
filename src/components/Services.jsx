@@ -49,24 +49,31 @@ const Services = () => {
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
     let imageUrl = article.enclosure?.link || article["media:content"]?.url || "";
-
+  
+    // Essayer d'obtenir une version plus grande à partir du srcset
     if (imageUrl.includes("100x70") && article.description) {
       const srcsetMatch = article.description.match(/srcset="([^"]+)"/);
       if (srcsetMatch) {
         const srcset = srcsetMatch[1].split(",");
-        const largerImage = srcset.find((src) => src.includes("218x150"));
+        const largerImage = srcset.find((src) => src.includes("300x200"));
         return largerImage ? largerImage.trim().split(" ")[0] : imageUrl;
       }
     }
-
-    if (!imageUrl && article.description) {
-      const match = article.description.match(/<img[^>]+src="([^">]+)"/);
-      return match ? match[1] : null;
+  
+    // Si une image est trouvée mais en basse résolution, remplacer par une meilleure résolution
+    if (imageUrl) {
+      return imageUrl.replace("100x70", "300x200");
     }
-
+  
+    // Si aucune meilleure image trouvée, extraire l'image de la description
+    if (article.description) {
+      const match = article.description.match(/<img[^>]+src="([^">]+)"/);
+      return match ? match[1].replace("100x70", "300x200") : null;
+    }
+  
     return imageUrl;
   };
-
+  
   // Liste des PDF sur l'IA
   const pdfFiles = [
     { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
