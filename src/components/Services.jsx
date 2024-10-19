@@ -21,16 +21,12 @@ const Services = () => {
     const fetchRSS = async () => {
       try {
         const response = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
+          "https://techcrunch.com/tag/artificial-intelligence/feed/"
         );
-        if (!response.ok) {
-          throw new Error('Failed to fetch RSS feed');
-        }
         const data = await response.json();
         setArticles(data.items);
-      } catch (err) {
-        console.error("Erreur lors du chargement du flux RSS :", err);
-        setError("Unable to load articles. Please try again later.");
+      } catch (error) {
+        console.error("Erreur lors du chargement du flux RSS :", error);
       }
     };
     fetchRSS();
