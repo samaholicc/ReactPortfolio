@@ -22,7 +22,7 @@ const Services = () => {
     const fetchRSS = async () => {
       try {
         const response = await fetch(
-          "https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml"
+          "https://api.rss2json.com/v1/api.json?rss_url=https://aiweekly.co/rss/"
         );
         const data = await response.json();
         console.log(data); // Vérifie la réponse ici
