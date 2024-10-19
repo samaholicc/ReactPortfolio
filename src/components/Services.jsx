@@ -20,19 +20,20 @@ const Services = () => {
   // Fetch RSS feed
   useEffect(() => {
     const fetchRSS = async () => {
+      const parser = new Parser();
       try {
-        const response = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://aiweekly.co/rss/"
-        );
-        const data = await response.json();
-        console.log(data); // Vérifie la réponse ici
-        setArticles(data.items);
+        const feed = await parser.parseURL("https://www.aitrends.com/feed/");
+        console.log(feed);  // Verifies the feed data
+        setArticles(feed.items);
       } catch (error) {
         console.error("Erreur lors du chargement du flux RSS :", error);
         setError("Impossible de charger les actualités.");
       }
     };
-    fetchRSS();
+    
+    useEffect(() => {
+      fetchRSS();
+    }, []);
   }, []);
 
   // Fonction pour extraire l'image de l'article
