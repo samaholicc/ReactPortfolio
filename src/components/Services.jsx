@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; // Importation de framer-motion pour l'animation
+import Parser from "rss-parser";
 
 // Importation des images et des PDF depuis le dossier assets
 import cloudImage from "../assets/pwa.png";
@@ -30,6 +31,21 @@ const Services = () => {
     };
     fetchRSS();
   }, []);
+
+  // Fonction pour extraire l'image de l'article
+  const extractImage = (article) => {
+    const imageUrl =
+      article.enclosure?.link || // Si l'image est dans 'enclosure'
+      article["media:content"]?.url || // Si l'image est dans 'media:content'
+      "";
+
+    if (!imageUrl && article.description) {
+      const match = article.description.match(/<img[^>]+src="([^">]+)"/);
+      return match ? match[1] : null;
+    }
+
+    return imageUrl;
+  };
 
   // Liste des PDF sur l'IA
   const pdfFiles = [
@@ -100,7 +116,13 @@ const Services = () => {
             </div>
             <button
               className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
-              onClick={() => handleShowDetails({ title: "IA", details: "Détails sur l'IA", advantages: ["Automatisation", "Personnalisation"] })}
+              onClick={() =>
+                handleShowDetails({
+                  title: "IA",
+                  details: "Détails sur l'IA",
+                  advantages: ["Automatisation", "Personnalisation"],
+                })
+              }
             >
               Voir les détails
             </button>
@@ -109,25 +131,45 @@ const Services = () => {
 
         {/* Section des actualités */}
         <div className="lg:pl-8">
-          <h3 className="text-3xl font-semibold text-gray-700 mb-6">Actualités sur l'IA</h3>
+          <h3 className="text-3xl font-semibold text-gray-700 mb-6">
+            Actualités sur l'IA
+          </h3>
           <div className="space-y-4">
             {articles.length === 0 ? (
               <p>Chargement des actualités...</p>
             ) : (
-              articles.slice(0, 5).map((article, index) => (
-                <div key={index} className="border border-gray-300 p-4 rounded-lg shadow-md">
-                  <h4 className="text-lg font-semibold text-gray-800">{article.title}</h4>
-                  <p className="text-sm text-gray-600 mb-2">{article.description}</p>
-                  <a
-                    href={article.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 hover:underline"
+              articles.slice(0, 5).map((article, index) => {
+                const imageUrl = extractImage(article); // Récupérer l'image
+
+                return (
+                  <div
+                    key={index}
+                    className="border border-gray-300 p-4 rounded-lg shadow-md"
                   >
-                    Lire plus
-                  </a>
-                </div>
-              ))
+                    {imageUrl && (
+                      <img
+                        src={imageUrl}
+                        alt={article.title}
+                        className="w-full h-auto mb-4 rounded"
+                      />
+                    )}
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      {article.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 mb-2">
+                      {article.description}
+                    </p>
+                    <a
+                      href={article.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      Lire plus
+                    </a>
+                  </div>
+                );
+              })
             )}
           </div>
         </div>
@@ -171,8 +213,12 @@ const Services = () => {
             <h3 className="text-2xl font-semibold text-gray-700 mb-4">
               Détails sur {selectedService.title}
             </h3>
-            <p className="text-gray-600 text-sm mb-4">{selectedService.details}</p>
-            <h4 className="text-xl font-semibold text-gray-700 mb-2">Avantages</h4>
+            <p className="text-gray-600 text-sm mb-4">
+              {selectedService.details}
+            </p>
+            <h4 className="text-xl font-semibold text-gray-700 mb-2">
+              Avantages
+            </h4>
             <ul className="space-y-2 text-gray-600 text-sm">
               {selectedService.advantages.map((advantage, idx) => (
                 <li key={idx}>• {advantage}</li>
