@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "../assets/logo.png";
 import logo_dark from "../assets/logo_dark.png";
 import header_bg_color from "../assets/header-bg-color.png";
@@ -15,6 +15,8 @@ const Navbar = () => {
   const sideMenuRef = useRef();
   const navRef = useRef();
   const navLinkRef = useRef();
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
   const openMenu = () => {
     sideMenuRef.current.style.transform = "translateX(0)";
@@ -28,18 +30,38 @@ const Navbar = () => {
     document.documentElement.classList.toggle("dark");
 
     if (document.documentElement.classList.contains("dark")) {
-      localStorage.setItem('theme', 'dark');
+      localStorage.setItem("theme", "dark");
     } else {
-      localStorage.setItem('theme', 'light');
+      localStorage.setItem("theme", "light");
     }
   };
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
     }
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        // If the user scrolls down, hide the navbar
+        setIsNavbarVisible(false);
+      } else {
+        // If the user scrolls up, show the navbar
+        setIsNavbarVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
   return (
     <>
@@ -49,7 +71,9 @@ const Navbar = () => {
 
       <nav
         ref={navRef}
-        className="w-full fixed px-5 lg:px-8 xl:px-[6%] py-4 flex items-center justify-between z-50"
+        className={`w-full fixed px-5 lg:px-8 xl:px-[6%] py-4 flex items-center justify-between z-50 transition-transform duration-300 ${
+          isNavbarVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
         <ul
           ref={navLinkRef}
@@ -79,20 +103,18 @@ const Navbar = () => {
         </ul>
 
         {/* Toggle Theme Button with margin */}
-        <button 
-          onClick={toggleTheme} 
+        <button
+          onClick={toggleTheme}
           className="ml-4 px-3 py-1 border rounded text-white  transition"
         >
           <img src={moon_icon} alt="" className="w-6 dark:hidden" />
           <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
         </button>
-          
 
-          <button className="block md:hidden ml-3" onClick={openMenu}>
-            <img src={menu_black} alt="" className="w-6 dark:hidden" />
-            <img src={menu_white} alt="" className="w-6 hidden dark:block" />
-          </button>
-        
+        <button className="block md:hidden ml-3" onClick={openMenu}>
+          <img src={menu_black} alt="" className="w-6 dark:hidden" />
+          <img src={menu_white} alt="" className="w-6 hidden dark:block" />
+        </button>
 
         {/* -- ----- menu mobile ------  -- */}
         <ul
