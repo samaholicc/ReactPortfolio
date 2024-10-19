@@ -17,9 +17,9 @@ const EcoleEntreprise = () => {
 const Card = ({ title, image, description }) => {
   return (
     <div id="EcoleEntreprise" style={styles.card}>
-      <h2>{title}</h2>
+      <h2 style={styles.cardTitle}>{title}</h2>
       <img src={image} alt={title} style={styles.image} />
-      <p>{description} style={styles.description}</p>
+      <p style={styles.description}>{description}</p>
     </div>
   );
 };
@@ -47,14 +47,26 @@ const styles = {
     padding: '16px',
     boxShadow: '2px 2px 12px #aaa',
     width: '300px',
-    textAlign: 'left', // Align text inside the card for better readability
+    textAlign: 'center', // Center text inside the card
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center', // Center content horizontally
+    justifyContent: 'center', // Center content vertically
+  },
+  cardTitle: {
+    fontSize: '1.5rem',
+    marginBottom: '10px',
   },
   image: {
     width: '100%',
     height: 'auto',
     borderRadius: '5px',
+    marginBottom: '10px',
   },
-  
+  description: {
+    fontSize: '1rem',
+    color: '#333',
+  },
 };
 
 export default EcoleEntreprise;
