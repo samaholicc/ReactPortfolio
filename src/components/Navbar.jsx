@@ -150,7 +150,15 @@ const Navbar = () => {
               Contact
             </a>
           </li>
+           {/* Toggle Theme Button */}
+           <button 
+            onClick={toggleTheme} 
+            className="ml-4 px-3 py-1 border rounded bg-purple-500 text-white hover:bg-purple-600 transition"
+          >
+            Toggle Theme
+          </button>
         </ul>
+        
 
         {/* -- ----- menu mobile ------  -- */}
         <ul
