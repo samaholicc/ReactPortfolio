@@ -44,41 +44,20 @@ const Services = () => {
     fetchRSS(); // Appel de la fonction une seule fois
   
   }, []); // Ne doit s'exécuter qu'une seule fois, avec [] comme dépendance.
-   // Ne pas oublier les crochets vides pour exécuter une seule fois
-  
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
-    {articles.slice(0, 10).map((article, index) => {
-      const imageUrl = extractImage(article);
-      
-      return (
-        <div key={index} className="px-4">
-          <div className="border border-gray-300 p-4 rounded-lg shadow-md">
-            {imageUrl && (
-              <img
-                src={imageUrl}
-                alt={article.title}
-                className="w-full h-auto mb-4 rounded"
-              />
-            )}
-            <h4 className="text-lg font-semibold text-gray-800">
-              {article.title}
-            </h4>
-            <a
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              Lire plus
-            </a>
-          </div>
-        </div>
-      );
-    })}
-    
-    
+    let imageUrl = article.enclosure?.link || article["media:content"]?.url || "";
+
+    // Si aucune image directe n'est trouvée, essayer d'extraire depuis la description
+    if (!imageUrl && article.description) {
+      const match = article.description.match(/<img[^>]+src="([^">]+)"/);
+      if (match) {
+        imageUrl = match[1];
+      }
+    }
+
+    return imageUrl || "URL_DE_TON_IMAGE_PAR_DEFAUT"; // Utilise une image par défaut si aucune image n'est trouvée
   };
   
   // Configuration du carousel
