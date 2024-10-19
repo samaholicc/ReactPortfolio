@@ -3,6 +3,7 @@ import profile_img from "../assets/samia.jpg";
 import right_arrow_white from "../assets/right-arrow-white.png";
 import resume_pdf from "../assets/resume.pdf"; // Chemin correct vers votre CV
 import these_pdf from "../assets/resume.pdf";
+import resume from "../assets/resume.png";
 
 const Header = () => {
   return (
@@ -40,7 +41,7 @@ const Header = () => {
         >
           Mon CV{" "}
           <img
-            src={right_arrow_white}
+            src={resume}
             alt="Icône de téléchargement"
             className="w-4"
           />
