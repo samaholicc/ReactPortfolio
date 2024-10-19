@@ -46,7 +46,7 @@ const About = () => {
         </div>
         <div className="flex-1">
           <p className="mb-10 max-w-2xl font-Ovo">
-            Je me
+            Je m'appelle BOUTEZROUT Samia, je suis étudiante en BTS SIO. Je me
             spécialise dans la conception de Solutions Logicielles et
             d'Applications Métiers.
           </p>
@@ -70,7 +70,7 @@ const About = () => {
                 Développement Web
               </h3>
               <p className="text-gray-600 text-sm dark:text-white/80">
-                HTML, CSS, JavaScript, Python, PHP, Laravel, Symfony, Java
+                HTML, CSS, JavaScript, Python, PHP, Java
               </p>
             </li>
 
@@ -98,7 +98,7 @@ const About = () => {
           </ul>
 
           <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">
-            Outils et langages que j'utilise
+            Outils que j'utilise
           </h4>
 
           <ul className="flex items-center gap-3 sm:gap-5">

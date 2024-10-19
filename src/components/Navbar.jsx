@@ -86,9 +86,6 @@ const Navbar = () => {
           <img src={moon_icon} alt="" className="w-6 dark:hidden" />
           <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
         </button>
-
-
-
           
 
           <button className="block md:hidden ml-3" onClick={openMenu}>
