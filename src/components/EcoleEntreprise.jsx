@@ -65,7 +65,7 @@ const styles = {
   },
   description: {
     fontSize: '1rem',
-    color: '#333',
+   
   },
 };
 

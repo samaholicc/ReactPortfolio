@@ -10,23 +10,7 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
 
   const services = [
-    {
-      title: "Applications Web Progressives (PWA)",
-      desc: "Les PWA offrent une expérience utilisateur similaire aux applications natives en utilisant des technologies web modernes.",
-      image: cloudImage, // Utilisation de l'image importée
-      details:
-        "Les PWA combinent les meilleures fonctionnalités des applications web et mobiles pour créer une expérience utilisateur unique et engageante. Elles peuvent être installées sur n’importe quel appareil, fonctionner hors ligne, envoyer des notifications push, et s’adapter aux différentes tailles d’écran.",
-      advantages: [
-        "🚀 Installation facile et rapide",
-        "📶 Fonctionnement hors ligne grâce aux service workers",
-        "🔔 Notifications push pour maintenir l’engagement",
-        "💻 Compatibilité multiplateforme",
-        "💰 Réduction des coûts de développement",
-      ],
-      moreInfoLink1:
-        "https://developer.mozilla.org/fr/docs/Web/Progressive_web_apps",
-      moreInfoLink2: "https://web.dev/progressive-web-apps/",
-    },
+   
     {
       title: "Intelligence Artificielle (IA)",
       desc: "L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.",
