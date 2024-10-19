@@ -6,7 +6,8 @@ import cloudImage from "../assets/pwa.png";
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
 import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf"; // Corrected import path
-
+import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
+import aiBook4 from "../assets/Coding_with AI_For_Dummies_by_Chris_Minnick.pdf.pdf";
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
@@ -20,6 +21,15 @@ const Services = () => {
     {
       name: "Artificial Intelligence: The Ultimate Guide to AI",
       url: aiBook2, // Correct URL for the PDF
+    },
+
+    {
+      name: "ChatGPT Decoded: A Beginner's Guide to AI-Enhanced Living by David Wiens",
+      url: aiBook3, // Correct URL for the PDF
+    },
+    {
+      name: "Coding with AI For Dummies by Chris Minnick",
+      url: aiBook4, // Correct URL for the PDF
     },
   ];
 
