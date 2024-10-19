@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import logo from "../assets/logo.png";
 import logo_dark from "../assets/logo_dark.png";
 import header_bg_color from "../assets/header-bg-color.png";
@@ -15,106 +15,148 @@ const Navbar = () => {
   const sideMenuRef = useRef();
   const navRef = useRef();
   const navLinkRef = useRef();
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
   const openMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(0)";
-  };
-
-  const closeMenu = () => {
     sideMenuRef.current.style.transform = "translateX(-16rem)";
   };
-
+  const closeMenu = () => {
+    sideMenuRef.current.style.transform = "translateX(16rem)";
+  };
   const toggleTheme = () => {
     document.documentElement.classList.toggle("dark");
 
     if (document.documentElement.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
+      localStorage.theme = "dark";
     } else {
-      localStorage.setItem("theme", "light");
+      localStorage.theme = "light";
     }
   };
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
+    window.addEventListener("scroll", () => {
+      if (scrollY > 50) {
+        navRef.current.classList.add(
+          "bg-white",
+          "bg-opacity-50",
+          "backdrop-blur-lg",
+          "shadow-sm",
+          "dark:bg-darkTheme",
+          "dark:shadow-white/20"
+        );
+        navLinkRef.current.classList.remove(
+          "bg-white",
+          "shadow-sm",
+          "bg-opacity-50",
+          "dark:border",
+          "dark:border-white/50",
+          "dark:bg-transparent"
+        );
+      } else {
+        navRef.current.classList.remove(
+          "bg-white",
+          "bg-opacity-50",
+          "backdrop-blur-lg",
+          "shadow-sm",
+          "dark:bg-darkTheme",
+          "dark:shadow-white/20"
+        );
+        navLinkRef.current.classList.add(
+          "bg-white",
+          "shadow-sm",
+          "bg-opacity-50",
+          "dark:border",
+          "dark:border-white/50",
+          "dark:bg-transparent"
+        );
+      }
+    });
+
+    // -------- light mode and dark mode -----------
+
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // If the user scrolls down, hide the navbar
-        setIsNavbarVisible(false);
-      } else {
-        // If the user scrolls up, show the navbar
-        setIsNavbarVisible(true);
-      }
-      setLastScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
-
   return (
     <>
-      <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
+      <div
+        className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]
+    dark:hidden"
+      >
         <img src={header_bg_color} alt="" className="w-full" />
       </div>
 
       <nav
         ref={navRef}
-        className={`w-full fixed px-5 lg:px-8 xl:px-[6%] py-4 flex items-center justify-between z-50 transition-transform duration-300 ${
-          isNavbarVisible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className="w-full fixed px-5 lg:px-8 xl:px-[6%] py-4 flex items-center justify-between z-50"
       >
         <ul
           ref={navLinkRef}
-          className="hidden md:flex items-center gap-12 lg:gap-16 rounded-full px-10 py-4 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent w-full justify-around"
+          className="hidden md:flex items-center gap-12 lg:gap-16 rounded-full px-10 py-4 bg-white shadow-sm bg-opacity-50 font-Ovo
+    dark:border dark:border-white/50 dark:bg-transparent w-full justify-around"
         >
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#about" className="no-underline hover:border-b-2 border-purple-500">À propos</a>
+            <a
+              href="#about"
+              className="no-underline hover:border-b-2 border-purple-500"
+            >
+              À propos
+            </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">Ecole et Entreprise</a>
+            <a
+              href="#educations"
+              className="no-underline hover:border-b-2 border-purple-500"
+            >
+              BTS SIO
+            </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#educations" className="no-underline hover:border-b-2 border-purple-500">BTS SIO</a>
+            <a href="#contact" onClick={closeMenu} className="no-underline">
+              Ecole et Entreprise
+            </a>
+          </li>
+
+          <li className="hover:border-b-2 border-purple-500">
+            <a
+              href="#work"
+              className="no-underline hover:border-b-2 border-purple-500"
+            >
+              Realisations
+            </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#services" className="no-underline hover:border-b-2 border-purple-500">Veille-technologique</a>
+            <a
+              href="#projects"
+              className="no-underline hover:border-b-2 border-purple-500"
+            >
+              Projets
+            </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#work" className="no-underline hover:border-b-2 border-purple-500">Realisations</a>
+            <a
+              href="#services"
+              className="no-underline hover:border-b-2 border-purple-500"
+            >
+              Veille-technologique
+            </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#projects" className="no-underline hover:border-b-2 border-purple-500">Projets</a>
-          </li>
-          <li className="hover:border-b-2 border-purple-500">
-            <a href="#contact" className="no-underline hover:border-b-2 border-purple-500">Contact</a>
+            <a
+              href="#contact"
+              className="no-underline hover:border-b-2 border-purple-500"
+            >
+              Contact
+            </a>
           </li>
         </ul>
-
-        {/* Toggle Theme Button with margin */}
-        <button
-          onClick={toggleTheme}
-          className="ml-4 px-3 py-1 border rounded text-white  transition"
-        >
-          <img src={moon_icon} alt="" className="w-6 dark:hidden" />
-          <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
-        </button>
-
-        <button className="block md:hidden ml-3" onClick={openMenu}>
-          <img src={menu_black} alt="" className="w-6 dark:hidden" />
-          <img src={menu_white} alt="" className="w-6 hidden dark:block" />
-        </button>
 
         {/* -- ----- menu mobile ------  -- */}
         <ul
