@@ -182,7 +182,9 @@ const Navbar = () => {
               À propos
             </a>
           </li>
-
+          <li className="hover:border-b-2 border-purple-500">
+            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">Ecole et Entreprise</a>
+          </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#educations" onClick={closeMenu} className="no-underline">
               BTS SIO
@@ -214,6 +216,21 @@ const Navbar = () => {
               Contact
             </a>
           </li>
+                  {/* Toggle Theme Button with margin */}
+        <button 
+          onClick={toggleTheme} 
+          className="ml-4 px-3 py-1 border rounded text-white  transition"
+        >
+          <img src={moon_icon} alt="" className="w-6 dark:hidden" />
+          <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
+        </button>
+          
+
+          <button className="block md:hidden ml-3" onClick={openMenu}>
+            <img src={menu_black} alt="" className="w-6 dark:hidden" />
+            <img src={menu_white} alt="" className="w-6 hidden dark:block" />
+          </button>
+
         </ul>
       </nav>
     </>
