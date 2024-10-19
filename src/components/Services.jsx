@@ -19,18 +19,27 @@ const Services = () => {
 
   // Fetch RSS feed
   useEffect(() => {
+    let isMounted = true;
+    
     const fetchRSS = async () => {
       const parser = new Parser();
       try {
         const feed = await parser.parseURL("https://www.aitrends.com/feed/");
-        console.log(feed);  // Verifies the feed data
-        setArticles(feed.items);
+        if (isMounted) {
+          setArticles(feed.items);
+        }
       } catch (error) {
-        console.error("Erreur lors du chargement du flux RSS :", error);
-        setError("Impossible de charger les actualités.");
+        if (isMounted) {
+          setError("Impossible de charger les actualités.");
+        }
       }
     };
-    fetchRSS();  // Call fetchRSS inside useEffect
+  
+    fetchRSS();
+  
+    return () => {
+      isMounted = false;  // Cleanup to prevent updates on unmounted component
+    };
   }, []);
 
   // Fonction pour extraire l'image de l'article
