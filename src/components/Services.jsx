@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; 
 import sanitizeHtml from "sanitize-html"; 
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
-import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf"; 
+import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf";
 import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
 import aiBook4 from "../assets/Coding_with AI_For_Dummies_by_Chris_Minnick.pdf";
 import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
@@ -26,11 +30,10 @@ const Services = () => {
         );
         const data = await response.json();
         console.log(data); // Voir la réponse ici
-  
+
         if (data.status === 'ok') {
           setArticles(data.items); // Set articles from the API response
         } else {
-          console.error("Erreur lors du chargement : ", data.message); // Voir le message d'erreur
           setError("Erreur lors du chargement des articles.");
         }
       } catch (error) {
@@ -40,142 +43,80 @@ const Services = () => {
         setLoading(false); // Arrêter l'état de chargement
       }
     };
-  
-    fetchRSS(); // Appel de la fonction
-  
-  }, []); // Ne pas oublier les crochets vides pour exécuter une seule fois
-  
+
+    fetchRSS();
+  }, []);
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
     let imageUrl = article.enclosure?.link || article["media:content"]?.url || "";
-  
-    // Essayer d'obtenir une version plus grande à partir du srcset
-    if (imageUrl.includes("100x70") && article.description) {
-      const srcsetMatch = article.description.match(/srcset="([^"]+)"/);
-      if (srcsetMatch) {
-        const srcset = srcsetMatch[1].split(",");
-        const largerImage = srcset.find((src) => src.includes("300x200"));
-        return largerImage ? largerImage.trim().split(" ")[0] : imageUrl;
-      }
-    }
-  
+
     // Si une image est trouvée mais en basse résolution, remplacer par une meilleure résolution
     if (imageUrl) {
       return imageUrl.replace("100x70", "300x200");
     }
-  
-    // Si aucune meilleure image trouvée, extraire l'image de la description
+
+    // Si aucune image n'est trouvée, extraire l'image de la description
     if (article.description) {
       const match = article.description.match(/<img[^>]+src="([^">]+)"/);
       return match ? match[1].replace("100x70", "300x200") : null;
     }
-  
-    return imageUrl;
-  };
-  
-  // Liste des PDF sur l'IA
-  const pdfFiles = [
-    { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
-    { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2 },
-    { name: "ChatGPT Decoded by David Wiens", url: aiBook3 },
-    { name: "Coding with AI For Dummies by Chris Minnick", url: aiBook4 },
-    { name: "Introduction to ChatGPT by Imre Barta", url: aiBook5 },
-    { name: "The AI Classroom by Brad Weinstein", url: aiBook6 },
-  ];
 
-  // Fonction pour afficher la modale avec les détails du service sélectionné
-  const handleShowDetails = (service) => {
-    setSelectedService(service);
-    setShowModal(true);
+    return imageUrl || "URL_DE_TA_IMAGE_PAR_DEFAUT";
   };
 
-  // Fonction pour fermer la modale
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setSelectedService(null);
+  // Configuration du carousel (react-slick)
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Veille Technologique</h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-xl cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
-          >
-            <img
-              src={interestImage}
-              alt="Intelligence Artificielle"
-              className="w-22 h-22 mx-auto mb-4 rounded-full"
-            />
-            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
-              Intelligence Artificielle (IA)
-            </h3>
-            <p className="text-center text-gray-600 dark:text-white/80 mb-4">
-              L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.
-            </p>
-            <div className="text-center">
-              <a
-                href="https://fr.wikipedia.org/wiki/Intelligence_artificielle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                Plus d'informations 1
-              </a>
-              <br />
-              <a
-                href="https://www.ibm.com/fr-fr/cloud/learn/what-is-artificial-intelligence"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                Plus d'informations 2
-              </a>
-            </div>
-            <button
-              className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
-              onClick={() =>
-                handleShowDetails({
-                  title: "IA",
-                  details: "Détails sur l'IA",
-                  advantages: ["Automatisation", "Personnalisation"],
-                })
-              }
-            >
-              Voir les détails
-            </button>
-          </motion.div>
-        </div>
+      {/* Carousel des articles */}
+      <div className="lg:pl-8 my-10">
+        <h3 className="text-3xl font-semibold text-gray-700 mb-6">
+          Actualités sur l'IA
+        </h3>
 
-        {/* Section des actualités */}
-        <div className="lg:pl-8">
-          <h3 className="text-3xl font-semibold text-gray-700 mb-6">
-            Actualités sur l'IA
-          </h3>
-          <div className="space-y-4">
-            {loading ? (
-              <p>Chargement des actualités...</p>
-            ) : error ? (
-              <p className="text-red-500">{error}</p>
-            ) : (
-              articles.slice(0, 5).map((article, index) => {
-                const imageUrl = extractImage(article);
-                const cleanDescription = sanitizeHtml(article.description, {
-                  allowedTags: ["p", "b", "i", "em", "strong", "a"],
-                });
+        {loading ? (
+          <p>Chargement des actualités...</p>
+        ) : error ? (
+          <p className="text-red-500">{error}</p>
+        ) : (
+          <Slider {...settings}>
+            {articles.slice(0, 10).map((article, index) => {
+              const imageUrl = extractImage(article);
+              const cleanDescription = sanitizeHtml(article.description, {
+                allowedTags: ["p", "b", "i", "em", "strong", "a"],
+              });
 
-                return (
-                  <div
-                    key={index}
-                    className="border border-gray-300 p-4 rounded-lg shadow-md"
-                  >
+              return (
+                <div key={index} className="px-4">
+                  <div className="border border-gray-300 p-4 rounded-lg shadow-md">
                     {imageUrl && (
                       <img
                         src={imageUrl}
@@ -199,11 +140,11 @@ const Services = () => {
                       Lire plus
                     </a>
                   </div>
-                );
-              })
-            )}
-          </div>
-        </div>
+                </div>
+              );
+            })}
+          </Slider>
+        )}
       </div>
 
       {/* Section des livres PDF */}
@@ -257,7 +198,7 @@ const Services = () => {
             </ul>
             <button
               className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-              onClick={handleCloseModal}
+              onClick={() => setShowModal(false)}
             >
               Fermer
             </button>
