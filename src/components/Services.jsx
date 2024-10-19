@@ -30,10 +30,8 @@ const Services = () => {
         setError("Impossible de charger les actualités.");
       }
     };
-    
-
-    }, []);
-  };
+    fetchRSS();  // Call fetchRSS inside useEffect
+  }, []);
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
@@ -251,6 +249,6 @@ const Services = () => {
       )}
     </div>
   );
-;
+};
 
 export default Services;
