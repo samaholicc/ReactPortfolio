@@ -55,7 +55,7 @@ const styles = {
     borderRadius: '5px',
   },
   description: {
-    justifyContent: center,
+    justifyContent: 'center',
   }
 };
 
