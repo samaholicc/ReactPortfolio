@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // Importation de framer-motion pour l'animation
-import Parser from "rss-parser";
-import sanitizeHtml from "sanitize-html"; // Importation pour nettoyer le HTML
+import { motion } from "framer-motion"; 
+import sanitizeHtml from "sanitize-html"; 
 
-// Importation des images et des PDF depuis le dossier assets
-import cloudImage from "../assets/pwa.png";
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
 import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf"; 
@@ -17,17 +14,23 @@ const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [articles, setArticles] = useState([]);
+  const [error, setError] = useState(null);
 
+  // Fetch RSS feed
   useEffect(() => {
     const fetchRSS = async () => {
       try {
         const response = await fetch(
           "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
         );
+        if (!response.ok) {
+          throw new Error('Failed to fetch RSS feed');
+        }
         const data = await response.json();
         setArticles(data.items);
-      } catch (error) {
-        console.error("Erreur lors du chargement du flux RSS :", error);
+      } catch (err) {
+        console.error("Erreur lors du chargement du flux RSS :", err);
+        setError("Unable to load articles. Please try again later.");
       }
     };
     fetchRSS();
@@ -36,11 +39,10 @@ const Services = () => {
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
     let imageUrl =
-      article.enclosure?.link || // Si l'image est dans 'enclosure'
-      article["media:content"]?.url || // Si l'image est dans 'media:content'
+      article.enclosure?.link || 
+      article["media:content"]?.url || 
       "";
 
-    // Si l'image est de mauvaise qualité (ex. 100x70), on utilise l'image de plus grande qualité (218x150)
     if (imageUrl.includes("100x70") && article.description) {
       const srcsetMatch = article.description.match(/srcset="([^"]+)"/);
       if (srcsetMatch) {
@@ -84,9 +86,7 @@ const Services = () => {
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Veille Technologique</h2>
 
-      {/* Grille avec la carte IA à gauche et les actualités à droite */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
-        {/* Services Section */}
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -146,13 +146,15 @@ const Services = () => {
             Actualités sur l'IA
           </h3>
           <div className="space-y-4">
-            {articles.length === 0 ? (
+            {error ? (
+              <p className="text-red-500">{error}</p>
+            ) : articles.length === 0 ? (
               <p>Chargement des actualités...</p>
             ) : (
               articles.slice(0, 5).map((article, index) => {
-                const imageUrl = extractImage(article); // Récupérer l'image
+                const imageUrl = extractImage(article);
                 const cleanDescription = sanitizeHtml(article.description, {
-                  allowedTags: ["p", "b", "i", "em", "strong", "a"], // Autorise uniquement certaines balises
+                  allowedTags: ["p", "b", "i", "em", "strong", "a"],
                 });
 
                 return (
@@ -170,7 +172,10 @@ const Services = () => {
                     <h4 className="text-lg font-semibold text-gray-800">
                       {article.title}
                     </h4>
-                    <p className="text-sm text-gray-600 mb-2" dangerouslySetInnerHTML={{ __html: cleanDescription }}></p>
+                    <p
+                      className="text-sm text-gray-600 mb-2"
+                      dangerouslySetInnerHTML={{ __html: cleanDescription }}
+                    ></p>
                     <a
                       href={article.link}
                       target="_blank"
