@@ -81,7 +81,7 @@ const Navbar = () => {
         {/* Toggle Theme Button with margin */}
         <button 
           onClick={toggleTheme} 
-          className="ml-4 px-3 py-1 border rounded bg-purple-500 text-white hover:bg-purple-600 transition"
+          className="ml-4 px-3 py-1 border rounded text-white  transition"
         >
           <img src={moon_icon} alt="" className="w-6 dark:hidden" />
           <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
