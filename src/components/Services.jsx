@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; // Importation de framer-motion pour l'animation
 import Parser from "rss-parser";
+import sanitizeHtml from "sanitize-html"; // Importation pour nettoyer le HTML
 
 // Importation des images et des PDF depuis le dossier assets
 import cloudImage from "../assets/pwa.png";
@@ -34,10 +35,20 @@ const Services = () => {
 
   // Fonction pour extraire l'image de l'article
   const extractImage = (article) => {
-    const imageUrl =
+    let imageUrl =
       article.enclosure?.link || // Si l'image est dans 'enclosure'
       article["media:content"]?.url || // Si l'image est dans 'media:content'
       "";
+
+    // Si l'image est de mauvaise qualité (ex. 100x70), on utilise l'image de plus grande qualité (218x150)
+    if (imageUrl.includes("100x70") && article.description) {
+      const srcsetMatch = article.description.match(/srcset="([^"]+)"/);
+      if (srcsetMatch) {
+        const srcset = srcsetMatch[1].split(",");
+        const largerImage = srcset.find((src) => src.includes("218x150"));
+        return largerImage ? largerImage.trim().split(" ")[0] : imageUrl;
+      }
+    }
 
     if (!imageUrl && article.description) {
       const match = article.description.match(/<img[^>]+src="([^">]+)"/);
@@ -140,6 +151,9 @@ const Services = () => {
             ) : (
               articles.slice(0, 5).map((article, index) => {
                 const imageUrl = extractImage(article); // Récupérer l'image
+                const cleanDescription = sanitizeHtml(article.description, {
+                  allowedTags: ["p", "b", "i", "em", "strong", "a"], // Autorise uniquement certaines balises
+                });
 
                 return (
                   <div
@@ -156,9 +170,7 @@ const Services = () => {
                     <h4 className="text-lg font-semibold text-gray-800">
                       {article.title}
                     </h4>
-                    <p className="text-sm text-gray-600 mb-2">
-                      {article.description}
-                    </p>
+                    <p className="text-sm text-gray-600 mb-2" dangerouslySetInnerHTML={{ __html: cleanDescription }}></p>
                     <a
                       href={article.link}
                       target="_blank"
