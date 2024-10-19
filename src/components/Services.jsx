@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; // Importation de framer-motion pour l'animation
+import Parser from "rss-parser"; // Importation de rss-parser pour les flux RSS
 
 // Importation des images et des PDF depuis le dossier assets
 import cloudImage from "../assets/pwa.png";
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
-import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf"; // Corrected import path
+import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf"; 
 import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
 import aiBook4 from "../assets/Coding_with AI_For_Dummies_by_Chris_Minnick.pdf";
 import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
@@ -14,54 +15,25 @@ import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide to_Artificial
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
+  const [articles, setArticles] = useState([]);
 
-  // List of predefined PDF files about AI
+  useEffect(() => {
+    const parser = new Parser();
+    const fetchRSS = async () => {
+      const feed = await parser.parseURL("https://www.aitrends.com/feed/");
+      setArticles(feed.items);
+    };
+    fetchRSS();
+  }, []);
+
+  // Liste des PDF sur l'IA
   const pdfFiles = [
-    {
-      name: "AI for Absolute Beginners by Oliver Theobald",
-      url: aiBook1, // Correct URL for the PDF
-    },
-    {
-      name: "Artificial Intelligence: The Ultimate Guide to AI",
-      url: aiBook2, // Correct URL for the PDF
-    },
-
-    {
-      name: "ChatGPT Decoded: A Beginner's Guide to AI-Enhanced Living by David Wiens",
-      url: aiBook3, // Correct URL for the PDF
-    },
-    {
-      name: "Coding with AI For Dummies by Chris Minnick",
-      url: aiBook4, // Correct URL for the PDF
-    },
-    {
-      name: "Introduction to ChatGPT The AI Behind the Conversations by Imre Barta",
-      url: aiBook5, // Correct URL for the PDF
-    },
-    {
-      name: "The AI Classroom The Ultimate Guide to Artificial Intelligence in Education by Brad Weinstein",
-      url: aiBook6 // Correct URL for the PDF
-    },
-  ];
-
-  const services = [
-    {
-      title: "Intelligence Artificielle (IA)",
-      desc: "L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.",
-      image: interestImage, // Utilisation de l'image importée
-      details:
-        "L'IA englobe diverses technologies comme l'apprentissage automatique, le traitement du langage naturel, et la vision par ordinateur pour créer des systèmes capables de réaliser des tâches complexes.",
-      advantages: [
-        "🤖 Automatisation des tâches répétitives",
-        "📈 Amélioration de la prise de décision",
-        "📊 Analyse de grandes quantités de données",
-        "🎯 Personnalisation des expériences utilisateur",
-        "🛡️ Détection et prévention des fraudes",
-      ],
-      moreInfoLink1: "https://fr.wikipedia.org/wiki/Intelligence_artificielle",
-      moreInfoLink2:
-        "https://www.ibm.com/fr-fr/cloud/learn/what-is-artificial-intelligence",
-    },
+    { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
+    { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2 },
+    { name: "ChatGPT Decoded by David Wiens", url: aiBook3 },
+    { name: "Coding with AI For Dummies by Chris Minnick", url: aiBook4 },
+    { name: "Introduction to ChatGPT by Imre Barta", url: aiBook5 },
+    { name: "The AI Classroom by Brad Weinstein", url: aiBook6 },
   ];
 
   // Fonction pour afficher la modale avec les détails du service sélectionné
@@ -80,64 +52,93 @@ const Services = () => {
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Veille Technologique</h2>
 
-      {/* Services Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 my-10">
-        {services.map((service, index) => (
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            key={index}
-            className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-xl cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
-          >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-22 h-22 mx-auto mb-4 rounded-full"
-            />
-            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
-              {service.title}
-            </h3>
-            <p className="text-center text-gray-600 dark:text-white/80 mb-4">
-              {service.desc}
-            </p>
-            <div className="text-center">
-              <a
-                href={service.moreInfoLink1}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                Plus d'informations 1
-              </a>
-              <br />
-              <a
-                href={service.moreInfoLink2}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                Plus d'informations 2
-              </a>
-            </div>
-            <button
-              className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
-              onClick={() => handleShowDetails(service)}
+      {/* Grille avec la carte IA à gauche et les actualités à droite */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
+        {/* Services Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              key={index}
+              className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-xl cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
             >
-              Voir les détails
-            </button>
-          </motion.div>
-        ))}
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-22 h-22 mx-auto mb-4 rounded-full"
+              />
+              <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
+                {service.title}
+              </h3>
+              <p className="text-center text-gray-600 dark:text-white/80 mb-4">
+                {service.desc}
+              </p>
+              <div className="text-center">
+                <a
+                  href={service.moreInfoLink1}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
+                >
+                  Plus d'informations 1
+                </a>
+                <br />
+                <a
+                  href={service.moreInfoLink2}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
+                >
+                  Plus d'informations 2
+                </a>
+              </div>
+              <button
+                className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
+                onClick={() => handleShowDetails(service)}
+              >
+                Voir les détails
+              </button>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Section des actualités */}
+        <div className="lg:pl-8">
+          <h3 className="text-3xl font-semibold text-gray-700 mb-6">Actualités sur l'IA</h3>
+          <div className="space-y-4">
+            {articles.length === 0 ? (
+              <p>Chargement des actualités...</p>
+            ) : (
+              articles.slice(0, 5).map((article, index) => (
+                <div key={index} className="border border-gray-300 p-4 rounded-lg shadow-md">
+                  <h4 className="text-lg font-semibold text-gray-800">{article.title}</h4>
+                  <p className="text-sm text-gray-600 mb-2">
+                    {article.contentSnippet}
+                  </p>
+                  <a
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    Lire plus
+                  </a>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
       </div>
 
-      {/* PDF Display Section */}
+      {/* Section des livres PDF */}
       <div className="my-10">
         <h2 className="text-center text-3xl font-semibold mb-6">
           Livres sur l'IA (PDF)
         </h2>
 
-        {/* Display PDF Books */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {pdfFiles.map((pdf, index) => (
             <div
@@ -146,7 +147,7 @@ const Services = () => {
             >
               <h3 className="text-lg font-semibold mb-4">{pdf.name}</h3>
               <a
-                href={pdf.url} // Corrected href to use the PDF URL
+                href={pdf.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
