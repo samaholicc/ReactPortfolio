@@ -54,9 +54,7 @@ const styles = {
     height: 'auto',
     borderRadius: '5px',
   },
-  description: {
-    justifyContent: 'center',
-  }
+  
 };
 
 export default EcoleEntreprise;
