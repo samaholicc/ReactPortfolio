@@ -2,7 +2,6 @@ import React from "react";
 import profile_img from "../assets/samia.jpg";
 import right_arrow_white from "../assets/right-arrow-white.png";
 import resume_pdf from "../assets/resume.pdf"; // Link to your resume PDF
-import these_pdf from "../assets/these.pdf"; // Assuming a different file for the thesis
 import right_arrows from "../assets/right_arrows.png"; // Correct the import name
 
 const Header = () => {
