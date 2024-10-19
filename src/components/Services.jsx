@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // Importation de framer-motion pour l'animation
+import { motion } from "framer-motion";
+import Parser from "rss-parser";
+import Slider from "react-slick"; // Importation de react-slick pour le carrousel
 
 // Importation des images et des PDF depuis le dossier assets
 import cloudImage from "../assets/pwa.png";
 import interestImage from "../assets/ia.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
-import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf"; 
+import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf";
 import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
 import aiBook4 from "../assets/Coding_with AI_For_Dummies_by_Chris_Minnick.pdf";
 import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
@@ -51,6 +53,17 @@ const Services = () => {
   const handleCloseModal = () => {
     setShowModal(false);
     setSelectedService(null);
+  };
+
+  // Paramètres du carrousel
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
 
   return (
@@ -100,36 +113,50 @@ const Services = () => {
             </div>
             <button
               className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
-              onClick={() => handleShowDetails({ title: "IA", details: "Détails sur l'IA", advantages: ["Automatisation", "Personnalisation"] })}
+              onClick={() =>
+                handleShowDetails({
+                  title: "IA",
+                  details: "Détails sur l'IA",
+                  advantages: ["Automatisation", "Personnalisation"],
+                })
+              }
             >
               Voir les détails
             </button>
           </motion.div>
         </div>
 
-        {/* Section des actualités */}
+        {/* Section des actualités avec carrousel */}
         <div className="lg:pl-8">
-          <h3 className="text-3xl font-semibold text-gray-700 mb-6">Actualités sur l'IA</h3>
-          <div className="space-y-4">
-            {articles.length === 0 ? (
-              <p>Chargement des actualités...</p>
-            ) : (
-              articles.slice(0, 5).map((article, index) => (
-                <div key={index} className="border border-gray-300 p-4 rounded-lg shadow-md">
-                  <h4 className="text-lg font-semibold text-gray-800">{article.title}</h4>
-                  <p className="text-sm text-gray-600 mb-2">{article.description}</p>
-                  <a
-                    href={article.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    Lire plus
-                  </a>
+          <h3 className="text-3xl font-semibold text-gray-700 mb-6">
+            Actualités sur l'IA
+          </h3>
+          {articles.length === 0 ? (
+            <p>Chargement des actualités...</p>
+          ) : (
+            <Slider {...sliderSettings}>
+              {articles.map((article, index) => (
+                <div key={index} className="p-4">
+                  <div className="border border-gray-300 p-4 rounded-lg shadow-md">
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      {article.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 mb-2">
+                      {article.description}
+                    </p>
+                    <a
+                      href={article.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      Lire plus
+                    </a>
+                  </div>
                 </div>
-              ))
-            )}
-          </div>
+              ))}
+            </Slider>
+          )}
         </div>
       </div>
 
@@ -171,8 +198,12 @@ const Services = () => {
             <h3 className="text-2xl font-semibold text-gray-700 mb-4">
               Détails sur {selectedService.title}
             </h3>
-            <p className="text-gray-600 text-sm mb-4">{selectedService.details}</p>
-            <h4 className="text-xl font-semibold text-gray-700 mb-2">Avantages</h4>
+            <p className="text-gray-600 text-sm mb-4">
+              {selectedService.details}
+            </p>
+            <h4 className="text-xl font-semibold text-gray-700 mb-2">
+              Avantages
+            </h4>
             <ul className="space-y-2 text-gray-600 text-sm">
               {selectedService.advantages.map((advantage, idx) => (
                 <li key={idx}>• {advantage}</li>
