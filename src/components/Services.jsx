@@ -18,7 +18,6 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // To track loading state
 
 
   // Liste des PDF sur l'IA
@@ -108,53 +107,7 @@ const Services = () => {
           <h3 className="text-3xl font-semibold text-gray-700 mb-6">
             Actualités sur l'IA
           </h3>
-  
-          {loading ? (
-            <p>Chargement des actualités...</p>
-          ) : error ? (
-            <p className="text-red-500">{error}</p>
-          ) : (
-            <Slider {...settings}>
-              {articles.slice(0, 10).map((article, index) => {
-                const imageUrl = extractImage(article);
-                const cleanDescription = sanitizeHtml(article.description, {
-                  allowedTags: ["p", "b", "i", "em", "strong", "a"],
-                });
-  
-                return (
-                  <div key={index} className="px-4">
-                    <div className="border border-gray-300 p-4 rounded-lg shadow-md">
-                      {imageUrl && (
-                        <img
-                          src={imageUrl}
-                          alt={article.title}
-                          className="w-full h-auto mb-4 rounded"
-                        />
-                      )}
-                      <h4 className="text-lg font-semibold text-gray-800">
-                        {article.title}
-                      </h4>
-                      <p
-                        className="text-sm text-gray-600 mb-2"
-                        dangerouslySetInnerHTML={{ __html: cleanDescription }}
-                      ></p>
-                      <a
-                        href={article.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 hover:underline"
-                      >
-                        Lire plus
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
-            </Slider>
-          )}
-        </div>
-      </div>
-  
+          
       {/* Section des livres PDF */}
       <div className="my-10">
         <h2 className="text-center text-3xl font-semibold mb-6">
