@@ -107,7 +107,7 @@ const Services = () => {
           <h3 className="text-3xl font-semibold text-gray-700 mb-6">
             Actualités sur l'IA
           </h3>
-          
+
       {/* Section des livres PDF */}
       <div className="my-10">
         <h2 className="text-center text-3xl font-semibold mb-6">
@@ -167,7 +167,8 @@ const Services = () => {
         </div>
       )}
     </div>
-  );
-};
-
+  </div>
+  </div>
+  )
+}
 export default Services;
