@@ -11,33 +11,27 @@ import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.
 import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
 import aiBook4 from "../assets/Coding_with_AI_For_Dummies_by_Chris_Minnick.pdf";
 import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
-import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide to_Artificial_Intelligence_Education_by_Brad_Weinstein.pdf";
+import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide_to_Artificial_Intelligence_Education_by_Brad_Weinstein.pdf";
 
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Pour suivre l'état de chargement
+  const [loading, setLoading] = useState(true); // To track loading state
 
-  // Fetch RSS feed using rss2json
+  // Fetch AI news RSS feed using rss2json
   useEffect(() => {
     const fetchRSS = async () => {
       try {
+        // URL for a dedicated AI news RSS feed
         const response = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://www.sciencedaily.com/rss/all.xml"
+          "https://api.rss2json.com/v1/api.json?rss_url=https://www.aitrends.com/feed/"
         );
         const data = await response.json();
         
         if (data.status === 'ok') {
-          // Filtrer les articles contenant "IA" ou "intelligence artificielle"
-          const aiArticles = data.items.filter(article =>
-            article.title.toLowerCase().includes('ia') ||
-            article.title.toLowerCase().includes('intelligence artificielle') ||
-            (article.description && article.description.toLowerCase().includes('ia')) ||
-            (article.description && article.description.toLowerCase().includes('intelligence artificielle'))
-          );
-          setArticles(aiArticles);
+          setArticles(data.items);
         } else {
           setError("Erreur lors du chargement des articles.");
         }
@@ -56,6 +50,7 @@ const Services = () => {
   const extractImage = (article) => {
     let imageUrl = article.enclosure?.link || article["media:content"]?.url || "";
 
+    // Si aucune image directe n'est trouvée, essayer d'extraire depuis la description
     if (!imageUrl && article.description) {
       const match = article.description.match(/<img[^>]+src="([^">]+)"/);
       if (match) {
@@ -63,7 +58,7 @@ const Services = () => {
       }
     }
 
-    return imageUrl || "URL_DE_TON_IMAGE_PAR_DEFAUT"; // Utilise une image par défaut si aucune image n'est trouvée
+    return imageUrl || "https://via.placeholder.com/150"; // Utilise une image par défaut si aucune image n'est trouvée
   };
   
   // Configuration du carousel
@@ -71,7 +66,7 @@ const Services = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 1, // Afficher un article par slide
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -79,20 +74,19 @@ const Services = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1, // Un article par slide même sur les plus grands écrans
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1, // Un article par slide sur les petits écrans
           slidesToScroll: 1,
         },
       },
     ],
   };
-
 
   // Liste des PDF sur l'IA
   const pdfFiles = [
