@@ -104,9 +104,7 @@ const Services = () => {
   
         {/* Colonne droite pour le carousel */}
         <div className="lg:pl-8">
-          <h3 className="text-3xl font-semibold text-gray-700 mb-6">
-            Actualités sur l'IA
-          </h3>
+          
 
       {/* Section des livres PDF */}
       <div className="my-10">
