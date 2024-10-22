@@ -11,7 +11,7 @@ import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.
 import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
 import aiBook4 from "../assets/Coding_with_AI_For_Dummies_by_Chris_Minnick.pdf";
 import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
-import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide <to_Artificial_Intelligence_Education_by_Brad_Weinstein.pdf";
+import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide_to_Artificial_Intelligence_Education_by_Brad_Weinstein.pdf";
 
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
