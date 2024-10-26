@@ -79,11 +79,20 @@ const Services = () => {
               className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
               onClick={() =>
                 handleShowDetails({
-                  title: "IA génerative",
-                  details: "l'IA génerative",
-                  advantages: ["Automatisation", "Personnalisation"],
+                  title: "IA générative",
+                  details: "L'IA générative désigne une catégorie d'intelligence artificielle capable de créer de nouveaux contenus, tels que des textes, des images, de la musique ou même des vidéos, en se basant sur des données existantes. Ces modèles utilisent des algorithmes d'apprentissage automatique, notamment les réseaux de neurones profonds, pour apprendre des caractéristiques à partir d'un ensemble de données et produire des résultats nouveaux et originaux.",
+                  advantages: ["Créativité", "Automatisation", "Efficacité", "Précision"],
+                  emergence: [
+                    "1950-1980 : Les premiers concepts d'intelligence artificielle émergent avec des travaux sur les algorithmes et la logique.",
+                    "1980-2010 : Introduction des réseaux de neurones simples et des premières applications de l'apprentissage automatique.",
+                    "2014 : Ian Goodfellow propose les réseaux antagonistes génératifs (GAN).",
+                    "2018 : Lancement de modèles de langage comme BERT et GPT, révolutionnant le traitement du langage naturel.",
+                    "2020 : Publication de GPT-3, démontrant des capacités impressionnantes en génération de texte.",
+                    "2021-2023 : Applications dans la création d'art, de musique, et d'autres domaines avec des outils comme DALL-E et Codex."
+                  ]
                 })
               }
+              
             >
               Plus de détails
             </button>
@@ -132,6 +141,17 @@ const Services = () => {
                 <li key={idx}>• {advantage}</li>
               ))}
             </ul>
+                  {/* Emergence Section */}
+      <div className="text-gray-600 text-sm mb-4">
+      <h4 className="text-xl font-semibold text-gray-700 mb-2">Émergence</h4>
+      <p>Voici une chronologie des événements marquants qui ont conduit à l'émergence de l'IA générative :</p>
+      <ol className="list-decimal list-inside space-y-2">
+      {selectedService.emergence.map((event, index) => (
+      <li key={index}>{event}</li>
+    ))}
+      </ol>
+      </div>
+
             <button
               className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
               onClick={handleCloseModal}
