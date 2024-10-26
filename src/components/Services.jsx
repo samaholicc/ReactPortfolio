@@ -52,27 +52,27 @@ const Services = () => {
               alt="Image representing Intelligence Artificielle"
               className="w-22 h-22 mx-auto mb-4 rounded-full"
             />
-            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">Intelligence Artificielle (IA)</h3>
+            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">Generative AI </h3>
             <p className="text-center text-gray-600 dark:text-white/80 mb-4">
-              L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.
+            Les machines sont aujourd’hui aussi compétentes que l’humain dans la création de tous types de concepts et de contenus. Cela est possible grâce à la technologie de calculs informatiques de données produits par la Generative AI.
             </p>
             <div className="text-center">
               <a
-                href="https://fr.wikipedia.org/wiki/Intelligence_artificielle"
+                href="https://en.wikipedia.org/wiki/Generative_artificial_intelligence"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                              Plus d'informations 1
+              Wikipedia
               </a>
               <br />
               <a
-                href="https://www.ibm.com/fr-fr/cloud/learn/what-is-artificial-intelligence"
+                href="https://www.techtarget.com/searchenterpriseai/definition/generative-AI"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                Plus d'informations 2
+                Techtarget
               </a>
             </div>
             <button
