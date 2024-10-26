@@ -18,12 +18,12 @@ import openAiLogo from "../assets/open-ai-logo.png";
 import deepMindLogo from "../assets/deep-mind-logo.png"; 
 import theGradientLogo from "../assets/the-gradient-logo.png"; 
 import cnilLogo from "../assets/cnil-logo.png"; 
-import aiBook1Cover from "../assets/aiBook1Cover.png"; // Replace with correct cover image path
-import aiBook2Cover from "../assets/aiBook2Cover.png"; // Replace with correct cover image path
-import aiBook3Cover from "../assets/aiBook3Cover.png"; // Replace with correct cover image path
-import aiBook4Cover from "../assets/aiBook4Cover.png"; // Replace with correct cover image path
-import aiBook5Cover from "../assets/aiBook5Cover.png"; // Replace with correct cover image path
-import aiBook6Cover from "../assets/aiBook6Cover.png"; // Replace with correct cover image path
+import aiBook1Cover from "../assets/aiBook1Cover.jpg"; // Replace with correct cover image path
+import aiBook2Cover from "../assets/aiBook2Cover.jpg"; // Replace with correct cover image path
+import aiBook3Cover from "../assets/aiBook3Cover.jpeg"; // Replace with correct cover image path
+import aiBook4Cover from "../assets/aiBook4Cover.jpg"; // Replace with correct cover image path
+import aiBook5Cover from "../assets/aiBook5Cover.jpeg"; // Replace with correct cover image path
+import aiBook6Cover from "../assets/aiBook6Cover.jpg"; // Replace with correct cover image path
 
 
 
