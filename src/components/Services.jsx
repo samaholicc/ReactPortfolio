@@ -47,7 +47,7 @@ const PdfCarousel = ({ pdfFiles }) => {
             <img
               src={pdf.cover}
               alt={`${pdf.name} Cover`}
-              
+              className="w-full h-40 rounded-t-lg object-contain" // Use object-contain to show the whole image
             />
             <div className="flex flex-col flex-grow justify-between p-4"> {/* Flexbox for content spacing */}
               <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
@@ -66,7 +66,6 @@ const PdfCarousel = ({ pdfFiles }) => {
     </div>
   );
 };
-
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
