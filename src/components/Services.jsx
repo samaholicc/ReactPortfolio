@@ -25,6 +25,9 @@ import aiBook4Cover from "../assets/aiBook4Cover.jpg"; // Replace with correct c
 import aiBook5Cover from "../assets/aiBook5Cover.jpeg"; // Replace with correct cover image path
 import aiBook6Cover from "../assets/aiBook6Cover.jpg"; // Replace with correct cover image path
 
+
+
+
 const PdfCarousel = ({ pdfFiles }) => {
   const settings = {
     dots: true,
@@ -32,47 +35,39 @@ const PdfCarousel = ({ pdfFiles }) => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true, // Automatically change slides
-    autoplaySpeed: 3000, // Time between slides
-    cssEase: "ease-in-out", // Smooth transition effect
-    fade: true, // Enables fade transition instead of slide
   };
 
   
-
-  
   return (
-    <div > 
-      <h2 className="text-center text-3xl font-semibold ">Livres sur l'IA Générative (PDF)</h2>
+    <div className="mt-8">
+      <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA (PDF)</h2>
       <Slider {...settings}>
         {pdfFiles.map((pdf) => (
           <div
             key={pdf.name}
-            className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-between mb-2 transition-transform transform hover:scale-105 duration-300"
-            >
-        
-              <img
+            className="border border-gray-300 rounded-lg p-4 shadow-md text-center"
+          >
+            <img
               src={pdf.cover}
               alt={`${pdf.name} Cover`}
-              className="w-full h-80 rounded-t-lg transition-transform duration-300"></img>
-
-              <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
-              <a
+              className="w-full h-auto mb-2 rounded-md"
+            />
+            <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
+            <a
               href={pdf.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline transition-colors duration-200 button-spacing"
-              >
+              className="text-blue-500 hover:underline"
+            >
               Télécharger / Voir le PDF
-              </a>
-
-            
+            </a>
           </div>
         ))}
       </Slider>
     </div>
   );
 };
+
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
