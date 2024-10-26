@@ -123,7 +123,7 @@ const Services = () => {
             className="bg-white rounded-lg p-8 w-[90%] md:w-[40%] shadow-lg"
           >
             <h3 className="text-2xl font-semibold text-gray-700 mb-4">
-              Détails sur {selectedService.title}
+              {selectedService.title}
             </h3>
             <p className="text-gray-600 text-sm mb-4">{selectedService.details}</p>
             <h4 className="text-xl font-semibold text-gray-700 mb-2">Avantages</h4>
