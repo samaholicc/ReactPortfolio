@@ -105,12 +105,12 @@ const Services = () => {
 
 
     {/* Section des livres PDF */}
-    <div className="my-12">
+    <div>
       <h2 className="text-center text-3xl font-semibold mb-6">
         Livres sur l'IA (PDF)
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div>
         {pdfFiles.map((pdf, index) => (
           <div
             key={index}
