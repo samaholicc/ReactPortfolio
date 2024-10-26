@@ -13,11 +13,14 @@ import wikipediaLogo from "../assets/wikipedia-logo.png";
 import techTargetLogo from "../assets/techtarget-logo.png"; 
 import salesforceLogo from "../assets/salesforce-logo.png"; 
 import googleCloudLogo from "../assets/google-cloud-logo.png"; 
+import openAiLogo from "../assets/open-ai-logo.png"; 
+import deepMindLogo from "../assets/deep-mind-logo.png"; 
+import theGradientLogo from "../assets/the-gradient-logo.png"; 
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
    // Liste des PDF sur l'IA
-   const pdfFiles = [
+  const pdfFiles = [
     { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
     { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2 },
     { name: "ChatGPT Decoded by David Wiens", url: aiBook3 },
@@ -114,7 +117,44 @@ const Services = () => {
       >
         Google Cloud
       </a>
+      
     </div>
+    <div className="flex items-center justify-center mb-2">
+      <img src={openAiLogo} alt="Open AI Logo" className="h-6 w-6 mr-2" />
+      <a
+        href="https://openai.com/news/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+      >
+        OpenAI Blog
+      </a>
+      
+    </div>
+    <div className="flex items-center justify-center mb-2">
+      <img src={theGradientLogo} alt="The Gradient Logo" className="h-6 w-6 mr-2" />
+      <a
+        href="https://thegradient.pub/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+      >
+        The Gradient  
+      </a>
+      <div className="flex items-center justify-center mb-2">
+      <img src={deepMindLogo} alt="Deep Mind Logo" className="h-6 w-6 mr-2" />
+      <a
+        href="https://deepmind.google/discover/blog/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+      >
+        DeepMind Blog
+      </a>
+      
+    </div>
+    </div>
+    
   </div>
 </div>
 
