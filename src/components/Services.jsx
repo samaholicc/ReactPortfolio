@@ -68,50 +68,56 @@ const Services = () => {
             Les machines sont aujourd’hui aussi compétentes que l’humain dans la création de tous types de concepts et de contenus. Cela est possible grâce à la technologie de calculs informatiques de données produits par la Generative AI.
             </p>
             <div className="text-center">
-  <div className="flex items-center justify-center mb-2">
-    <img src={wikipediaLogo} alt="Wikipedia Logo" className="h-6 w-6 mr-2" />
-    <a
-      href="https://en.wikipedia.org/wiki/Generative_artificial_intelligence"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 hover:underline"
-    >
-      Wikipedia
-    </a>
+            <div className="mt-8">
+  <h2 className="text-center text-3xl font-semibold mb-6">Sources d'actualités sur l'IA Générative</h2>
+  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+    <div className="flex items-center justify-center mb-2">
+      <img src={wikipediaLogo} alt="Wikipedia Logo" className="h-6 w-6 mr-2" />
+      <a
+        href="https://en.wikipedia.org/wiki/Generative_artificial_intelligence"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+      >
+        Wikipedia
+      </a>
+    </div>
+    <div className="flex items-center justify-center mb-2">
+      <img src={techTargetLogo} alt="TechTarget Logo" className="h-6 w-6 mr-2" />
+      <a
+        href="https://www.techtarget.com/searchenterpriseai/definition/generative-AI"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+      >
+        TechTarget
+      </a>
+    </div>
+    <div className="flex items-center justify-center mb-2">
+      <img src={salesforceLogo} alt="SalesForce Logo" className="h-6 w-6 mr-2" />
+      <a
+        href="https://www.salesforce.com/fr/resources/definition/ia-generative/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+      >
+        SalesForce
+      </a>
+    </div>
+    <div className="flex items-center justify-center mb-2">
+      <img src={googleCloudLogo} alt="Google Cloud Logo" className="h-6 w-6 mr-2" />
+      <a
+        href="https://cloud.google.com/use-cases/generative-ai?hl=fr"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+      >
+        Google Cloud
+      </a>
+    </div>
   </div>
-  <div className="flex items-center justify-center mb-2">
-    <img src={techTargetLogo} alt="TechTarget Logo" className="h-6 w-6 mr-2" />
-    <a
-      href="https://www.techtarget.com/searchenterpriseai/definition/generative-AI"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 hover:underline"
-    >
-      TechTarget
-    </a>
-  </div>
-  <div className="flex items-center justify-center mb-2">
-    <img src={salesforceLogo} alt="SalesForce Logo" className="h-6 w-6 mr-2" />
-    <a
-      href="https://www.salesforce.com/fr/resources/definition/ia-generative/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 hover:underline"
-    >
-      SalesForce
-    </a>
-  </div>
-  <div className="flex items-center justify-center mb-2">
-    <img src={googleCloudLogo} alt="Google Cloud Logo" className="h-6 w-6 mr-2" />
-    <a
-      href="https://cloud.google.com/use-cases/generative-ai?hl=fr"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 hover:underline"
-    >
-      Google Cloud
-    </a>
-  </div>
+</div>
+
 </div>
             {/* Button to show details */}
             <button
