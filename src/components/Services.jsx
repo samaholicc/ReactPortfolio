@@ -54,8 +54,8 @@ const PdfCarousel = ({ pdfFiles }) => {
             <img
               src={pdf.cover}
               alt={`${pdf.name} Cover`}
-              className="w-full h-40 rounded-t-lg object-contain transition-transform duration-300 ease-in" // Smooth transition on image hover
-            />
+              className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-center mb-2 transition-transform transform hover:scale-105 duration-300"
+              />
               <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
               <a
               href={pdf.url}
