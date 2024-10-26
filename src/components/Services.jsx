@@ -42,7 +42,7 @@ const PdfCarousel = ({ pdfFiles }) => {
 
   
   return (
-    <div className="mt-8"> {/* Add margin at the bottom for spacing */}
+    <div > 
       <h2 className="text-center text-3xl font-semibold ">Livres sur l'IA Générative (PDF)</h2>
       <Slider {...settings}>
         {pdfFiles.map((pdf) => (
