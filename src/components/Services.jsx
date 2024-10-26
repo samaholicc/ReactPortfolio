@@ -35,14 +35,15 @@ const PdfCarousel = ({ pdfFiles }) => {
   };
 
   
+
   return (
-    <div className="mt-8">
+    <div className="mt-8 mb-6"> {/* Add margin at the bottom for spacing */}
       <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA (PDF)</h2>
       <Slider {...settings}>
         {pdfFiles.map((pdf) => (
           <div
             key={pdf.name}
-            className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-between h-72" // Fixed height for consistency
+            className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-between h-72 mb-4" // Added margin-bottom between items
           >
             <img
               src={pdf.cover}
