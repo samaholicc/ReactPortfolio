@@ -3,19 +3,26 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import interestImage from "../assets/ia.png";
+import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
+import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf";
+import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
+import aiBook4 from "../assets/Coding_with_AI_For_Dummies_by_Chris_Minnick.pdf";
+import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
+import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide_to_Artificial_Intelligence_Education_by_Brad_Weinstein.pdf";
 
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-
-  const pdfFiles = [
-    { name: "AI for Absolute Beginners by Oliver Theobald", url: "/assets/AI_for_Absolute_Beginners_by_Oliver_Theobald-DwB-jSGZ.pdf" },
-    { name: "Artificial Intelligence: The Ultimate Guide to AI", url: "/assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI-C93zWY-5.pdf" },
-    { name: "ChatGPT Decoded by David Wiens", url: "/assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens-DdxAF4Z7.pdf" },
-    { name: "Coding with AI For Dummies by Chris Minnick", url: "/assets/Coding_with_AI_For_Dummies_by_Chris_Minnick-D-MhEjlw.pdf" },
-    { name: "Introduction to ChatGPT by Imre Barta", url: "/assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta-BfLCU8om.pdf" },
-    { name: "The AI Classroom by Brad Weinstein", url: "/assets/The_AI_Classroom_The_Ultimate_Guide_to_Artificial_Intelligence_Education_by_Brad_Weinstein-DvMeK8JE.pdf" },
+   // Liste des PDF sur l'IA
+   const pdfFiles = [
+    { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
+    { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2 },
+    { name: "ChatGPT Decoded by David Wiens", url: aiBook3 },
+    { name: "Coding with AI For Dummies by Chris Minnick", url: aiBook4 },
+    { name: "Introduction to ChatGPT by Imre Barta", url: aiBook5 },
+    { name: "The AI Classroom by Brad Weinstein", url: aiBook6 },
   ];
+
 
   const handleShowDetails = (service) => {
     setSelectedService(service);
