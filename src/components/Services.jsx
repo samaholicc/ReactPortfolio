@@ -80,12 +80,12 @@ const Services = () => {
               onClick={() =>
                 handleShowDetails({
                   title: "IA génerative",
-                  details: "Détails sur l'IA génerative",
+                  details: "l'IA génerative",
                   advantages: ["Automatisation", "Personnalisation"],
                 })
               }
             >
-              Voir les détails
+              Plus de détails
             </button>
           </motion.div>
         </div>
