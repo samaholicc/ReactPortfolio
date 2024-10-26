@@ -147,6 +147,7 @@ const Services = () => {
     {/* Emergence Section - Animated Timeline */}
     <div className="text-gray-600 text-sm mb-4">
               <h4 className="text-xl font-semibold text-gray-700 mb-2">Émergence</h4>
+              <br></br>
               <p>Voici une chronologie des événements marquants qui ont conduit à l'émergence de l'IA générative :</p>
               <ol className="list-decimal list-inside space-y-2">
                 {selectedService.emergence.map((event, index) => (
