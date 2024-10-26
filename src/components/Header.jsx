@@ -45,7 +45,7 @@ const Header = () => {
 
         <a
           href={these_pdf}
-          download="Samia_Boutezrout_These.pdf"
+          download="these.pdf"
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           Tableau de Thèse{" "}
