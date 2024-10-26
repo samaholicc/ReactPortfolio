@@ -38,8 +38,8 @@ const Services = () => {
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Veille Technologique</h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+      <div className="gap-8 my-10">
+        <div className="gap-8">
           <motion.div
             whileHover={{ scale: 1.05 }}
             initial={{ opacity: 0, y: 50 }}
