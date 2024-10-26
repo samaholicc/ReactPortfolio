@@ -48,8 +48,9 @@ const PdfCarousel = ({ pdfFiles }) => {
         {pdfFiles.map((pdf) => (
           <div
             key={pdf.name}
-            className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-between h-72 mb-4 transition-transform transform hover:scale-105 duration-300" // Added scale effect on hover
-          >
+            className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-between mb-2 transition-transform transform hover:scale-105 duration-300"
+            >
+        
             <img
               src={pdf.cover}
               alt={`${pdf.name} Cover`}
@@ -57,13 +58,14 @@ const PdfCarousel = ({ pdfFiles }) => {
             />
               <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
               <a
-                href={pdf.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline transition-colors duration-200" // Smooth color transition on hover
+              href={pdf.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline transition-colors duration-200 button-spacing"
               >
-                Télécharger / Voir le PDF
+              Télécharger / Voir le PDF
               </a>
+
             
           </div>
         ))}
