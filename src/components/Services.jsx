@@ -63,7 +63,7 @@ const Services = () => {
               alt="Image representing Intelligence Artificielle"
               className="w-22 h-22 mx-auto mb-4 rounded-full"
             />
-            <h2 className="text-lg my-4 text-center text-gray-700 dark:text-white">Generative AI </h2>
+            <h2 className="text-center text-3xl font-semibold mb-6">Generative AI </h2>
             <p className="text-center text-gray-600 dark:text-white/80 mb-4">
             Les machines sont aujourd’hui aussi compétentes que l’humain dans la création de tous types de concepts et de contenus. Cela est possible grâce à la technologie de calculs informatiques de données produits par la Generative AI.
             </p>
