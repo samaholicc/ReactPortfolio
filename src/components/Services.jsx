@@ -49,7 +49,7 @@ const PdfCarousel = ({ pdfFiles }) => {
               src={pdf.cover}
               alt={`${pdf.name} Cover`}
               className="w-full h-auto mb-2 rounded-md"
-              style={{ maxHeight: '150px', objectFit: 'cover' }} 
+              style={{ maxHeight: '300px', objectFit: 'cover' }} 
             />
             <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
             <a
