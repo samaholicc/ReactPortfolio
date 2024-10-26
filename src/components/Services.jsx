@@ -99,47 +99,36 @@ const Services = () => {
               Voir les détails
             </button>
   
-            {/* Section des livres PDF */}
-            <div className="mt-8">
-              <h2 className="text-center text-3xl font-semibold mb-6">
-                Livres sur l'IA (PDF)
-              </h2>
-              <div>
-                {pdfFiles.map((pdf, index) => (
-                  <div
-                    key={index}
-                    className="border border-gray-400 rounded-lg p-6 shadow-lg text-center mb-4"
-                  >
-                    <h3 className="text-lg font-semibold mb-4">{pdf.name}</h3>
-                    <a
-                      href={pdf.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
-                    >
-                      Télécharger / Voir le PDF
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
+            
           </motion.div>
         </div>
-  
-        {/* Right column or other content can go here */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
-          {/* Add any additional content for the right column here */}
+               {/* Right column for the books card */}
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 my-10">
+          <div className="border border-gray-400 rounded-lg p-6 shadow-lg">
+            <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA (PDF)</h2>
+            <div className="grid grid-cols-1 gap-4">
+              {pdfFiles.map((pdf, index) => (
+                <div
+                  key={index}
+                  className="border border-gray-300 rounded-lg p-4 shadow-md text-center"
+                >
+                  <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
+                  <a
+                    href={pdf.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    Télécharger / Voir le PDF
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  
-  
 
-  
-  );
-  
-
-      {/* Popup Modale */}
+      {/* Popup Modal */}
       {showModal && selectedService && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <motion.div
@@ -171,7 +160,8 @@ const Services = () => {
           </motion.div>
         </div>
       )}
-  
+    </div>
+  );
+};
 
-    };
 export default Services;
