@@ -69,7 +69,7 @@ const Services = () => {
             </p>
             <div className="text-center">
             <div className="mt-8">
-  <h3 className="text-center text-3xl font-semibold mb-6">Sources d'actualités sur l'IA Générative</h2>
+  <h3 className="text-center text-3xl font-semibold mb-6">Sources d'actualités sur l'IA Générative</h3>
   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
     <div className="flex items-center justify-center mb-2">
       <img src={wikipediaLogo} alt="Wikipedia Logo" className="h-6 w-6 mr-2" />
