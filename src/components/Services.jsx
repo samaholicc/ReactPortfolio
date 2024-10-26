@@ -18,16 +18,27 @@ import openAiLogo from "../assets/open-ai-logo.png";
 import deepMindLogo from "../assets/deep-mind-logo.png"; 
 import theGradientLogo from "../assets/the-gradient-logo.png"; 
 import cnilLogo from "../assets/cnil-logo.png"; 
+import aiBook1Cover from "../assets/aiBook1Cover.png"; // Replace with correct cover image path
+import aiBook2Cover from "../assets/aiBook2Cover.png"; // Replace with correct cover image path
+import aiBook3Cover from "../assets/aiBook3Cover.png"; // Replace with correct cover image path
+import aiBook4Cover from "../assets/aiBook4Cover.png"; // Replace with correct cover image path
+import aiBook5Cover from "../assets/aiBook5Cover.png"; // Replace with correct cover image path
+import aiBook6Cover from "../assets/aiBook6Cover.png"; // Replace with correct cover image path
+
+
+
+
 
 const PdfCarousel = ({ pdfFiles }) => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
   };
 
+  
   return (
     <div className="mt-8">
       <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA (PDF)</h2>
@@ -37,6 +48,11 @@ const PdfCarousel = ({ pdfFiles }) => {
             key={pdf.name}
             className="border border-gray-300 rounded-lg p-4 shadow-md text-center"
           >
+            <img
+              src={pdf.cover}
+              alt={`${pdf.name} Cover`}
+              className="w-full h-auto mb-2 rounded-md"
+            />
             <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
             <a
               href={pdf.url}
@@ -59,12 +75,12 @@ const Services = () => {
 
   // List of AI PDF files
   const pdfFiles = [
-    { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
-    { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2 },
-    { name: "ChatGPT Decoded by David Wiens", url: aiBook3 },
-    { name: "Coding with AI For Dummies by Chris Minnick", url: aiBook4 },
-    { name: "Introduction to ChatGPT by Imre Barta", url: aiBook5 },
-    { name: "The AI Classroom by Brad Weinstein", url: aiBook6 },
+    { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1, cover: aiBook1Cover },
+    { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2, cover: aiBook2Cover },
+    { name: "ChatGPT Decoded by David Wiens", url: aiBook3, cover: aiBook3Cover },
+    { name: "Coding with AI For Dummies by Chris Minnick", url: aiBook4, cover: aiBook4Cover },
+    { name: "Introduction to ChatGPT by Imre Barta", url: aiBook5, cover: aiBook5Cover },
+    { name: "The AI Classroom by Brad Weinstein", url: aiBook6, cover: aiBook6Cover },
   ];
 
   const handleShowDetails = (service) => {
