@@ -124,43 +124,46 @@ const Services = () => {
 
       {/* Popup Modal */}
       {showModal && selectedService && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white rounded-lg p-8 w-[90%] md:w-[40%] shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold text-gray-700 mb-4">
-              {selectedService.title}
-            </h3>
-            <p className="text-gray-600 text-sm mb-4">{selectedService.details}</p>
-            <h4 className="text-xl font-semibold text-gray-700 mb-2">Avantages</h4>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              {selectedService.advantages.map((advantage, idx) => (
-                <li key={idx}>• {advantage}</li>
-              ))}
-            </ul>
-                  {/* Emergence Section */}
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3 }}
+      className="bg-white rounded-lg p-8 w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] max-h-screen overflow-auto shadow-lg"
+    >
+      <h3 className="text-2xl font-semibold text-gray-700 mb-4">
+        {selectedService.title}
+      </h3>
+      <p className="text-gray-600 text-sm mb-4">{selectedService.details}</p>
+      
+      <h4 className="text-xl font-semibold text-gray-700 mb-2">Avantages</h4>
+      <ul className="space-y-2 text-gray-600 text-sm">
+        {selectedService.advantages.map((advantage, idx) => (
+          <li key={idx}>• {advantage}</li>
+        ))}
+      </ul>
+
+      {/* Emergence Section */}
       <div className="text-gray-600 text-sm mb-4">
-      <h4 className="text-xl font-semibold text-gray-700 mb-2">Émergence</h4>
-      <p>Voici une chronologie des événements marquants qui ont conduit à l'émergence de l'IA générative :</p>
-      <ol className="list-decimal list-inside space-y-2">
-      {selectedService.emergence.map((event, index) => (
-      <li key={index}>{event}</li>
-    ))}
-      </ol>
+        <h4 className="text-xl font-semibold text-gray-700 mb-2">Émergence</h4>
+        <p>Voici une chronologie des événements marquants qui ont conduit à l'émergence de l'IA générative :</p>
+        <ol className="list-decimal list-inside space-y-2">
+          {selectedService.emergence.map((event, index) => (
+            <li key={index}>{event}</li>
+          ))}
+        </ol>
       </div>
 
-            <button
-              className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-              onClick={handleCloseModal}
-            >
-              Fermer
-            </button>
-          </motion.div>
-        </div>
-      )}
+      
+      <button
+        className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+        onClick={handleCloseModal}
+      >
+        Fermer
+      </button>
+    </motion.div>
+  </div>
+)}
     </div>
   );
 };
