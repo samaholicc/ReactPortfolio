@@ -9,7 +9,10 @@ import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhance
 import aiBook4 from "../assets/Coding_with_AI_For_Dummies_by_Chris_Minnick.pdf";
 import aiBook5 from "../assets/Introduction-to-ChatGPT_-The-AI-Behind-the-Conversations-by-Imre-Barta.pdf";
 import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide_to_Artificial_Intelligence_Education_by_Brad_Weinstein.pdf";
-
+import wikipediaLogo from "../assets/wikipedia-logo.png"; 
+import techTargetLogo from "../assets/techtarget-logo.png"; 
+import salesforceLogo from "../assets/salesforce-logo.png"; 
+import googleCloudLogo from "../assets/google-cloud-logo.png"; 
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
@@ -65,24 +68,51 @@ const Services = () => {
             Les machines sont aujourd’hui aussi compétentes que l’humain dans la création de tous types de concepts et de contenus. Cela est possible grâce à la technologie de calculs informatiques de données produits par la Generative AI.
             </p>
             <div className="text-center">
-              <a
-                href="https://en.wikipedia.org/wiki/Generative_artificial_intelligence"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-              Wikipedia
-              </a>
-              <br />
-              <a
-                href="https://www.techtarget.com/searchenterpriseai/definition/generative-AI"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                Techtarget
-              </a>
-            </div>
+  <div className="flex items-center justify-center mb-2">
+    <img src={wikipediaLogo} alt="Wikipedia Logo" className="h-6 w-6 mr-2" />
+    <a
+      href="https://en.wikipedia.org/wiki/Generative_artificial_intelligence"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-500 hover:underline"
+    >
+      Wikipedia
+    </a>
+  </div>
+  <div className="flex items-center justify-center mb-2">
+    <img src={techTargetLogo} alt="TechTarget Logo" className="h-6 w-6 mr-2" />
+    <a
+      href="https://www.techtarget.com/searchenterpriseai/definition/generative-AI"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-500 hover:underline"
+    >
+      TechTarget
+    </a>
+  </div>
+  <div className="flex items-center justify-center mb-2">
+    <img src={salesforceLogo} alt="SalesForce Logo" className="h-6 w-6 mr-2" />
+    <a
+      href="https://www.salesforce.com/fr/resources/definition/ia-generative/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-500 hover:underline"
+    >
+      SalesForce
+    </a>
+  </div>
+  <div className="flex items-center justify-center mb-2">
+    <img src={googleCloudLogo} alt="Google Cloud Logo" className="h-6 w-6 mr-2" />
+    <a
+      href="https://cloud.google.com/use-cases/generative-ai?hl=fr"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-500 hover:underline"
+    >
+      Google Cloud
+    </a>
+  </div>
+</div>
             {/* Button to show details */}
             <button
               className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
