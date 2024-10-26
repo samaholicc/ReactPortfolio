@@ -105,7 +105,7 @@ const Services = () => {
 
 
     {/* Section des livres PDF */}
-    <div className="my-10">
+    <div className="my-12">
       <h2 className="text-center text-3xl font-semibold mb-6">
         Livres sur l'IA (PDF)
       </h2>
@@ -131,10 +131,9 @@ const Services = () => {
     </div>
   </div>
 
-  {/* Colonne droite pour le carousel */}
-  <div className="lg:pl-8">
-    {/* If you have a carousel component, insert it here */}
-  </div>
+  
+
+  
 </div>
 
       {/* Popup Modale */}
