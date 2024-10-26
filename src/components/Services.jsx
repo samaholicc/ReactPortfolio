@@ -63,13 +63,13 @@ const Services = () => {
               alt="Image representing Intelligence Artificielle"
               className="w-22 h-22 mx-auto mb-4 rounded-full"
             />
-            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">Generative AI </h3>
+            <h2 className="text-lg my-4 text-center text-gray-700 dark:text-white">Generative AI </h3>
             <p className="text-center text-gray-600 dark:text-white/80 mb-4">
             Les machines sont aujourd’hui aussi compétentes que l’humain dans la création de tous types de concepts et de contenus. Cela est possible grâce à la technologie de calculs informatiques de données produits par la Generative AI.
             </p>
             <div className="text-center">
             <div className="mt-8">
-  <h2 className="text-center text-3xl font-semibold mb-6">Sources d'actualités sur l'IA Générative</h2>
+  <h3 className="text-center text-3xl font-semibold mb-6">Sources d'actualités sur l'IA Générative</h2>
   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
     <div className="flex items-center justify-center mb-2">
       <img src={wikipediaLogo} alt="Wikipedia Logo" className="h-6 w-6 mr-2" />
