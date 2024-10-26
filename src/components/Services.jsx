@@ -84,7 +84,11 @@ const Services = () => {
             </button>
 
    {/* Section des livres PDF */}
-  <div className="mt-8">
+  
+          </motion.div>
+        </div>
+
+        <div className="mt-8">
               <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA (PDF)</h2>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
                 {pdfFiles.map((pdf, index) => (
@@ -105,13 +109,6 @@ const Services = () => {
                 ))}
               </div>
             </div>
-          </motion.div>
-        </div>
-
-        {/* Placeholder for any additional content if necessary */}
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 my-10">
-          {/* You can add more content for the right column here */}
-        </div>
       </div>
 
       {/* Popup Modal */}
