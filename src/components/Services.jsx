@@ -13,8 +13,9 @@ import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide_to_Artificial
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-   // Liste des PDF sur l'IA
-   const pdfFiles = [
+  
+  // Liste des PDF sur l'IA
+  const pdfFiles = [
     { name: "AI for Absolute Beginners by Oliver Theobald", url: aiBook1 },
     { name: "Artificial Intelligence: The Ultimate Guide to AI", url: aiBook2 },
     { name: "ChatGPT Decoded by David Wiens", url: aiBook3 },
@@ -22,7 +23,6 @@ const Services = () => {
     { name: "Introduction to ChatGPT by Imre Barta", url: aiBook5 },
     { name: "The AI Classroom by Brad Weinstein", url: aiBook6 },
   ];
-
 
   const handleShowDetails = (service) => {
     setSelectedService(service);
@@ -33,6 +33,16 @@ const Services = () => {
     setShowModal(false);
     setSelectedService(null);
   };
+
+  // Timeline events
+  const events = [
+    { year: '1950-1980', description: 'Les premiers concepts d\'intelligence artificielle émergent avec des travaux sur les algorithmes et la logique.' },
+    { year: '1980-2010', description: 'Introduction des réseaux de neurones simples et des premières applications de l\'apprentissage automatique. L\'accent est mis principalement sur le raisonnement et la classification.' },
+    { year: '2014', description: 'Ian Goodfellow propose les réseaux antagonistes génératifs (GAN), permettant de générer des images réalistes à partir de bruit.' },
+    { year: '2018', description: 'Lancement de modèles de langage comme BERT et GPT, qui révolutionnent le traitement du langage naturel.' },
+    { year: '2020', description: 'GPT-3 est publié, démontrant des capacités impressionnantes en génération de texte.' },
+    { year: '2021-2023', description: 'L\'IA générative trouve des applications dans la création d\'art, la musique, la rédaction, et même dans le codage, avec des outils comme DALL-E et Codex.' },
+  ];
 
   return (
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
@@ -63,7 +73,7 @@ const Services = () => {
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-              Wikipedia
+                Wikipedia
               </a>
               <br />
               <a
@@ -75,18 +85,25 @@ const Services = () => {
                 Techtarget
               </a>
             </div>
-            <button
-              className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
-              onClick={() =>
-                handleShowDetails({
-                  title: "IA",
-                  details: "Détails sur l'IA",
-                  advantages: ["Automatisation", "Personnalisation"],
-                })
-              }
-            >
-              Voir les détails
-            </button>
+
+            {events.map((event, index) => (
+              <motion.div key={index} className="mt-6">
+                <h4 className="text-md font-semibold text-gray-700">{event.year}</h4>
+                <p className="text-gray-600 dark:text-white/80 mb-2">{event.description}</p>
+                <button
+                  className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
+                  onClick={() =>
+                    handleShowDetails({
+                      title: "IA générative",
+                      details: event.description,
+                      advantages: ["Automatisation", "Personnalisation"], // Adjust as needed
+                    })
+                  }
+                >
+                  Voir les détails
+                </button>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
