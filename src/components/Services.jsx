@@ -42,24 +42,24 @@ const PdfCarousel = ({ pdfFiles }) => {
         {pdfFiles.map((pdf) => (
           <div
             key={pdf.name}
-            className="border border-gray-300 rounded-lg p-4 shadow-md text-centerflex flex-col justify-between"
-            style={{ height: '300px' }}
+            className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-between h-72" // Fixed height for consistency
           >
             <img
               src={pdf.cover}
               alt={`${pdf.name} Cover`}
-              className="w-full h-auto mb-2 rounded-md"
-              style={{ maxHeight: '300px', objectFit: 'cover' }} 
+              className="w-full h-40 rounded-t-lg object-cover" // Fixed height for images
             />
-            <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
-            <a
-              href={pdf.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              Télécharger / Voir le PDF
-            </a>
+            <div className="flex flex-col flex-grow justify-between p-4"> {/* Flexbox for content spacing */}
+              <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
+              <a
+                href={pdf.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Télécharger / Voir le PDF
+              </a>
+            </div>
           </div>
         ))}
       </Slider>
