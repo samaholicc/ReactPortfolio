@@ -44,7 +44,7 @@ const Services = () => {
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Veille Technologique</h2>
   
-      {/* Grille à deux colonnes pour garder la carte IA à gauche et le carousel à droite */}
+      {/* Grille à deux colonnes pour garder la carte IA à gauche */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
         
         {/* Colonne gauche pour la carte IA */}
@@ -101,58 +101,8 @@ const Services = () => {
           </motion.div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
-  {/* Colonne gauche pour la carte IA */}
-  <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.1 }}
-      className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-xl cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
-    >
-      <img
-        src={interestImage}
-        alt="Intelligence Artificielle"
-        className="w-22 h-22 mx-auto mb-4 rounded-full"
-      />
-      <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
-        Intelligence Artificielle (IA)
-      </h3>
-      <p className="text-center text-gray-600 dark:text-white/80 mb-4">
-        L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.
-      </p>
-      <div className="text-center">
-        <a
-          href="https://fr.wikipedia.org/wiki/Intelligence_artificielle"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline"
-        >
-          Plus d'informations 1
-        </a>
-        <br />
-        <a
-          href="https://www.ibm.com/fr-fr/cloud/learn/what-is-artificial-intelligence"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline"
-        >
-          Plus d'informations 2
-        </a>
-      </div>
-      <button
-        className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mx-auto block"
-        onClick={() =>
-          handleShowDetails({
-            title: "IA",
-            details: "Détails sur l'IA",
-            advantages: ["Automatisation", "Personnalisation"],
-          })
-        }
-      >
-        Voir les détails
-      </button>
-    </motion.div>
+  
+
 
     {/* Section des livres PDF */}
     <div className="my-10">
@@ -220,7 +170,6 @@ const Services = () => {
         </div>
       )}
     </div>
-  </div>
   
 
     )}
