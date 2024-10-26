@@ -13,3 +13,6 @@
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+.button-spacing {
+  margin-bottom: 0; /* Adjust as necessary */
+}
