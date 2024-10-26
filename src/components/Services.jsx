@@ -81,6 +81,7 @@ const Services = () => {
                 { logo: openAiLogo, name: "OpenAI Blog", link: "https://openai.com/news/" },
                 { logo: theGradientLogo, name: "The Gradient", link: "https://thegradient.pub/" },
                 { logo: deepMindLogo, name: "DeepMind Blog", link: "https://deepmind.google/discover/blog/" },
+                { logo: cnilLogo, name: "Cnil article", link: "https://www.cnil.fr/fr/comment-deployer-une-ia-generative-la-cnil-apporte-de-premieres-precisions" },
               ].map(({ logo, name, link }) => (
                 <div key={name} className="flex items-center justify-center mb-2">
                   <img src={logo} alt={`${name} Logo`} className="h-6 w-6 mr-2" />
