@@ -32,23 +32,28 @@ const PdfCarousel = ({ pdfFiles }) => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true, // Automatically change slides
+    autoplaySpeed: 3000, // Time between slides
+    cssEase: "ease-in-out", // Smooth transition effect
+    fade: true, // Enables fade transition instead of slide
   };
 
   
 
+  
   return (
     <div className="mt-8 mb-6"> {/* Add margin at the bottom for spacing */}
-      <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA (PDF)</h2>
+      <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA Générative (PDF)</h2>
       <Slider {...settings}>
         {pdfFiles.map((pdf) => (
           <div
             key={pdf.name}
-            className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-between h-72 mb-4" // Added margin-bottom between items
+            className="border border-gray-300 rounded-lg shadow-md text-center flex flex-col justify-between h-72 mb-4 transition-transform transform hover:scale-105 duration-300" // Added scale effect on hover
           >
             <img
               src={pdf.cover}
               alt={`${pdf.name} Cover`}
-              className="w-full h-40 rounded-t-lg object-contain" // Use object-contain to show the whole image
+              className="w-full h-40 rounded-t-lg object-contain transition-transform duration-300 ease-in" // Smooth transition on image hover
             />
             <div className="flex flex-col flex-grow justify-between p-4"> {/* Flexbox for content spacing */}
               <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
@@ -56,7 +61,7 @@ const PdfCarousel = ({ pdfFiles }) => {
                 href={pdf.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 hover:underline transition-colors duration-200" // Smooth color transition on hover
               >
                 Télécharger / Voir le PDF
               </a>
