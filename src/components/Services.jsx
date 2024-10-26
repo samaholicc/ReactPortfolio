@@ -46,7 +46,7 @@ const Services = () => {
   
       {/* Grille à deux colonnes pour garder la carte IA à gauche */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
-        
+  
         {/* Colonne gauche pour la carte IA */}
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
           <motion.div
@@ -98,43 +98,46 @@ const Services = () => {
             >
               Voir les détails
             </button>
+  
+            {/* Section des livres PDF */}
+            <div className="mt-8">
+              <h2 className="text-center text-3xl font-semibold mb-6">
+                Livres sur l'IA (PDF)
+              </h2>
+              <div>
+                {pdfFiles.map((pdf, index) => (
+                  <div
+                    key={index}
+                    className="border border-gray-400 rounded-lg p-6 shadow-lg text-center mb-4"
+                  >
+                    <h3 className="text-lg font-semibold mb-4">{pdf.name}</h3>
+                    <a
+                      href={pdf.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      Télécharger / Voir le PDF
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
   
-
-
-    {/* Section des livres PDF */}
-    <div>
-      <h2 className="text-center text-3xl font-semibold mb-6">
-        Livres sur l'IA (PDF)
-      </h2>
-
-      <div>
-        {pdfFiles.map((pdf, index) => (
-          <div
-            key={index}
-            className="border border-gray-400 rounded-lg p-6 shadow-lg text-center"
-          >
-            <h3 className="text-lg font-semibold mb-4">{pdf.name}</h3>
-            <a
-              href={pdf.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              Télécharger / Voir le PDF
-            </a>
-          </div>
-        ))}
+        {/* Right column or other content can go here */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
+          {/* Add any additional content for the right column here */}
+        </div>
       </div>
     </div>
-  </div>
-
+  
   
 
   
-</div>
+  );
+  
 
       {/* Popup Modale */}
       {showModal && selectedService && (
@@ -168,8 +171,7 @@ const Services = () => {
           </motion.div>
         </div>
       )}
-    </div>
   
 
-    )}
+    };
 export default Services;
