@@ -55,7 +55,6 @@ const PdfCarousel = ({ pdfFiles }) => {
               alt={`${pdf.name} Cover`}
               className="w-full h-40 rounded-t-lg object-contain transition-transform duration-300 ease-in" // Smooth transition on image hover
             />
-            <div className="flex flex-col flex-grow justify-between p-4"> {/* Flexbox for content spacing */}
               <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
               <a
                 href={pdf.url}
@@ -65,7 +64,7 @@ const PdfCarousel = ({ pdfFiles }) => {
               >
                 Télécharger / Voir le PDF
               </a>
-            </div>
+            
           </div>
         ))}
       </Slider>
