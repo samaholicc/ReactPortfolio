@@ -42,12 +42,10 @@ const Services = () => {
           >
             <img
               src={interestImage}
-              alt="Intelligence Artificielle"
+              alt="Image representing Intelligence Artificielle"
               className="w-22 h-22 mx-auto mb-4 rounded-full"
             />
-            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
-              Intelligence Artificielle (IA)
-            </h3>
+            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">Intelligence Artificielle (IA)</h3>
             <p className="text-center text-gray-600 dark:text-white/80 mb-4">
               L'IA permet aux machines d'apprendre et de prendre des décisions intelligentes en utilisant des algorithmes avancés.
             </p>
@@ -58,7 +56,7 @@ const Services = () => {
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                Plus d'informations 1
+                              Plus d'informations 1
               </a>
               <br />
               <a
@@ -82,33 +80,30 @@ const Services = () => {
             >
               Voir les détails
             </button>
-
-   {/* Section des livres PDF */}
-  
           </motion.div>
         </div>
 
         <div className="mt-8">
-              <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA (PDF)</h2>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
-                {pdfFiles.map((pdf, index) => (
-                  <div
-                    key={index}
-                    className="border border-gray-300 rounded-lg p-4 shadow-md text-center"
-                  >
-                    <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
-                    <a
-                      href={pdf.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
-                    >
-                      Télécharger / Voir le PDF
-                    </a>
-                  </div>
-                ))}
+          <h2 className="text-center text-3xl font-semibold mb-6">Livres sur l'IA (PDF)</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
+            {pdfFiles.map((pdf, index) => (
+              <div
+                key={pdf.name} // Use pdf.name instead of index for better key
+                className="border border-gray-300 rounded-lg p-4 shadow-md text-center"
+              >
+                <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
+                <a
+                  href={pdf.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
+                >
+                  Télécharger / Voir le PDF
+                </a>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Popup Modal */}
@@ -123,12 +118,8 @@ const Services = () => {
             <h3 className="text-2xl font-semibold text-gray-700 mb-4">
               Détails sur {selectedService.title}
             </h3>
-            <p className="text-gray-600 text-sm mb-4">
-              {selectedService.details}
-            </p>
-            <h4 className="text-xl font-semibold text-gray-700 mb-2">
-              Avantages
-            </h4>
+            <p className="text-gray-600 text-sm mb-4">{selectedService.details}</p>
+            <h4 className="text-xl font-semibold text-gray-700 mb-2">Avantages</h4>
             <ul className="space-y-2 text-gray-600 text-sm">
               {selectedService.advantages.map((advantage, idx) => (
                 <li key={idx}>• {advantage}</li>
