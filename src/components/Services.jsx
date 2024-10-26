@@ -16,9 +16,7 @@ import aiBook6 from "../assets/The_AI_Classroom_The_Ultimate_Guide_to_Artificial
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-  const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
-
 
   // Liste des PDF sur l'IA
   const pdfFiles = [
@@ -48,6 +46,7 @@ const Services = () => {
   
       {/* Grille à deux colonnes pour garder la carte IA à gauche et le carousel à droite */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
+        
         {/* Colonne gauche pour la carte IA */}
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
           <motion.div
