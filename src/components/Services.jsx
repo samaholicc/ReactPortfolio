@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import interestImage from "../assets/ia.png";
+import interestImage from "../assets/01-future-cm.png";
 import aiBook1 from "../assets/AI_for_Absolute_Beginners_by_Oliver_Theobald.pdf";
 import aiBook2 from "../assets/Artificial-Intelligence-The-Ultimate-Guide-to-AI.pdf";
 import aiBook3 from "../assets/ChatGPT-Decoded_-A-Beginner_s-Guide-to-AI-Enhanced-Living-by-David-Wiens.pdf";
