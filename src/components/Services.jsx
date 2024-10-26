@@ -25,10 +25,6 @@ import aiBook4Cover from "../assets/aiBook4Cover.jpg"; // Replace with correct c
 import aiBook5Cover from "../assets/aiBook5Cover.jpeg"; // Replace with correct cover image path
 import aiBook6Cover from "../assets/aiBook6Cover.jpg"; // Replace with correct cover image path
 
-
-
-
-
 const PdfCarousel = ({ pdfFiles }) => {
   const settings = {
     dots: true,
@@ -46,12 +42,14 @@ const PdfCarousel = ({ pdfFiles }) => {
         {pdfFiles.map((pdf) => (
           <div
             key={pdf.name}
-            className="border border-gray-300 rounded-lg p-4 shadow-md text-center"
+            className="border border-gray-300 rounded-lg p-4 shadow-md text-centerflex flex-col justify-between"
+            style={{ height: '300px' }}
           >
             <img
               src={pdf.cover}
               alt={`${pdf.name} Cover`}
               className="w-full h-auto mb-2 rounded-md"
+              style={{ maxHeight: '150px', objectFit: 'cover' }} 
             />
             <h3 className="text-lg font-semibold mb-2">{pdf.name}</h3>
             <a
