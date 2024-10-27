@@ -60,9 +60,10 @@ const Education = () => {
               } w-full`}
             >
               {/* Circle Indicator */}
-              <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center z-10 mb-4 md:mb-0">
-                <div className="w-4 h-4 bg-purple-600 rounded-full"></div>
+              <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center z-10 mb-4 md:mb-0 md:mr-4">
+              <div className="w-4 h-4 bg-purple-600 rounded-full"></div>
               </div>
+
 
               <div
                 className={`w-full md:w-[40%] p-6 border border-gray-400 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 duration-500 ${
