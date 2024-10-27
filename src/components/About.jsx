@@ -16,7 +16,7 @@ import {
   SiLaravel,
   SiHtml5,
   SiCss3,
-  
+  SiReact
 } from "react-icons/si"; // Importer les autres icônes d'outils
 import user_image from "../assets/samia.jpg";
 import circular_text from "../assets/ev.png";
@@ -144,7 +144,7 @@ const About = () => {
               {/* Python - Bleu */}
             </li>
             <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-              <SiReact className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" />{" "}
+              < SiReact className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" />{" "}
               {/* React - Bleu */}
             </li>
             {/* Icône HTML */}
