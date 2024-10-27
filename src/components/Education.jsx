@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+
 const Education = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -60,38 +61,27 @@ const Education = () => {
             >
               {/* Circle Indicator */}
               <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center z-10 mb-4 md:mb-0 md:mr-4">
-              <div className="w-4 h-4 bg-purple-600 rounded-full"></div>
+                <div className="w-4 h-4 bg-purple-600 rounded-full"></div>
               </div>
 
-
               <div
-  className={`w-full md:w-[40%] p-6 border border-gray-400 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 duration-500 ${
-    index % 2 === 0
-      ? "md:ml-8 text-left" // This will apply margin-left for even index
-      : "md:mr-8 text-left md:text-right"
-  } ml-8`} // Added the ml-8 class here to apply margin-left 2rem
->
-  <h3 className="text-2xl font-semibold text-gray-700 dark:text-white">
-    {edu.institution}
-  </h3>
-  <p className="text-gray-600 text-sm dark:text-white/80 mt-2">
-    {edu.desc}
-  </p>
-  <button
-    className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
-    onClick={() =>
-      handleShowOptions([
-        edu.option1,
-        edu.option2,
-        edu.option3,
-        edu.option4,
-      ])
-    }
-  >
-    Voir les détails
-  </button>
-</div>
-
+                className={`w-full md:w-[40%] p-6 border border-gray-400 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 duration-500 ${
+                  index % 2 === 0 ? "md:ml-8 text-left" : "md:mr-8 text-left md:text-right"
+                }`}
+              >
+                <h3 className="text-2xl font-semibold text-gray-700 dark:text-white">
+                  {edu.institution}
+                </h3>
+                <p className="text-gray-600 text-sm dark:text-white/80 mt-2">
+                  {edu.desc}
+                </p>
+                <button
+                  className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
+                  onClick={() => handleShowOptions([edu.option1, edu.option2, edu.option3, edu.option4])}
+                >
+                  Voir les détails
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -100,39 +90,28 @@ const Education = () => {
       {/* Modal Popup */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-         <motion.div
-          key={index}
-          initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-          whileInView={{ opacity: 1, x: 0, scale: 1.05 }}
-          viewport={{ once: true }}
-          transition={{
-          type: "spring",
-          stiffness: 50,
-          duration: 0.5,
-          delay: index * 0.2,
-          }}
-        className={`flex flex-col md:flex-row items-center ${
-          index % 2 === 0 ? "md:justify-start" : "md:justify-end"
-        } w-full ${index === 1 ? "ml-8" : ""} ${index === 1 ? "md:mt-4" : ""}`} // Added "ml-8" for left margin for the second card
-      >
-        <h3 className="text-2xl font-semibold text-gray-700 mb-4">
-          Options
-        </h3>
-        <ul className="space-y-2 text-gray-600">
-          {selectedOptions.map((option, idx) => (
-            <li key={idx} className="text-lg">
-              • {option}
-            </li>
-          ))}
-        </ul>
-          <button
-          className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-          onClick={handleCloseModal}
-        >
-          Fermer
-          </button>
-        </motion.div>
-
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white rounded-lg shadow-lg p-6 z-10 w-11/12 md:w-1/3"
+          >
+                        <h3 className="text-2xl font-semibold text-gray-700 mb-4">Options</h3>
+            <ul className="space-y-2 text-gray-600">
+              {selectedOptions.map((option, idx) => (
+                <li key={idx} className="text-lg">
+                  • {option}
+                </li>
+              ))}
+            </ul>
+            <button
+              className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+              onClick={handleCloseModal}
+            >
+              Fermer
+            </button>
+          </motion.div>
         </div>
       )}
     </div>
