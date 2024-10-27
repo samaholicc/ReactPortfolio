@@ -16,6 +16,7 @@ import {
   SiLaravel,
   SiHtml5,
   SiCss3,
+  SiPython
 } from "react-icons/si"; // Importer les autres icônes d'outils
 import user_image from "../assets/samia.jpg";
 import circular_text from "../assets/ev.png";
