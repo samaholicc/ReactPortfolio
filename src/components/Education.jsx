@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Importing framer-motion for animations
-
+import { motion } from "framer-motion"; 
 const Education = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
