@@ -59,7 +59,7 @@ const About = () => {
                 Support IT
               </h3>
               <p className="text-gray-600 text-sm dark:text-white/80">
-                Easy Vista, Power BI, VmWare HyperV
+                Easy Vista, Power BI, VmWare, et HyperV
               </p>
             </li>
 
@@ -70,7 +70,7 @@ const About = () => {
                 Développement Web
               </h3>
               <p className="text-gray-600 text-sm dark:text-white/80">
-                HTML, CSS, JavaScript, Python, PHP, Java, Laravel, Symfony et C#
+                HTML, CSS, JavaScript, Python, PHP, Java, React, Laravel, Symfony et C#
               </p>
             </li>
 
@@ -81,7 +81,7 @@ const About = () => {
                 Cloud
               </h3>
               <p className="text-gray-600 text-sm dark:text-white/80">
-                Windows Azure, Google Cloud, AWS
+                Windows Azure, Google Cloud et AWS
               </p>
             </li>
 
@@ -92,7 +92,7 @@ const About = () => {
                 Intérêts
               </h3>
               <p className="text-gray-600 text-sm dark:text-white/80">
-                Agile, Ingénierie Full Stack, Cybersécurité
+                Agile, Ingénierie Full Stack et Cybersécurité
               </p>
             </li>
           </ul>
@@ -142,7 +142,10 @@ const About = () => {
               <SiPython className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" />{" "}
               {/* Python - Bleu */}
             </li>
-
+            <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+              <SiReact className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" />{" "}
+              {/* React - Bleu */}
+            </li>
             {/* Icône HTML */}
           </ul>
         </div>
