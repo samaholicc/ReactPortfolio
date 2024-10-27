@@ -65,32 +65,33 @@ const Education = () => {
 
 
               <div
-                className={`w-full md:w-[40%] p-6 border border-gray-400 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 duration-500 ${
-                  index % 2 === 0
-                    ? "md:ml-8 text-left"
-                    : "md:mr-8 text-left md:text-right"
-                }`}
-              >
-                <h3 className="text-2xl font-semibold text-gray-700 dark:text-white">
-                  {edu.institution}
-                </h3>
-                <p className="text-gray-600 text-sm dark:text-white/80 mt-2">
-                  {edu.desc}
-                </p>
-                <button
-                  className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
-                  onClick={() =>
-                    handleShowOptions([
-                      edu.option1,
-                      edu.option2,
-                      edu.option3,
-                      edu.option4,
-                    ])
-                  }
-                >
-                  Voir les détails
-                </button>
-              </div>
+  className={`w-full md:w-[40%] p-6 border border-gray-400 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 duration-500 ${
+    index % 2 === 0
+      ? "md:ml-8 text-left" // This will apply margin-left for even index
+      : "md:mr-8 text-left md:text-right"
+  } ml-8`} // Added the ml-8 class here to apply margin-left 2rem
+>
+  <h3 className="text-2xl font-semibold text-gray-700 dark:text-white">
+    {edu.institution}
+  </h3>
+  <p className="text-gray-600 text-sm dark:text-white/80 mt-2">
+    {edu.desc}
+  </p>
+  <button
+    className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
+    onClick={() =>
+      handleShowOptions([
+        edu.option1,
+        edu.option2,
+        edu.option3,
+        edu.option4,
+      ])
+    }
+  >
+    Voir les détails
+  </button>
+</div>
+
             </motion.div>
           ))}
         </div>
