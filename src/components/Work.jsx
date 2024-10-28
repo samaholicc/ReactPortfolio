@@ -8,7 +8,7 @@ const Work = () => {
     <div id="work" className="w-full px-[12%] py-10 scroll-mt-20">
       
       <h2 className="text-center text-5xl font-Ovo">
-        Mes dernières réalisations
+        Mes réalisations
       </h2>
 
       <div className="grid grid-cols-auto my-10 gap-5 dark:text-black">
