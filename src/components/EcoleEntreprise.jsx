@@ -35,7 +35,7 @@ const styles = {
   heading: {
     fontSize: '2.5rem', // Matches the text-5xl class roughly
     fontFamily: 'Ovo, serif', // Assumes Ovo is loaded correctly
-    marginBottom: '20px', // Adds some space between heading and cards
+    marginBottom: '40px', // Adds some space between heading and cards
   },
   container: {
     display: 'flex',
