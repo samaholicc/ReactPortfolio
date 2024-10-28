@@ -103,19 +103,21 @@ const Navbar = () => {
             <a href="#about" className="no-underline hover:border-b-2 border-purple-500">À propos</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">Ecole et Entreprise</a>
-          </li>
-          <li className="hover:border-b-2 border-purple-500">
             <a href="#educations" className="no-underline hover:border-b-2 border-purple-500">BTS SIO</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#services" className="no-underline hover:border-b-2 border-purple-500">Veille-technologique</a>
+            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">Ecole et Entreprise</a>
           </li>
+         
+          
           <li className="hover:border-b-2 border-purple-500">
             <a href="#work" className="no-underline hover:border-b-2 border-purple-500">Realisations</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#projects" className="no-underline hover:border-b-2 border-purple-500">Projets</a>
+          </li>
+          <li className="hover:border-b-2 border-purple-500">
+            <a href="#services" className="no-underline hover:border-b-2 border-purple-500">Veille technologique</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#contact" className="no-underline hover:border-b-2 border-purple-500">Contact</a>
@@ -173,11 +175,7 @@ const Navbar = () => {
               Ecole et Projets
             </a>
           </li>
-          <li className="hover:border-b-2 border-purple-500">
-            <a href="#services" onClick={closeMenu} className="no-underline">
-              Veille-technologique
-            </a>
-          </li>
+          
 
           <li className="hover:border-b-2 border-purple-500">
             <a href="#work" onClick={closeMenu} className="no-underline">
@@ -187,6 +185,11 @@ const Navbar = () => {
           <li className="hover:border-b-2 border-purple-500">
             <a href="#projects" onClick={closeMenu} className="no-underline">
               Mes Projets
+            </a>
+          </li>
+          <li className="hover:border-b-2 border-purple-500">
+            <a href="#services" onClick={closeMenu} className="no-underline">
+              Veille technologique
             </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">

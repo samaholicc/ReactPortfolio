@@ -37,7 +37,7 @@ const Header = () => {
         <a
           href={resume_pdf}
           download="resume.pdf"
-          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
+          className="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"
         >
           Mon CV{" "}
           <img src={right_arrows} alt="CV download icon" className="w-4" />
@@ -46,9 +46,9 @@ const Header = () => {
         <a
           href={these_pdf}
           download="these.pdf"
-          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
+          className="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"
         >
-          Tableau de Thèse{" "}
+          Tableau de synthèse{" "}
           <img
             src={right_arrows} alt="Download Thesis icon"
             className="w-4"
