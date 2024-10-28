@@ -11,7 +11,10 @@ import Education from "./components/Education";
 import Projects from "./components/Projects";
 import EcoleEntreprise from "./components/EcoleEntreprise"
 
-const App = () => {
+const App 
+
+
+= () => {
   return (
     <>
       <Navbar />
