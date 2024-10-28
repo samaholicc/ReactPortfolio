@@ -9,9 +9,8 @@ const EcoleEntreprise = () => {
       <h2 style={styles.heading}>Ecole et Entreprise</h2>
       <div style={styles.container}>
         <Card title="Webitech Paris" image={sampleImage} description="Formation BTS SIO SLAM" />
-        
         <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif" />
-        <Card title="Notre Dame du Grandchamp" image={sampleImage2} description="Stagiare Technicienne informatique" />
+        <Card title="Notre Dame du Grandchamp" image={sampleImage2} description="Stagiaire Technicienne informatique" />
 
       </div>
     </div>

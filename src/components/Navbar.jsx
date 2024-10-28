@@ -106,12 +106,12 @@ const Navbar = () => {
             <a href="#educations" className="no-underline hover:border-b-2 border-purple-500">BTS SIO</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">Ecole et Entreprise</a>
+            <a href="#EcoleEntreprise" className="no-underline hover:border-b-2 border-purple-500">École et Entreprise</a>
           </li>
          
           
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#work" className="no-underline hover:border-b-2 border-purple-500">Realisations</a>
+            <a href="#work" className="no-underline hover:border-b-2 border-purple-500">Réalisations</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#projects" className="no-underline hover:border-b-2 border-purple-500">Projets</a>
@@ -172,19 +172,19 @@ const Navbar = () => {
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#EcoleEntreprise" onClick={closeMenu} className="no-underline">
-              Ecole et Entreprise
+            École et Entreprise
             </a>
           </li>
           
 
           <li className="hover:border-b-2 border-purple-500">
             <a href="#work" onClick={closeMenu} className="no-underline">
-              Mes Realisations
+              Réalisations
             </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#projects" onClick={closeMenu} className="no-underline">
-              Mes Projets
+              Projets
             </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
