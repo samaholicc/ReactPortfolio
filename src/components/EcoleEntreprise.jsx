@@ -40,7 +40,7 @@ const styles = {
   container: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'flex-start',
+   
     flexDirection: 'row', 
     gap: '20px', 
     padding: '50px',
