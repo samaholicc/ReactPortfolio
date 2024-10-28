@@ -5,7 +5,7 @@ import sampleImage2 from '../assets/NDDGC.jpg';
 
 const EcoleEntreprise = () => {
   return (
-    <div style={styles.wrapper}>
+    <div style={styles.wrapper} id="EcoleEntreprise">
       <h2 style={styles.heading}>Ecole et Entreprise</h2>
       <div style={styles.container}>
         <Card title="Webitech Paris" image={sampleImage} description="Formation BTS SIO SLAM" />
