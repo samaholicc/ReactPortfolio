@@ -43,7 +43,7 @@ const styles = {
     alignItems: 'flex-start',
     flexDirection: 'row', 
     gap: '20px', 
-    padding: '20px',
+    padding: '50px',
   },
   card: {
     border: '1px solid #ccc',
