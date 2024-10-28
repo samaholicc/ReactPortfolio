@@ -11,6 +11,7 @@ import Projects from "./components/Projects";
 import EcoleEntreprise from "./components/EcoleEntreprise";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import VeilleTechnologique from "./components/VeilleTechnologique";
 
 const App = () => {
   return (
@@ -18,14 +19,12 @@ const App = () => {
       <Navbar />
       <Header />
       <About />
-      
-    
+
       <Education />
       <EcoleEntreprise/>
-     
-
       <Work />
       <Projects />
+      <VeilleTechnologique />
       <Contact />
       <Footer />
     </>
