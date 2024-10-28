@@ -24,10 +24,9 @@ const App = () => {
       <Education />
       <EcoleEntreprise/>
      
-     
+
       <Work />
       <Projects />
-      <Services />
       <Contact />
       <Footer />
     </>
