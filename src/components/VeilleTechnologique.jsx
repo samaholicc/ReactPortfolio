@@ -1,6 +1,12 @@
 import React from "react"; 
 import sampleImage5 from "../assets/atom.png"; 
 
+
+<div className="flex-1">
+  <p className="mb-10 max-w-2xl font-Ovo">
+  La veille technologique est une démarche active de recherche et de surveillance de l'évolution des technologies, permettant de rester informé des nouveautés, tendances et innovations. Pour un développeur, et plus spécifiquement dans le domaine du développement web avec React, la veille technologique sert à suivre les nouvelles fonctionnalités de la librairie, les bonnes pratiques, les outils connexes, et les tendances qui enrichissent ou optimisent le travail.
+</p>
+</div>
 // Définition du composant Card
 const Card = ({ title, image, description }) => {
   return (
