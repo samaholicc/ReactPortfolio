@@ -1,17 +1,11 @@
-import React from 'react';
-import sampleImage from '../assets/webitech.jpg'; 
-import sampleImage1 from '../assets/Vinci.png';
-import sampleImage2 from '../assets/NDDGC.jpg';
-
-const EcoleEntreprise = () => {
+import React from "react";
+import sampleImage5 from "../assets/atom.png"; 
+const VeilleTechnologique = () => {
   return (
-    <div style={styles.wrapper} id="EcoleEntreprise">
-      <h2 style={styles.heading}>Ecole et Entreprise</h2>
+    <div style={styles.wrapper} id="VeilleTechnologique">
+      <h2 style={styles.heading}>Veille technologique</h2>
       <div style={styles.container}>
-        <Card title="Webitech Paris" image={sampleImage} description="Formation BTS SIO SLAM" />
-        <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif" />
-        <Card title="Notre Dame du Grandchamp" image={sampleImage2} description="Stagiaire Technicienne informatique" />
-
+        <Card title="React" image={sampleImage5} description="React Icon" />
       </div>
     </div>
   );
@@ -19,7 +13,7 @@ const EcoleEntreprise = () => {
 
 const Card = ({ title, image, description }) => {
   return (
-    <div id="EcoleEntreprise" style={styles.card}>
+    <div style={styles.card}>
       <h2 style={styles.cardTitle}>{title}</h2>
       <img src={image} alt={title} style={styles.image} />
       <p style={styles.description}>{description}</p>
@@ -29,19 +23,18 @@ const Card = ({ title, image, description }) => {
 
 const styles = {
   wrapper: {
-    textAlign: 'center', // Centers the heading
+    textAlign: 'center',
   },
   heading: {
-    fontSize: '2.5rem', // Matches the text-5xl class roughly
-    fontFamily: 'Ovo, serif', // Assumes Ovo is loaded correctly
-    marginBottom: '40px', // Adds some space between heading and cards
+    fontSize: '2.5rem',
+    fontFamily: 'Ovo, serif',
+    marginBottom: '40px',
   },
   container: {
     display: 'flex',
     justifyContent: 'center',
-   
-    flexDirection: 'row', 
-    gap: '20px', 
+    flexDirection: 'row',
+    gap: '20px',
     padding: '50px',
   },
   card: {
@@ -50,11 +43,11 @@ const styles = {
     padding: '16px',
     boxShadow: '2px 2px 12px #aaa',
     width: '300px',
-    textAlign: 'center', // Center text inside the card
+    textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center', // Center content horizontally
-    justifyContent: 'center', // Center content vertically
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   cardTitle: {
     fontSize: '1.5rem',
@@ -68,8 +61,7 @@ const styles = {
   },
   description: {
     fontSize: '1rem',
-   
   },
 };
 
-export default EcoleEntreprise;
+export default VeilleTechnologique;
