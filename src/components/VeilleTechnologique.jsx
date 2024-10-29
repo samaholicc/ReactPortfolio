@@ -5,7 +5,7 @@ const Card = ({ title, image, description }) => {
   return (
     <div style={styles.card}>
       <h2 style={styles.cardTitle}>{title}</h2>
-      <img src={image} alt={title} style={styles.image} />
+      <img src={image} alt={`${title} Icon`} style={styles.image} />
       <p style={styles.description}>{description}</p>
     </div>
   );
@@ -37,7 +37,7 @@ const styles = {
   container: {
     display: 'flex',
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexWrap: 'wrap', // Use wrap to make it responsive
     gap: '20px',
     padding: '50px',
   },
