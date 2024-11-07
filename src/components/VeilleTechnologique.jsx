@@ -35,44 +35,40 @@ const VeilleTechnologique = () => {
   return (
     <div style={styles.wrapper} id="VeilleTechnologique">
       <h2 style={styles.heading}>Veille technologique</h2>
-     
-      
+      <p style={styles.paragraph}>
+        La veille technologique est un processus systématique de collecte, d'analyse et de diffusion d'informations pertinentes
+        sur les évolutions techniques et les innovations dans un domaine spécifique. Elle permet aux professionnels de rester informés
+        des tendances, des nouvelles technologies et des meilleures pratiques, afin d'anticiper les changements et d'améliorer
+        leur prise de décision.
+      </p>
       <div style={styles.container}>
+        <div style={styles.carousel}>
+          <button style={styles.button} onClick={prevArticle}>‹</button>
+          <div style={styles.carouselContent}>
+            <h3>{articles[currentIndex].title}</h3>
+            <p>{articles[currentIndex].description}</p>
+            <a href={articles[currentIndex].link} target="_blank" rel="noopener noreferrer">
+              Lire l'article
+            </a>
+          </div>
+          <button style={styles.button} onClick={nextArticle}>›</button>
+        </div>
         <Card 
           title="React" 
           image={sampleImage5} 
-          description="Dans ma veille technologique, je me concentre sur les dernières innovations et meilleures pratiques en matière de développement avec React, afin d'améliorer mes compétences en création d'interfaces utilisateurs dynamiques et performantes." 
+          description="Description of React technology." 
         />
-      </div>
-
-      <div style={styles.carousel}>
-        <button style={styles.button} onClick={prevArticle}>‹</button>
-        <div style={styles.carouselContent}>
-          <h3>{articles[currentIndex].title}</h3>
-          <p>{articles[currentIndex].description}</p>
-          <a href={articles[currentIndex].link} target="_blank" rel="noopener noreferrer">
-            Lire l'article
-          </a>
-        </div>
-        <button style={styles.button} onClick={nextArticle}>›</button>
       </div>
     </div>
   );
 };
-<p  style={styles.description}>
-La veille technologique est un processus systématique de collecte, d'analyse et de diffusion d'informations pertinentes
-sur les évolutions techniques et les innovations dans un domaine spécifique. Elle permet aux professionnels de rester informés
-des tendances, des nouvelles technologies et des meilleures pratiques, afin d'anticiper les changements et d'améliorer
-leur prise de décision. Pour mes recherches, j'utilise Inoreader, un outil efficace qui centralise mes sources d'information
-et me permet de suivre facilement les actualités et les développements liés à la technologie, en particulier dans le
-domaine de React.
-</p>
 
-const Card = ({ title, image }) => {
+const Card = ({ title, image, description }) => {
   return (
     <div style={styles.card}>
       <h2 style={styles.cardTitle}>{title}</h2>
       <img src={image} alt={`${title} Icon`} style={styles.image} />
+      <p style={styles.cardDescription}>{description}</p>
     </div>
   );
 };
@@ -85,7 +81,7 @@ const styles = {
   heading: {
     fontSize: '2.5rem',
     fontFamily: 'Ovo, serif',
-    marginBottom: '20px',
+    marginBottom: '10px',
   },
   paragraph: {
     fontSize: '1rem',
@@ -95,7 +91,7 @@ const styles = {
   },
   container: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between', // Change from center to space-between
     flexWrap: 'wrap',
     gap: '20px',
     padding: '50px',
@@ -122,7 +118,6 @@ const styles = {
     borderRadius: '5px',
     marginBottom: '10px',
   },
-  
   carousel: {
     display: 'flex',
     alignItems: 'center',
@@ -145,7 +140,7 @@ const styles = {
     padding: '10px',
     margin: '0 10px',
   },
-  description: {
+  cardDescription: {
     fontSize: '1rem',
   },
 };
