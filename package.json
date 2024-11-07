@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.1",
+    "express": "npm:Express@^3.0.1",
     "Express": "^3.0.1",
     "framer-motion": "^11.11.10",
     "parser": "^0.1.4",

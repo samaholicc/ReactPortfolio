@@ -41,6 +41,7 @@ const VeilleTechnologique = () => {
       </p>
       <div className="flex items-start gap-20">
         <Card 
+          title2 = "Ma veille technologique :"
           title="React" 
           image={sampleImage5} 
           description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
@@ -83,6 +84,7 @@ const VeilleTechnologique = () => {
 const Card = ({ title, image, description }) => {
   return (
     <div className="relative w-full max-w-md p-6 border border-gray-300 rounded-lg shadow-lg">
+      <h1 className="text-2xl font-semibold mb-2">{title2}</h1>
       <h2 className="text-2xl font-semibold mb-2">{title}</h2>
       <img src={image} alt={`${title} Icon`} className="w-full h-auto rounded mb-4" />
       <p className="text-white-700">{description}</p>
