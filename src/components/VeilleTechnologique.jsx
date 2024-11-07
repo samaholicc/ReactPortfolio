@@ -148,6 +148,14 @@ const styles = {
     fontSize: '1rem',
     marginTop: '10px', // Add some margin for better spacing
   },
+
+  paragraph:{
+    fontSize: '1rem',
+    marginBottom: '40px',
+    maxWidth: '800px',
+    paddingTop: '2.5rem',
+    paddingBottom: '2.5rem'
+  }
 };
 
 export default VeilleTechnologique;
