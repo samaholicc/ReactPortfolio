@@ -1,15 +1,6 @@
 import React from "react";
 import sampleImage5 from "../assets/atom.png"; 
-const VeilleTechnologique = () => {
-  return (
-    <div style={styles.wrapper} id="VeilleTechnologique">
-      <h2 style={styles.heading}>Veille technologique</h2>
-      <div style={styles.container}>
-        <Card title="React" image={sampleImage5} description="React Icon" />
-      </div>
-    </div>
-  );
-};
+
 
 const Card = ({ title, image, description }) => {
   return (

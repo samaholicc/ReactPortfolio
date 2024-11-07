@@ -1,6 +1,15 @@
 import React from "react";
 import sampleImage5 from "../assets/atom.png";
-
+const VeilleTechnologique = () => {
+  return (
+    <div style={styles.wrapper} id="VeilleTechnologique">
+      <h2 style={styles.heading}>Veille technologique</h2>
+      <div style={styles.container}>
+        <Card title="React" image={sampleImage5} description="React Icon" />
+      </div>
+    </div>
+  );
+};
 const Card = ({ title, image, description }) => {
   return (
     <div style={styles.card}>
@@ -11,19 +20,7 @@ const Card = ({ title, image, description }) => {
   );
 };
 
-const VeilleTechnologique = () => {
-  return (
-    <div style={styles.wrapper} id="VeilleTechnologique">
-      <h2 style={styles.heading}>Veille technologique</h2>
-      <p className="mb-10 max-w-2xl font-Ovo">
-        La veille technologique est une démarche active de recherche et de surveillance de l'évolution des technologies, permettant de rester informé des nouveautés, tendances et innovations. Pour un développeur, et plus spécifiquement dans le domaine du développement web avec React, la veille technologique sert à suivre les nouvelles fonctionnalités de la librairie, les bonnes pratiques, les outils connexes, et les tendances qui enrichissent ou optimisent le travail.
-      </p>
-      <div style={styles.container}>
-        <Card title="React" image={sampleImage5} description="React Icon" />
-      </div>
-    </div>
-  );
-};
+
 
 const styles = {
   wrapper: {

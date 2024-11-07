@@ -21,7 +21,7 @@ const App = () => {
       <About />
 
       <Education />
-      <EcoleEntreprise/>
+      <EcoleEntreprise />
       <Work />
       <Projects />
       <VeilleTechnologique />
