@@ -8,7 +8,6 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
-import EcoleEntreprise from "./components/EcoleEntreprise";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import VeilleTechnologique from "./components/VeilleTechnologique";
@@ -21,7 +20,6 @@ const App = () => {
       <About />
 
       <Education />
-      <EcoleEntreprise />
       <Work />
       <Projects />
       <VeilleTechnologique />
