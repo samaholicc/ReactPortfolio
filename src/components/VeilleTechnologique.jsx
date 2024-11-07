@@ -70,8 +70,8 @@ const Card = ({ title, image, description }) => {
   return (
     <div className="relative w-full max-w-md p-6 border border-gray-300 rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold mb-2">{title}</h2>
-      <img src={image} alt={`${title} Icon`} className="w-full h-auto rounded mb-4" />
-      <p className="text-gray-700">{description}</p>
+      <img src={image} alt={`${title} Icon`} className="w-4 h-auto rounded mb-4" />
+      <p className="text-white-700">{description}</p>
     </div>
   );
 };
