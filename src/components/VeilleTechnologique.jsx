@@ -1,5 +1,6 @@
 import React from "react";
 import sampleImage5 from "../assets/atom.png";
+
 const VeilleTechnologique = () => {
   return (
     <div style={styles.wrapper} id="VeilleTechnologique">

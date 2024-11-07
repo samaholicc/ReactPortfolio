@@ -115,7 +115,7 @@ const Navbar = () => {
             <a href="#projects" className="no-underline hover:border-b-2 border-purple-500">Projets</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#services" className="no-underline hover:border-b-2 border-purple-500">Veille technologique</a>
+            <a href="#VeilleTechnologique" className="no-underline hover:border-b-2 border-purple-500">Veille technologique</a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
             <a href="#contact" className="no-underline hover:border-b-2 border-purple-500">Contact</a>
@@ -186,7 +186,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="hover:border-b-2 border-purple-500">
-            <a href="#services" onClick={closeMenu} className="no-underline">
+            <a href="#VeilleTechnologique" onClick={closeMenu} className="no-underline">
               Veille technologique
             </a>
           </li>
