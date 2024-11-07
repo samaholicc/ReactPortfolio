@@ -1,7 +1,7 @@
 import React from "react";
-import Webitech from 'assets/webitech.jpg'
-import Vinci from 'assets/Vinci.png'
-import NDDGC from 'assets/NDDGC.jpg'
+import Webitech from '../assets/webitech.jpg'
+import Vinci from '../assets/Vinci.png'
+import NDDGC from '../assets/NDDGC.jpg'
 
 const Card = ({ title, image, description }) => {
   const cards = [
