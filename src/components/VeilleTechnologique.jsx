@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sampleImage5 from "../assets/atom.png";
+import Inoreader from "../assets/Inoreader.jpg"
 
 const VeilleTechnologique = () => {
   const [articles, setArticles] = useState([]);
@@ -44,11 +45,12 @@ const VeilleTechnologique = () => {
           image={sampleImage5} 
           description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
         />
-        <div className="flex-1 max-w-3xl">
-          <h3 className="text-3xl mb-4">Mon flux RSS INOREADER</h3>
-          <div className="flex items-center justify-between p-4 border border-gray-300 rounded-lg shadow-lg">
-            <button className="text-2xl" onClick={prevArticle}>‹</button>
-            <div className="text-center flex-1">
+            <div className="flex-1 max-w-3xl">
+            <h3 className="text-3xl mb-4">Mon flux RSS INOREADER</h3>
+            <img src={Inoreader} alt="Inoreader" />
+            <div className="flex items-center justify-between p-4 border border-gray-300 rounded-lg shadow-lg">
+              <button className="text-2xl" onClick={prevArticle}>‹</button>
+              <div className="text-center flex-1">
               {articles.length === 0 ? (
                 <p>Chargement des articles...</p>
               ) : (
