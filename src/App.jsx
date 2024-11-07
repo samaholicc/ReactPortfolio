@@ -11,6 +11,7 @@ import Projects from "./components/Projects";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import VeilleTechnologique from "./components/VeilleTechnologique";
+import EcoleEntreprise from  "./components/EcoleEntreprise"
 
 const App = () => {
   return (
