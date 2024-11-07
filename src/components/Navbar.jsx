@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import logo from "../assets/logo.png";
-import logo_dark from "../assets/logo_dark.png";
+
 import header_bg_color from "../assets/header-bg-color.png";
 import moon_icon from "../assets/moon_icon.png";
 import sun_icon from "../assets/sun_icon.png";
-import arrow_icon from "../assets/arrow-icon.png";
-import arrow_icon_dark from "../assets/arrow-icon-dark.png";
+
 import menu_black from "../assets/menu-black.png";
 import menu_white from "../assets/menu-white.png";
 import close_black from "../assets/close-black.png";
