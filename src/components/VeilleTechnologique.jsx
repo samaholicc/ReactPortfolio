@@ -47,16 +47,19 @@ const VeilleTechnologique = () => {
           image={sampleImage5} 
           description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML." 
         />
-        <div style={styles.carousel}>
-          <button style={styles.button} onClick={prevArticle}>‹</button>
-          <div style={styles.carouselContent}>
-            <h3>{articles[currentIndex].title}</h3>
-            <p>{articles[currentIndex].description}</p>
-            <a href={articles[currentIndex].link} target="_blank" rel="noopener noreferrer">
-              Lire l'article
-            </a>
+        <div style={styles.carouselContainer}>
+          <h3 style={styles.carouselTitle}>Mon flux RSS INOREADER</h3>
+          <div style={styles.carousel}>
+            <button style={styles.button} onClick={prevArticle}>‹</button>
+            <div style={styles.carouselContent}>
+              <h3>{articles[currentIndex].title}</h3>
+              <p>{articles[currentIndex].description}</p>
+              <a href={articles[currentIndex].link} target="_blank" rel="noopener noreferrer">
+                Lire l'article
+              </a>
+            </div>
+            <button style={styles.button} onClick={nextArticle}>›</button>
           </div>
-          <button style={styles.button} onClick={nextArticle}>›</button>
         </div>
       </div>
     </div>
@@ -91,18 +94,16 @@ const styles = {
   },
   container: {
     display: 'flex',
-    justifyContent: 'flex', // Align items to space-between
-    alignItems: 'flex-start', // Align to start for better spacing
-    flexWrap: 'wrap',
+    flexDirection: 'column', // Changed to column to stack card and carousel
+    alignItems: 'center', // Center align items
     gap: '20px',
-    padding: '20px',
   },
   card: {
     border: '1px solid #ccc',
     borderRadius: '5px',
     padding: '16px',
     boxShadow: '2px 2px 12px #aaa',
-    width: '300px', // Fixed width for the card
+    width: '100%', // Full width for the card
     textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
@@ -114,18 +115,24 @@ const styles = {
     marginBottom: '10px',
   },
   image: {
-    width: '25%',
+    width: '100%', // Image now occupies full width
     height: 'auto',
     borderRadius: '5px',
+    marginBottom: '10px',
+  },
+  carouselContainer: {
+    width: '100%', // Ensures the carousel uses full width
+    marginTop: '20px',
+  },
+  carouselTitle: {
+    fontSize: '1.5rem',
     marginBottom: '10px',
   },
   carousel: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between', // Space the buttons and content evenly
-    flex: 1, // Allow the carousel to flex and occupy remaining space
     padding: '10px',
-    marginTop: '20px',
     border: '1px solid #ccc',
     borderRadius: '5px',
     boxShadow: '2px 2px 12px #aaa',
@@ -133,6 +140,7 @@ const styles = {
   carouselContent: {
     textAlign: 'center',
     maxWidth: '200px', // Adjusted width for the carousel content
+    flex: 1, // Allow the carousel content to occupy available space
   },
   button: {
     background: 'none',
