@@ -47,7 +47,7 @@ const VeilleTechnologique = () => {
         />
             <div className="flex-1 max-w-3xl">
               <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
-              <h3 className="text-3xl mb-4">Mon flux RSS INOREADER</h3>
+              <h3 className="text-3xl mb-4 font-semibold ">Flux RSS Inoreader</h3>
                 <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
                 <div className="flex items-center justify-between">
                   <button className="text-2xl" onClick={prevArticle}>‹</button>
