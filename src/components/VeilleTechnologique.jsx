@@ -91,7 +91,7 @@ const styles = {
   },
   container: {
     display: 'flex',
-    justifyContent: 'space-between', // Align items to space-between
+    justifyContent: 'flex', // Align items to space-between
     alignItems: 'flex-start', // Align to start for better spacing
     flexWrap: 'wrap',
     gap: '20px',
