@@ -121,7 +121,7 @@ const styles = {
     marginBottom: '10px',
   },
   carouselContainer: {
-    width: '100%', // Ensures the carousel uses full width
+    width: '25%', // Ensures the carousel uses full width
     marginTop: '20px',
   },
   carouselTitle: {
