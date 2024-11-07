@@ -53,7 +53,6 @@ const VeilleTechnologique = () => {
   <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
   <div className="flex items-center justify-between">
     <button className="text-2xl" onClick={prevArticle}>‹</button>
-    <button className="text-2xl" onClick={nextArticle}>›</button>
     <div className="text-center flex-1">
       {articles.length === 0 ? (
         <p>Chargement des articles...</p>
@@ -72,6 +71,8 @@ const VeilleTechnologique = () => {
       )}
 
     </div>
+  <button className="text-2xl" onClick={nextArticle}>›</button>
+
   </div>
 </div>
           </div>
