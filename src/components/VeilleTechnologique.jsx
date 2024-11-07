@@ -59,7 +59,7 @@ const VeilleTechnologique = () => {
     </div>
   );
 };
-<p style={styles.paragraph}>
+<p  style={styles.description}>
 La veille technologique est un processus systématique de collecte, d'analyse et de diffusion d'informations pertinentes
 sur les évolutions techniques et les innovations dans un domaine spécifique. Elle permet aux professionnels de rester informés
 des tendances, des nouvelles technologies et des meilleures pratiques, afin d'anticiper les changements et d'améliorer
@@ -68,12 +68,11 @@ et me permet de suivre facilement les actualités et les développements liés �
 domaine de React.
 </p>
 
-const Card = ({ title, image, description }) => {
+const Card = ({ title, image }) => {
   return (
     <div style={styles.card}>
       <h2 style={styles.cardTitle}>{title}</h2>
       <img src={image} alt={`${title} Icon`} style={styles.image} />
-      <p style={styles.description}>{description}</p>
     </div>
   );
 };
@@ -123,9 +122,7 @@ const styles = {
     borderRadius: '5px',
     marginBottom: '10px',
   },
-  description: {
-    fontSize: '1rem',
-  },
+  
   carousel: {
     display: 'flex',
     alignItems: 'center',
@@ -147,6 +144,9 @@ const styles = {
     cursor: 'pointer',
     padding: '10px',
     margin: '0 10px',
+  },
+  description: {
+    fontSize: '1rem',
   },
 };
 
