@@ -69,10 +69,10 @@ const VeilleTechnologique = () => {
           </a>
         </>
       )}
+    <button className="text-2xl" onClick={nextArticle}>›</button>
     </div>
   </div>
 </div>
-            <button className="text-2xl" onClick={nextArticle}>›</button>
           </div>
         </div>
       </div>
