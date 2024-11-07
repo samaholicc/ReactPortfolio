@@ -103,7 +103,7 @@ const styles = {
     borderRadius: '5px',
     padding: '16px',
     boxShadow: '2px 2px 12px #aaa',
-    width: '100%', // Full width for the card
+    width: '50%', // Full width for the card
     textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
