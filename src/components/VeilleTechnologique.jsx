@@ -42,7 +42,6 @@ const VeilleTechnologique = () => {
         leur prise de décision.
       </p>
       <div style={styles.container}>
-        
         <Card 
           title="React" 
           image={sampleImage5} 
@@ -75,63 +74,65 @@ const Card = ({ title, image, description }) => {
 };
 
 const styles = {
-    wrapper: {
-      textAlign: 'center',
-      padding: '20px',
-    },
-    heading: {
-      fontSize: '2.5rem',
-      fontFamily: 'Ovo, serif',
-      marginBottom: '10px',
-    },
-    paragraph: {
-      fontSize: '1rem',
-      marginBottom: '40px',
-      maxWidth: '800px',
-      margin: '0 auto',
-    },
-    container: {
-      display: 'flex',
-      justifyContent: 'flex-start', // Align items to flex-start
-      flexWrap: 'wrap',
-      gap: '20px',
-      padding: '50px',
-    },
-    card: {
-      border: '1px solid #ccc',
-      borderRadius: '5px',
-      padding: '16px',
-      boxShadow: '2px 2px 12px #aaa',
-      width: '300px', // Fixed width for the card
-      textAlign: 'center',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    cardTitle: {
-      fontSize: '1.5rem',
-      marginBottom: '10px',
-    },
-    image: {
-      width: '100%',
-      height: 'auto',
-      borderRadius: '5px',
-      marginBottom: '10' },
+  wrapper: {
+    textAlign: 'center',
+    padding: '20px',
+  },
+  heading: {
+    fontSize: '2.5rem',
+    fontFamily: 'Ovo, serif',
+    marginBottom: '10px',
+  },
+  paragraph: {
+    fontSize: '1rem',
+    marginBottom: '40px',
+    maxWidth: '800px',
+    margin: '0 auto',
+  },
+  container: {
+    display: 'flex',
+    justifyContent: 'space-between', // Align items to space-between
+    alignItems: 'flex-start', // Align to start for better spacing
+    flexWrap: 'wrap',
+    gap: '20px',
+    padding: '20px',
+  },
+  card: {
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    padding: '16px',
+    boxShadow: '2px 2px 12px #aaa',
+    width: '300px', // Fixed width for the card
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cardTitle: {
+    fontSize: '1.5rem',
+    marginBottom: '10px',
+  },
+  image: {
+    width: '100%',
+    height: 'auto',
+    borderRadius: '5px',
+    marginBottom: '10px',
+  },
   carousel: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between', // Space the buttons and content evenly
     flex: 1, // Allow the carousel to flex and occupy remaining space
-    marginTop: '40px',
-    padding: '20px',
-    borderTop: '1px solid #ccc',
+    padding: '10px',
+    marginTop: '20px',
+    border: '1px solid #ccc',
     borderRadius: '5px',
     boxShadow: '2px 2px 12px #aaa',
   },
   carouselContent: {
     textAlign: 'center',
-    maxWidth: '300px', // Keep as is to maintain size in carousel
+    maxWidth: '200px', // Adjusted width for the carousel content
   },
   button: {
     background: 'none',
@@ -139,13 +140,12 @@ const styles = {
     fontSize: '1.5rem',
     cursor: 'pointer',
     padding: '10px',
-    margin: '0 10px',
+    margin: '0 5px',
   },
   cardDescription: {
     fontSize: '1rem',
+    marginTop: '10px', // Add some margin for better spacing
   },
 };
-
-
 
 export default VeilleTechnologique;
