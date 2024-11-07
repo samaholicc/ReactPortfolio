@@ -115,13 +115,13 @@ const styles = {
     marginBottom: '10px',
   },
   image: {
-    width: '100%', // Image now occupies full width
+    width: '25%', // Image now occupies full width
     height: 'auto',
     borderRadius: '5px',
     marginBottom: '10px',
   },
   carouselContainer: {
-    width: '25%', // Ensures the carousel uses full width
+    width: '50%', // Ensures the carousel uses full width
     marginTop: '20px',
   },
   carouselTitle: {
