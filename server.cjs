@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 // Route pour récupérer les articles RSS
 app.get('/rss', async (req, res) => {
     try {
-        const feed = await parser.parseURL('https://feeds.feedburner.com/digest-react'); // Remplacez par votre URL RSS
+        const feed = await parser.parseURL('https://www.reddit.com/r/reactjs/.rss'); // Remplacez par votre URL RSS
         res.json(feed.items);
     } catch (error) {
         res.status(500).json({ error: 'Erreur lors de la récupération du flux RSS' });
