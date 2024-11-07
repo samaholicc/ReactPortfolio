@@ -48,32 +48,35 @@ const VeilleTechnologique = () => {
         />
             <div className="flex-1 max-w-3xl">
             <h3 className="text-3xl mb-4">Mon flux RSS INOREADER</h3>
-            
-            <div className="flex items-center justify-between p-4 border border-gray-300 rounded-lg shadow-lg">
-              <div><img src={Inoreader} alt="Inoreader" /></div>
-              <button className="text-2xl" onClick={prevArticle}>‹</button>
-              <div className="text-center flex-1">
-              {articles.length === 0 ? (
-                <p>Chargement des articles...</p>
-              ) : (
-                <>
-                  <h3 className="text-xl font-bold">{articles[currentIndex].title}</h3>
-                  <p>{articles[currentIndex].description}</p>
-                  <a 
-                    href={articles[currentIndex].link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-500 hover:underline">
-                    Lire l'article
-                  </a>
-                </>
-              )}
-            </div>
+
+<div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
+  <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
+  <div className="flex items-center justify-between">
+    <button className="text-2xl" onClick={prevArticle}>‹</button>
+    <div className="text-center flex-1">
+      {articles.length === 0 ? (
+        <p>Chargement des articles...</p>
+      ) : (
+        <>
+          <h3 className="text-xl font-bold">{articles[currentIndex].title}</h3>
+          <p>{articles[currentIndex].description}</p>
+          <a 
+            href={articles[currentIndex].link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-blue-500 hover:underline">
+            Lire l'article
+          </a>
+        </>
+      )}
+    </div>
+  </div>
+</div>
             <button className="text-2xl" onClick={nextArticle}>›</button>
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
