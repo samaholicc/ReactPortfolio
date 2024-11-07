@@ -41,13 +41,8 @@ const VeilleTechnologique = () => {
         des tendances, des nouvelles technologies et des meilleures pratiques, afin d'anticiper les changements et d'améliorer
         leur prise de décision.
       </p>
-      <div className="flex flex-col items-center gap-20">
-        <Card 
-          title="React" 
-          image={sampleImage5} 
-          description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML." 
-        />
-        <div className="w-full max-w-3xl">
+      <div className="flex items-start gap-20">
+        <div className="flex-1 max-w-3xl">
           <h3 className="text-3xl mb-4">Mon flux RSS INOREADER</h3>
           <div className="flex items-center justify-between p-4 border border-gray-300 rounded-lg shadow-lg">
             <button className="text-2xl" onClick={prevArticle}>‹</button>
@@ -61,6 +56,11 @@ const VeilleTechnologique = () => {
             <button className="text-2xl" onClick={nextArticle}>›</button>
           </div>
         </div>
+        <Card 
+          title="React" 
+          image={sampleImage5} 
+          description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
+        />
       </div>
     </div>
   );
