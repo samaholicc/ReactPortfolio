@@ -33,32 +33,32 @@ const VeilleTechnologique = () => {
   };
 
   return (
-    <div style={styles.wrapper} id="VeilleTechnologique">
-      <h2 style={styles.heading}>Veille technologique</h2>
-      <p style={styles.paragraph}>
+    <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
+      <h2 className="text-5xl font-Ovo">Veille technologique</h2>
+      <p className="max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
         La veille technologique est un processus systématique de collecte, d'analyse et de diffusion d'informations pertinentes
         sur les évolutions techniques et les innovations dans un domaine spécifique. Elle permet aux professionnels de rester informés
         des tendances, des nouvelles technologies et des meilleures pratiques, afin d'anticiper les changements et d'améliorer
         leur prise de décision.
       </p>
-      <div style={styles.container}>
+      <div className="flex flex-col items-center gap-20">
         <Card 
           title="React" 
           image={sampleImage5} 
           description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML." 
         />
-        <div style={styles.carouselContainer}>
-          <h3 style={styles.carouselTitle}>Mon flux RSS INOREADER</h3>
-          <div style={styles.carousel}>
-            <button style={styles.button} onClick={prevArticle}>‹</button>
-            <div style={styles.carouselContent}>
-              <h3>{articles[currentIndex].title}</h3>
+        <div className="w-full max-w-3xl">
+          <h3 className="text-3xl mb-4">Mon flux RSS INOREADER</h3>
+          <div className="flex items-center justify-between p-4 border border-gray-300 rounded-lg shadow-lg">
+            <button className="text-2xl" onClick={prevArticle}>‹</button>
+            <div className="text-center flex-1">
+              <h3 className="text-xl font-bold">{articles[currentIndex].title}</h3>
               <p>{articles[currentIndex].description}</p>
-              <a href={articles[currentIndex].link} target="_blank" rel="noopener noreferrer">
+              <a href={articles[currentIndex].link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
                 Lire l'article
               </a>
             </div>
-            <button style={styles.button} onClick={nextArticle}>›</button>
+            <button className="text-2xl" onClick={nextArticle}>›</button>
           </div>
         </div>
       </div>
@@ -68,94 +68,12 @@ const VeilleTechnologique = () => {
 
 const Card = ({ title, image, description }) => {
   return (
-    <div style={styles.card}>
-      <h2 style={styles.cardTitle}>{title}</h2>
-      <img src={image} alt={`${title} Icon`} style={styles.image} />
-      <p style={styles.cardDescription}>{description}</p>
+    <div className="relative w-full max-w-md p-6 border border-gray-300 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+      <img src={image} alt={`${title} Icon`} className="w-full h-auto rounded mb-4" />
+      <p className="text-gray-700">{description}</p>
     </div>
   );
-};
-
-const styles = {
-  wrapper: {
-    textAlign: 'center',
-    padding: '20px',
-  },
-  heading: {
-    fontSize: '2.5rem',
-    fontFamily: 'Ovo, serif',
-    marginBottom: '10px',
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'column', // Changed to column to stack card and carousel
-    alignItems: 'center', // Center align items
-    gap: '20px',
-  },
-  card: {
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    padding: '16px',
-    boxShadow: '2px 2px 12px #aaa',
-    width: '50%', // Full width for the card
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cardTitle: {
-    fontSize: '1.5rem',
-    marginBottom: '10px',
-  },
-  image: {
-    width: '25%', // Image now occupies full width
-    height: 'auto',
-    borderRadius: '5px',
-    marginBottom: '10px',
-  },
-  carouselContainer: {
-    width: '50%', // Ensures the carousel uses full width
-    marginTop: '20px',
-  },
-  carouselTitle: {
-    fontSize: '1.5rem',
-    marginBottom: '10px',
-  },
-  carousel: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between', // Space the buttons and content evenly
-    padding: '10px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    boxShadow: '2px 2px 12px #aaa',
-  },
-  carouselContent: {
-    textAlign: 'center',
-    maxWidth: '200px', // Adjusted width for the carousel content
-    flex: 1, // Allow the carousel content to occupy available space
-  },
-  button: {
-    background: 'none',
-    border: 'none',
-    fontSize: '1.5rem',
-    cursor: 'pointer',
-    padding: '10px',
-    margin: '0 5px',
-  },
-  cardDescription: {
-    fontSize: '1rem',
-    marginTop: '10px', // Add some margin for better spacing
-  },
-
-  paragraph:{
-    fontSize: '1rem',
-    marginBottom: '40px',
-    maxWidth: '800px',
-    paddingTop: '2.5rem',
-    paddingBottom: '2.5rem'
-  }
 };
 
 export default VeilleTechnologique;
