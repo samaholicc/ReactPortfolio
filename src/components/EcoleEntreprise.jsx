@@ -75,4 +75,4 @@ const styles = {
   },
 };
 
-export default VeilleTechnologique;
+export default EcoleEntreprise;
