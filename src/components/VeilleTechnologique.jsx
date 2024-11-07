@@ -37,13 +37,13 @@ const VeilleTechnologique = () => {
         La veille technologique est un processus systématique de collecte, d'analyse et de diffusion d'informations pertinentes
         sur les évolutions techniques et les innovations dans un domaine spécifique. Elle permet aux professionnels de rester informés
         des tendances, des nouvelles technologies et des meilleures pratiques, afin d'anticiper les changements et d'améliorer
-        leur prise de décision.
+        leur prise de décision.J'utilise Inoreader comme outil de veille technologique pour rester informé des dernières tendances et nouveautés dans le domaine.
       </p>
       <div className="flex items-start gap-20">
         <Card 
           title="React" 
           image={sampleImage5} 
-          description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. J'utilise Inoreader comme outil de veille technologique pour rester informé des dernières tendances et nouveautés dans le domaine."
+          description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
         />
             <div className="flex-1 max-w-3xl">
               <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
