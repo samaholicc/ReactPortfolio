@@ -42,6 +42,12 @@ const VeilleTechnologique = () => {
         leur prise de décision.
       </p>
       <div style={styles.container}>
+        
+        <Card 
+          title="React" 
+          image={sampleImage5} 
+          description="Description of React technology." 
+        />
         <div style={styles.carousel}>
           <button style={styles.button} onClick={prevArticle}>‹</button>
           <div style={styles.carouselContent}>
@@ -53,11 +59,6 @@ const VeilleTechnologique = () => {
           </div>
           <button style={styles.button} onClick={nextArticle}>›</button>
         </div>
-        <Card 
-          title="React" 
-          image={sampleImage5} 
-          description="Description of React technology." 
-        />
       </div>
     </div>
   );
