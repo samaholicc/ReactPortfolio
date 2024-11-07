@@ -45,7 +45,7 @@ const VeilleTechnologique = () => {
         <Card 
           title="React" 
           image={sampleImage5} 
-          description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. React favorise une architecture basée sur les composants et bénéficie d'un écosystème riche et d'un fort soutien communautaire." 
+          description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML." 
         />
         <div style={styles.carousel}>
           <button style={styles.button} onClick={prevArticle}>‹</button>
@@ -114,7 +114,7 @@ const styles = {
     marginBottom: '10px',
   },
   image: {
-    width: '100%',
+    width: '25%',
     height: 'auto',
     borderRadius: '5px',
     marginBottom: '10px',
