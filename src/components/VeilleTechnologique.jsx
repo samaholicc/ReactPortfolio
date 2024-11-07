@@ -86,12 +86,6 @@ const styles = {
     fontFamily: 'Ovo, serif',
     marginBottom: '10px',
   },
-  paragraph: {
-    fontSize: '1rem',
-    marginBottom: '40px',
-    maxWidth: '800px',
-    margin: '0 auto',
-  },
   container: {
     display: 'flex',
     flexDirection: 'column', // Changed to column to stack card and carousel
