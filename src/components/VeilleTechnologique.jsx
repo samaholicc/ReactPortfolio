@@ -46,7 +46,7 @@ const VeilleTechnologique = () => {
         <Card 
           title="React" 
           image={sampleImage5} 
-          description="Description of React technology." 
+          description="React is a popular JavaScript library for building user interfaces, especially for single-page applications. Developed by Facebook, it allows developers to create reusable UI components, efficiently manage the state of applications through a virtual DOM, and use JSX for writing HTML-like code within JavaScript. React promotes a component-based architecture and offers a strong ecosystem and community support, making it a preferred choice for web development.." 
         />
         <div style={styles.carousel}>
           <button style={styles.button} onClick={prevArticle}>‹</button>
@@ -75,54 +75,54 @@ const Card = ({ title, image, description }) => {
 };
 
 const styles = {
-  wrapper: {
-    textAlign: 'center',
-    padding: '20px',
-  },
-  heading: {
-    fontSize: '2.5rem',
-    fontFamily: 'Ovo, serif',
-    marginBottom: '10px',
-  },
-  paragraph: {
-    fontSize: '1rem',
-    marginBottom: '40px',
-    maxWidth: '800px',
-    margin: '0 auto',
-  },
-  container: {
-    display: 'flex',
-    justifyContent: 'space-between', // Change from center to space-between
-    flexWrap: 'wrap',
-    gap: '20px',
-    padding: '50px',
-  },
-  card: {
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    padding: '16px',
-    boxShadow: '2px 2px 12px #aaa',
-    width: '300px',
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cardTitle: {
-    fontSize: '1.5rem',
-    marginBottom: '10px',
-  },
-  image: {
-    width: '100%',
-    height: 'auto',
-    borderRadius: '5px',
-    marginBottom: '10px',
-  },
+    wrapper: {
+      textAlign: 'center',
+      padding: '20px',
+    },
+    heading: {
+      fontSize: '2.5rem',
+      fontFamily: 'Ovo, serif',
+      marginBottom: '10px',
+    },
+    paragraph: {
+      fontSize: '1rem',
+      marginBottom: '40px',
+      maxWidth: '800px',
+      margin: '0 auto',
+    },
+    container: {
+      display: 'flex',
+      justifyContent: 'flex-start', // Align items to flex-start
+      flexWrap: 'wrap',
+      gap: '20px',
+      padding: '50px',
+    },
+    card: {
+      border: '1px solid #ccc',
+      borderRadius: '5px',
+      padding: '16px',
+      boxShadow: '2px 2px 12px #aaa',
+      width: '300px', // Fixed width for the card
+      textAlign: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    cardTitle: {
+      fontSize: '1.5rem',
+      marginBottom: '10px',
+    },
+    image: {
+      width: '100%',
+      height: 'auto',
+      borderRadius: '5px',
+      marginBottom: '10' },
   carousel: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1, // Allow the carousel to flex and occupy remaining space
     marginTop: '40px',
     padding: '20px',
     borderTop: '1px solid #ccc',
@@ -131,7 +131,7 @@ const styles = {
   },
   carouselContent: {
     textAlign: 'center',
-    maxWidth: '300px', // Adjust to match card size
+    maxWidth: '300px', // Keep as is to maintain size in carousel
   },
   button: {
     background: 'none',
@@ -145,5 +145,7 @@ const styles = {
     fontSize: '1rem',
   },
 };
+
+
 
 export default VeilleTechnologique;
