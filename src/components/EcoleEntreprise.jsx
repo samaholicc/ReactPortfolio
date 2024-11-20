@@ -5,10 +5,7 @@ import ndgcImage from '../assets/NDDGC.jpg';      // **Verify this path!**
 
 
 const Card = ({ title, link, image, description }) => {
-  // Convertir les descriptions contenant <br /> en plusieurs éléments texte
-  const descriptionParts = description.split(/<br\s*\/?>/).map((part, index) => (
-    <React.Fragment key={index}>{part}<br /></React.Fragment>
-  ));
+  
 
   return (
     <div>
