@@ -55,6 +55,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'stretch', // Center content horizontally
     justifyContent: 'center', // Center content vertically
+    flex: 1,
   },
   cardTitle: {
     fontSize: '1.5rem',
