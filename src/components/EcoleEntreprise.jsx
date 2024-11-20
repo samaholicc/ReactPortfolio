@@ -62,7 +62,6 @@ const styles = {
     marginBottom: '10px',
   },
   image: {
-    width: '100%',
     height: 'auto',
     borderRadius: '5px',
     marginBottom: '10px',
