@@ -6,7 +6,7 @@ import ndgcImage from '../assets/NDDGC.jpg';      // **Verify this path!**
 
 const EcoleEntreprise = () => {
   return (
-    <div style={styles.wrapper}>
+    <div id="EcoleEntreprise" style={styles.wrapper}>
       <h2 style={styles.heading}>École et Entreprise</h2>
       <div style={styles.container}>
         <Card
