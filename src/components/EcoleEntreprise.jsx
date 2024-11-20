@@ -1,6 +1,7 @@
 import React from 'react';
 import sampleImage from '../assets/webitech.jpg'; 
 import sampleImage1 from '../assets/Vinci.png';
+import sampleImage1 from '../assets/NDDGC.jpg';
 
 const EcoleEntreprise = () => {
   return (
@@ -9,6 +10,8 @@ const EcoleEntreprise = () => {
       <div style={styles.container}>
         <Card title="Webitech Paris" image={sampleImage} description="Formation BTS SIO SLAM" />
         <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif" />
+        <Card title="Notre Dame du Grand-Champs" image={sampleImage2} description="Stage Technicienne Informatique" />
+
       </div>
     </div>
   );
