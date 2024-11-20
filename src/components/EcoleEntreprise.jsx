@@ -1,46 +1,72 @@
-import React from "react";
-import Webitech from '../assets/webitech.jpg';
-import Vinci from '../assets/Vinci.png';
-import NDDGC from '../assets/NDDGC.jpg';
+import React from 'react';
+import sampleImage from '../assets/webitech.jpg'; 
+import sampleImage1 from '../assets/Vinci.png';
 
 const EcoleEntreprise = () => {
-  const cards = [
-    {
-      title: "Webitech Paris",
-      image: Webitech,
-      description: "BTS SIO option SLAM"
-    },
-    {
-      title: "Vinci SA",
-      image: Vinci,
-      description: "Alternante en support applicatif transverse"
-    },
-    {
-      title: "Notre Dame du Grand Champ",
-      image: NDDGC,
-      description: "Stagiaire technicienne informatique"
-    },
-  ];
+  return (
+    <div style={styles.wrapper}>
+      <h2 style={styles.heading}>Ecole et Entreprise</h2>
+      <div style={styles.container}>
+        <Card title="Webitech Paris" image={sampleImage} description="Formation BTS SIO SLAM" />
+        <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif" />
+      </div>
+    </div>
+  );
+};
 
-  const Card = ({ title, image, description }) => (
-    <div style={styles.card}>
+const Card = ({ title, image, description }) => {
+  return (
+    <div id="EcoleEntreprise" style={styles.card}>
       <h2 style={styles.cardTitle}>{title}</h2>
       <img src={image} alt={title} style={styles.image} />
       <p style={styles.description}>{description}</p>
     </div>
   );
+};
 
-  const styles = {
-    // ... (styles remain the same)
-  };
-
-  return (
-    <div id="EcoleEntreprise" style={styles.container}> {/* Moved container styling here */}
-      {cards.map((card, index) => (
-        <Card key={index} {...card} />
-      ))}
-    </div>
-  );
+const styles = {
+  wrapper: {
+    textAlign: 'center', // Centers the heading
+  },
+  heading: {
+    fontSize: '2.5rem', // Matches the text-5xl class roughly
+    fontFamily: 'Ovo, serif', // Assumes Ovo is loaded correctly
+    marginBottom: '20px', // Adds some space between heading and cards
+  },
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    flexDirection: 'row', 
+    gap: '20px', 
+    padding: '20px',
+  },
+  card: {
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    padding: '16px',
+    boxShadow: '2px 2px 12px #aaa',
+    width: '300px',
+    textAlign: 'center', // Center text inside the card
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center', // Center content horizontally
+    justifyContent: 'center', // Center content vertically
+  },
+  cardTitle: {
+    fontSize: '1.5rem',
+    marginBottom: '10px',
+  },
+  image: {
+    width: '100%',
+    height: 'auto',
+    borderRadius: '5px',
+    marginBottom: '10px',
+  },
+  description: {
+    fontSize: '1rem',
+   
+  },
 };
 
 export default EcoleEntreprise;
