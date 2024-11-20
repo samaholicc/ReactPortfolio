@@ -39,7 +39,7 @@ const styles = {
   container: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'stretch',
     flexDirection: 'row', 
     gap: '20px', 
     padding: '20px',
@@ -54,7 +54,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center', // Center content horizontally
-    justifyContent: 'center', // Center content vertically
+    justifyContent: 'space-between', // Center content vertically
+    flex: 1,
   },
   cardTitle: {
     fontSize: '1.5rem',
