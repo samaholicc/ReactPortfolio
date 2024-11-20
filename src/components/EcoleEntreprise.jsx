@@ -6,26 +6,26 @@ import ndgcImage from '../assets/NDDGC.jpg';      // **Verify this path!**
 
 const EcoleEntreprise = () => {
   return (
-    <div id="EcoleEntreprise" style={styles.wrapper}>
+    <div style={styles.wrapper}>
       <h2 style={styles.heading}>École et Entreprise</h2>
       <div style={styles.container}>
         <Card
           title="Webitech Paris"
-          link="https://webitechparis.com/"
+          link="https://www.webitech.fr/"
           image={webitechImage}
-          description="Formation BTS SIO SLAM. Mon rôle était de [décrivez précisément votre rôle et responsabilités].  J'ai acquis des compétences en [listez les compétences acquises]."
+          description="Formation BTS SIO SLAM. Mon apprentissage portait sur le développement des applications web . J'ai acquis des compétences en JavaScript, React et SQL. <br/>J'ai beaucoup apprécié l'environnement d'apprentissage."
         />
         <Card
           title="Vinci SA"
           link="https://www.vinci.com/"
           image={vinciImage}
-          description="Alternance Support applicatif. Mes responsabilités incluaient [décrivez précisément vos tâches et responsabilités]. J'ai amélioré mes compétences en [listez les compétences acquises]."
+          description="Alternance Support applicatif. <br/> Mes responsabilités incluaient la résolution d'incidents et le support technique aux utilisateurs. J'ai amélioré mes compétences en résolution de problèmes et en communication. L'expérience chez Vinci m'a permis de travailler dans un grand environnement professionnel."
         />
         <Card
           title="Notre Dame du Grand-Champ"
-          link="https://www.nd-grandchamp.fr/"
+          link="https://www.ndgc.fr/"
           image={ndgcImage}
-          description="Stage Technicienne Informatique. J'étais en charge de [décrivez précisément vos tâches et responsabilités]. Ce stage m'a permis de [décrivez ce que vous avez appris/fait]."
+          description="Stage Technicienne Informatique. <br/> J'étais en charge de la maintenance du réseau informatique et de la gestion des serveurs. Ce stage m'a permis de développer mes compétences en administration système et en sécurité informatique. J'ai beaucoup appris sur les infrastructures informatiques."
         />
       </div>
     </div>
