@@ -1,42 +1,26 @@
 import React from 'react';
-import sampleImage from '../assets/webitech.jpg';
+import sampleImage from '../assets/webitech.jpg'; 
 import sampleImage1 from '../assets/Vinci.png';
 import sampleImage2 from '../assets/NDDGC.jpg';
 
 const EcoleEntreprise = () => {
   return (
     <div style={styles.wrapper}>
-      <h2 style={styles.heading}>École et Entreprise</h2>
+      <h2 style={styles.heading}>Ecole et Entreprise</h2>
       <div style={styles.container}>
-        <Card
-          title="Webitech Paris"
-          link="https://www.webitech.fr/"
-          image={sampleImage}
-          description="Formation BTS SIO SLAM. J'ai acquis de l'expérience en [compétences ou projets spécifiques]."
-        />
-        <Card
-          title="Vinci SA"
-          link="https://www.vinci.com/"
-          image={sampleImage1}
-          description="Alternance Support applicatif. J'ai travaillé sur [tâches ou projets spécifiques], améliorant mes compétences en [compétences]."
-        />
-        <Card
-          title="Notre Dame du Grand-Champs"
-          link="https://www.ndgc.fr/"
-          image={sampleImage2}
-          description="Stage Technicienne Informatique. Je me suis concentrée sur [tâches ou projets spécifiques], apprenant sur [technologies ou compétences]."
-        />
+        <Card title="Webitech Paris" image={sampleImage} description="Formation BTS SIO SLAM" />
+        <Card title="Vinci Sa" image={sampleImage1} description="Alternance Support applicatif" />
+        <Card title="Notre Dame du Grand-Champs" image={sampleImage2} description="Stage Technicienne Informatique" />
+
       </div>
     </div>
   );
 };
 
-const Card = ({ title, link, image, description }) => {
+const Card = ({ title, image, description }) => {
   return (
     <div id="EcoleEntreprise" style={styles.card}>
-      <a href={link} target="_blank" rel="noopener noreferrer" style={styles.cardTitleLink}>
-        <h2 style={styles.cardTitle}>{title}</h2>
-      </a>
+      <h2 style={styles.cardTitle}>{title}</h2>
       <img src={image} alt={title} style={styles.image} />
       <p style={styles.description}>{description}</p>
     </div>
@@ -45,19 +29,19 @@ const Card = ({ title, link, image, description }) => {
 
 const styles = {
   wrapper: {
-    textAlign: 'center',
+    textAlign: 'center', // Centers the heading
   },
   heading: {
-    fontSize: '2.5rem',
-    fontFamily: 'Ovo, serif',
-    marginBottom: '20px',
+    fontSize: '2.5rem', // Matches the text-5xl class roughly
+    fontFamily: 'Ovo, serif', // Assumes Ovo is loaded correctly
+    marginBottom: '20px', // Adds some space between heading and cards
   },
   container: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-start',
-    flexDirection: 'row',
-    gap: '20px',
+    flexDirection: 'row', 
+    gap: '20px', 
     padding: '20px',
   },
   card: {
@@ -66,21 +50,16 @@ const styles = {
     padding: '16px',
     boxShadow: '2px 2px 12px #aaa',
     width: '300px',
-    textAlign: 'center',
+    textAlign: 'center', // Center text inside the card
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    alignItems: 'center', // Center content horizontally
+    justifyContent: 'center', // Center content vertically
     flex: 1,
   },
   cardTitle: {
     fontSize: '1.5rem',
     marginBottom: '10px',
-  },
-  cardTitleLink: {
-    textDecoration: 'underline',
-    color: 'blue',
-    cursor: 'pointer',
   },
   image: {
     width: '80%',
@@ -90,6 +69,7 @@ const styles = {
   },
   description: {
     fontSize: '1rem',
+   
   },
 };
 
