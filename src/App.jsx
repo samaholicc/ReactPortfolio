@@ -19,7 +19,6 @@ const App = () => {
       <Navbar />
       <Header />
       <About />
-
       <Education />
       <EcoleEntreprise />
       <Work />
