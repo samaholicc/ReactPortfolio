@@ -1,7 +1,7 @@
 import React from 'react';
 import sampleImage from '../assets/webitech.jpg'; 
 import sampleImage1 from '../assets/Vinci.png';
-import sampleImage1 from '../assets/NDDGC.jpg';
+import sampleImage2 from '../assets/NDDGC.jpg';
 
 const EcoleEntreprise = () => {
   return (
