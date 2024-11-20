@@ -53,7 +53,7 @@ const styles = {
     textAlign: 'center', // Center text inside the card
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center', // Center content horizontally
+    alignItems: 'stretch', // Center content horizontally
     justifyContent: 'center', // Center content vertically
   },
   cardTitle: {
