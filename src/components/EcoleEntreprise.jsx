@@ -1,7 +1,8 @@
 import React from 'react';
-import sampleImage from '../assets/webitech.jpg'; //Verify this path
-import sampleImage1 from '../assets/Vinci.png';   //Verify this path
-import sampleImage2 from '../assets/NDDGC.jpg';  //Verify this path
+import webitechImage from '../assets/webitech.jpg'; // **Verify this path!**
+import vinciImage from '../assets/Vinci.png';     // **Verify this path!**
+import ndgcImage from '../assets/NDDGC.jpg';      // **Verify this path!**
+
 
 const EcoleEntreprise = () => {
   return (
@@ -10,21 +11,21 @@ const EcoleEntreprise = () => {
       <div style={styles.container}>
         <Card
           title="Webitech Paris"
-          link="https://www.webitech.fr/"
-          image={sampleImage}
-          description="Formation BTS SIO SLAM.  Mon rôle était de [décrivez précisément votre rôle et responsabilités].  Webitech m'a permis d'apprendre [listez les compétences acquises]."
+          link="https://webitechparis.com/"
+          image={webitechImage}
+          description="Formation BTS SIO SLAM. Mon rôle était de [décrivez précisément votre rôle et responsabilités].  J'ai acquis des compétences en [listez les compétences acquises]."
         />
         <Card
           title="Vinci SA"
           link="https://www.vinci.com/"
-          image={sampleImage1}
-          description="Alternance Support applicatif. Mes responsabilités incluaient [décrivez précisément vos tâches et responsabilités].  J'ai acquis de l'expérience en [listez les compétences acquises]."
+          image={vinciImage}
+          description="Alternance Support applicatif. Mes responsabilités incluaient [décrivez précisément vos tâches et responsabilités]. J'ai amélioré mes compétences en [listez les compétences acquises]."
         />
         <Card
           title="Notre Dame du Grand-Champ"
-          link="https://www.ndgc.fr/"
-          image={sampleImage2}
-          description="Stage Technicienne Informatique.  J'étais en charge de [décrivez précisément vos tâches et responsabilités].  Ce stage m'a permis de développer mes compétences en [listez les compétences acquises]."
+          link="https://www.nd-grandchamp.fr/"
+          image={ndgcImage}
+          description="Stage Technicienne Informatique. J'étais en charge de [décrivez précisément vos tâches et responsabilités]. Ce stage m'a permis de [décrivez ce que vous avez appris/fait]."
         />
       </div>
     </div>
@@ -34,7 +35,7 @@ const EcoleEntreprise = () => {
 const Card = ({ title, link, image, description }) => {
   return (
     <div style={styles.card}>
-      <a href={link} target="_blank" rel="noopener noreferrer" style={styles.cardTitleLink}>
+      <a href={link} target="_blank" rel="noopener noreferrer"> {/* No extra styling needed */}
         <h2 style={styles.cardTitle}>{title}</h2>
       </a>
       <img src={image} alt={title} style={styles.image} />
@@ -76,11 +77,6 @@ const styles = {
   cardTitle: {
     fontSize: '1.5rem',
     marginBottom: '10px',
-  },
-  cardTitleLink: {
-    textDecoration: 'underline',
-    color: 'blue',
-    cursor: 'pointer',
   },
   image: {
     width: '60%',
