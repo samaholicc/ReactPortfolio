@@ -30,7 +30,7 @@ const Work = () => {
           <a href="https://github.com/samaholicc/star_services_1">
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
-                <h2 className="font-semibold">Star Services</h2>
+                <h2 className="font-semibold">Php</h2>
                 <p className="text-sm text-gray-700">Application Web</p>
               </div>
               <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
@@ -45,7 +45,7 @@ const Work = () => {
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
                 <h2 className="font-semibold">Site Vitrine</h2>
-                <p className="text-sm text-gray-700">Design Web</p>
+                <p className="text-sm text-gray-700">React</p>
               </div>
               <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
                 <img src={send_icon} alt="Send Icon" className="w-5" />
@@ -59,7 +59,7 @@ const Work = () => {
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
                 <h2 className="font-semibold">Application Mobile</h2>
-                <p className="text-sm text-gray-700">Technologie : Flutter</p>
+                <p className="text-sm text-gray-700">Javascript</p>
               </div>
               <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
                 <img src={send_icon} alt="Send Icon" className="w-5" />
