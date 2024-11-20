@@ -13,19 +13,19 @@ const EcoleEntreprise = () => {
           title="Webitech Paris"
           link="https://webitechparis.com/"
           image={webitechImage}
-          description="Formation BTS SIO SLAM. <br /> Mon apprentissage portait sur le développement des applications web . J'ai acquis des compétences en JavaScript, React et SQL."
+          description="Formation BTS SIO SLAM. "
         />
         <Card
           title="Vinci SA"
           link="https://www.vinci.com/"
           image={vinciImage}
-          description="Alternance Support applicatif. <br /> Mes responsabilités incluaient la résolution d'incidents et le support technique aux utilisateurs. J'ai amélioré mes compétences en résolution de problèmes et en communication. L'expérience chez Vinci m'a permis de travailler dans un grand environnement professionnel."
+          description="Alternance Support applicatif. "
         />
         <Card
           title="Notre Dame du Grand-Champ"
           link="https://www.nd-grandchamp.fr/"
           image={ndgcImage}
-          description="Stage Technicienne Informatique. <br /> J'étais en charge de la maintenance du réseau informatique et de la gestion des serveurs. Ce stage m'a permis de développer mes compétences en administration système et en sécurité informatique. J'ai beaucoup appris sur les infrastructures informatiques."
+          description="Stage Technicienne Informatique."
         />
       </div>
     </div>
