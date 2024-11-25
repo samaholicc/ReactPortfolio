@@ -30,24 +30,7 @@ const VeilleTechnologique = () => {
     fetchRSS();
   }, []);
 
-  const reactArticles = [
-    {
-      title: "Article React 1",
-      description: "Description de l'article 1 sur React.",
-      link: "https://www.example.com/react-article-1",
-    },
-    {
-      title: "Article React 2",
-      description: "Description de l'article 2 sur React.",
-      link: "https://www.example.com/react-article-2",
-    },
-    {
-      title: "Article React 3",
-      description: "Description de l'article 3 sur React.",
-      link: "https://www.example.com/react-article-3",
-    },
-    // Add more React articles here...
-  ];
+  
 
   const settings = {
     dots: false,
