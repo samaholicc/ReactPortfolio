@@ -46,7 +46,7 @@ const Card = ({ title, link, image, description }) => {
       href="#"
     >
       <span
-        class="block rounded-full bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent"
+        class="block rounded-full px-8 py-3 text-sm font-medium group-hover:bg-transparent"
       >
         Mes missions 
       </span>
