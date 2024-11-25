@@ -69,13 +69,15 @@ const VeilleTechnologique = () => {
         leur prise de décision.J'utilise Inoreader comme outil de veille technologique pour rester informé des dernières tendances et nouveautés dans le domaine.
       </p>
       <div className="flex flex-col md:flex-row gap-10">
-        <div className="md:w-1/3">
+        <div className="md:w-1/2"> {/* React Intro Section */}
           <Card
             title="Ma veille technologique : React"
             image={sampleImage5}
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
           />
-          <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg mt-4">
+        </div>
+        <div className="md:w-1/2"> {/* RSS Feed Section */}
+          <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
             <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
             <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
             {isLoading ? (
@@ -95,20 +97,19 @@ const VeilleTechnologique = () => {
             )}
           </div>
         </div>
-        <div className="md:w-2/3">
-          <div className="mt-4 md:mt-0">
-            <h3 className="text-3xl mb-4 font-semibold">Articles React</h3>
-            <Slider {...settings}>
-              {reactArticles.map((article, index) => (
-                <div key={index} className="p-4">
-                  <h4 className="text-lg font-bold">{article.title}</h4>
-                  <p>{article.description}</p>
-                  <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
+      </div>
+
+      <div className="mt-10"> {/*Articles Carousel*/}
+        <h3 className="text-3xl mb-4 font-semibold">Articles React</h3>
+        <Slider {...settings}>
+          {reactArticles.map((article, index) => (
+            <div key={index} className="p-4">
+              <h4 className="text-lg font-bold">{article.title}</h4>
+              <p>{article.description}</p>
+              <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );
