@@ -1,7 +1,7 @@
 import React from 'react';
-import webitechImage from '../assets/webitech.jpg'; // **Verify this path!**
-import vinciImage from '../assets/Vinci.png';     // **Verify this path!**
-import ndgcImage from '../assets/NDDGC.jpg';      // **Verify this path!**
+import webitechImage from '../assets/webitech.jpg'; 
+import vinciImage from '../assets/Vinci.png';     
+import ndgcImage from '../assets/NDDGC.jpg';      
 
 
 const EcoleEntreprise = () => {
@@ -14,6 +14,7 @@ const EcoleEntreprise = () => {
           link="https://webitechparis.com/"
           image={webitechImage}
           description="Formation BTS SIO SLAM. "
+          
         />
         <Card
           title="Vinci SA"
@@ -35,11 +36,17 @@ const EcoleEntreprise = () => {
 const Card = ({ title, link, image, description }) => {
   return (
     <div style={styles.card}>
-      <a href={link} target="_blank" rel="noopener noreferrer"> {/* No extra styling needed */}
+      <a href={link} target="_blank" rel="noopener noreferrer">
         <h2 style={styles.cardTitle}>{title}</h2>
       </a>
       <img src={image} alt={title} style={styles.image} />
       <p style={styles.description}>{description}</p>
+      <a
+        className="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-indigo-500"
+        href='#'
+      >
+        Download
+      </a>
     </div>
   );
 };
