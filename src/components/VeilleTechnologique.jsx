@@ -57,9 +57,10 @@ const VeilleTechnologique = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    nextArrow: <NextArrow />, 
-    prevArrow: <PrevArrow />
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
+
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -85,6 +86,7 @@ const VeilleTechnologique = () => {
       </div>
     );
   };
+
   return (
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
       <h2 className="text-5xl font-Ovo">Veille technologique</h2>
@@ -95,14 +97,14 @@ const VeilleTechnologique = () => {
         leur prise de décision.J'utilise Inoreader comme outil de veille technologique pour rester informé des dernières tendances et nouveautés dans le domaine.
       </p>
       <div className="flex flex-col md:flex-row gap-10">
-        <div className="md:w-1/2"> {/* React Intro Section */}
+        <div className="md:w-1/2">
           <Card
             title="Ma veille technologique : React"
             image={sampleImage5}
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
           />
         </div>
-        <div className="md:w-1/2"> {/* RSS Feed Section */}
+        <div className="md:w-1/2">
           <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
             <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
             <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
@@ -125,7 +127,7 @@ const VeilleTechnologique = () => {
         </div>
       </div>
 
-      <div className="mt-10"> {/*Articles Carousel*/}
+      <div className="mt-10">
         <h3 className="text-3xl mb-4 font-semibold">Articles React</h3>
         <Slider {...settings}>
           {reactArticles.map((article, index) => (
