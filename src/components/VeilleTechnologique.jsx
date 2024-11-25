@@ -57,7 +57,6 @@ const VeilleTechnologique = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    
   };
 
   return (
@@ -69,14 +68,14 @@ const VeilleTechnologique = () => {
         des tendances, des nouvelles technologies et des meilleures pratiques, afin d'anticiper les changements et d'améliorer
         leur prise de décision.J'utilise Inoreader comme outil de veille technologique pour rester informé des dernières tendances et nouveautés dans le domaine.
       </p>
-      <div className="flex items-start gap-20">
-        <Card
-          title="Ma veille technologique : React"
-          image={sampleImage5}
-          description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
-        />
-        <div className="flex-1 max-w-3xl">
-          <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
+      <div className="flex flex-col md:flex-row gap-10">
+        <div className="md:w-1/3">
+          <Card
+            title="Ma veille technologique : React"
+            image={sampleImage5}
+            description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
+          />
+          <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg mt-4">
             <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
             <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
             {isLoading ? (
@@ -84,7 +83,7 @@ const VeilleTechnologique = () => {
             ) : error ? (
               <p>Erreur lors du chargement des articles : {error.message}</p>
             ) : (
-              <Slider {...settings}>
+              <Slider {...settings} className="w-full">
                 {articles.map((article, index) => (
                   <div key={index} className="p-4">
                     <h3 className="text-xl font-bold">{article.title}</h3>
@@ -95,7 +94,9 @@ const VeilleTechnologique = () => {
               </Slider>
             )}
           </div>
-          <div className="mt-10">
+        </div>
+        <div className="md:w-2/3">
+          <div className="mt-4 md:mt-0">
             <h3 className="text-3xl mb-4 font-semibold">Articles React</h3>
             <Slider {...settings}>
               {reactArticles.map((article, index) => (
