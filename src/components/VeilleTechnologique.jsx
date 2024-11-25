@@ -50,15 +50,41 @@ const VeilleTechnologique = () => {
   ];
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    nextArrow: <NextArrow />, 
+    prevArrow: <PrevArrow />
+  };
+  const NextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full`}
+        style={{ ...style, display: "block", zIndex: 1 }}
+        onClick={onClick}
+      >
+        ›
+      </div>
+    );
   };
 
+  const PrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full`}
+        style={{ ...style, display: "block", zIndex: 1 }}
+        onClick={onClick}
+      >
+        ‹
+      </div>
+    );
+  };
   return (
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
       <h2 className="text-5xl font-Ovo">Veille technologique</h2>
