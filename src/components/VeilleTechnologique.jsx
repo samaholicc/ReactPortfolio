@@ -1,33 +1,88 @@
 import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
 import sampleImage5 from "../assets/atom.png";
-import Inoreader from "../assets/Inoreader.jpg"
+import Inoreader from "../assets/Inoreader.jpg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const VeilleTechnologique = () => {
   const [articles, setArticles] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchRSS = async () => {
+      setIsLoading(true);
       try {
-        const response = await fetch('http://localhost:3000/rss'); // Fetch articles from the server
+        const response = await fetch('http://localhost:3000/rss');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        setArticles(data); // Store the articles in state
+        setArticles(data);
       } catch (error) {
-        console.error("Error fetching RSS articles:", error);
+        setError(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchRSS();
   }, []);
 
-  const nextArticle = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % articles.length);
-  };
+  const reactArticles = [
+    {
+      title: "Article React 1",
+      description: "Description de l'article 1 sur React.",
+      link: "https://www.example.com/react-article-1",
+    },
+    {
+      title: "Article React 2",
+      description: "Description de l'article 2 sur React.",
+      link: "https://www.example.com/react-article-2",
+    },
+    {
+      title: "Article React 3",
+      description: "Description de l'article 3 sur React.",
+      link: "https://www.example.com/react-article-3",
+    },
+    // Add more React articles here...
+  ];
 
-  const prevArticle = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? articles.length - 1 : prevIndex - 1
-    );
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -40,43 +95,46 @@ const VeilleTechnologique = () => {
         leur prise de décision.J'utilise Inoreader comme outil de veille technologique pour rester informé des dernières tendances et nouveautés dans le domaine.
       </p>
       <div className="flex items-start gap-20">
-        <Card 
-          title="Ma veille technologique : React" 
-          image={sampleImage5} 
+        <Card
+          title="Ma veille technologique : React"
+          image={sampleImage5}
           description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
         />
-            <div className="flex-1 max-w-3xl">
-              <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
-              <h3 className="text-3xl mb-4 font-semibold ">Flux RSS Inoreader</h3>
-                <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
-                <div className="flex items-center justify-between">
-                  <button className="text-2xl" onClick={prevArticle}>‹</button>
-                  <div className="text-center flex-1">
-                    {articles.length === 0 ? (
-                      <p>Chargement des articles...</p>
-                    ) : (
-                      <>
-                        <h3 className="text-xl font-bold">{articles[currentIndex].title}</h3>
-                        <p>{articles[currentIndex].description}</p>
-                        <a 
-                          href={articles[currentIndex].link} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="text-blue-500 hover:underline">
-                          Lire l'article
-                        </a>
-                      </>
-                    )}
-
+        <div className="flex-1 max-w-3xl">
+          <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
+            <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
+            <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
+            {isLoading ? (
+              <p>Chargement des articles...</p>
+            ) : error ? (
+              <p>Erreur lors du chargement des articles : {error.message}</p>
+            ) : (
+              <Slider {...settings}>
+                {articles.map((article, index) => (
+                  <div key={index} className="p-4">
+                    <h3 className="text-xl font-bold">{article.title}</h3>
+                    <p>{article.description}</p>
+                    <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
                   </div>
-                <button className="text-2xl" onClick={nextArticle}>›</button>
-
+                ))}
+              </Slider>
+            )}
+          </div>
+          <div className="mt-10">
+            <h3 className="text-3xl mb-4 font-semibold">Articles React</h3>
+            <Slider {...settings}>
+              {reactArticles.map((article, index) => (
+                <div key={index} className="p-4">
+                  <h4 className="text-lg font-bold">{article.title}</h4>
+                  <p>{article.description}</p>
+                  <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
                 </div>
-              </div>
+              ))}
+            </Slider>
           </div>
         </div>
       </div>
-    
+    </div>
   );
 };
 
@@ -85,7 +143,7 @@ const Card = ({ title, image, description }) => {
     <div className="relative w-full max-w-md p-6 border border-gray-300 rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold mb-2">{title}</h2>
       <img src={image} alt={`${title} Icon`} className="w-full h-auto rounded mb-4" />
-      <p className="text-white-700">{description}</p>
+      <p className="text-gray-700">{description}</p>
     </div>
   );
 };
