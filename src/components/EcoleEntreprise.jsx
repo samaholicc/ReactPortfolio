@@ -125,7 +125,22 @@ const styles = {
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
-  },
+  },missionButton: {
+    marginTop: '10px',
+    padding: '10px 20px',
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease, transform 0.2s ease', // Transition for smooth animation
+},
+
+// Add a hover effect in a separate style or within the style definition if using a CSS-in-JS library
+missionButtonHover: {
+    backgroundColor: '#45a049', // Slightly darker color
+    transform: 'scale(1.05)', // Scale effect on hover
+}
 };
 
 const modalStyles = {
