@@ -25,7 +25,7 @@ const EcoleEntreprise = () => {
           link="https://webitechparis.com/"
           image={webitechImage}
           description="Formation BTS SIO SLAM."
-          onMissionClick={handleShowModal} // Pass the modal function as prop
+          onMissionClick={handleShowModal}
         />
         <Card
           title="Vinci SA"
@@ -60,6 +60,27 @@ const EcoleEntreprise = () => {
 };
 
 const Card = ({ title, link, image, description, onMissionClick }) => {
+  const missionButtonStyles = {
+    padding: '10px 20px',
+    backgroundColor: 'transparent',
+    border: '2px solid transparent',
+    borderRadius: '5px',
+    color: '#b820e6',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s, border 0.3s, color 0.3s',
+    outline: 'none',
+  };
+
+  const missionButtonMouseOver = (event) => {
+    event.currentTarget.style.backgroundColor = 'rgba(184, 32, 230, 0.1)';
+    event.currentTarget.style.border = '2px solid #b820e6';
+  };
+
+  const missionButtonMouseOut = (event) => {
+    event.currentTarget.style.backgroundColor = 'transparent';
+    event.currentTarget.style.border = '2px solid transparent';
+  };
+
   return (
     <div style={styles.card}>
       <a href={link} target="_blank" rel="noopener noreferrer">
@@ -67,7 +88,12 @@ const Card = ({ title, link, image, description, onMissionClick }) => {
       </a>
       <img src={image} alt={title} style={styles.image} />
       <p style={styles.description}>{description}</p>
-      <button onClick={onMissionClick} className="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">
+      <button
+        onClick={onMissionClick}
+        style={missionButtonStyles}
+        onMouseOver={missionButtonMouseOver}
+        onMouseOut={missionButtonMouseOut}
+      >
         Mes missions 
       </button>
     </div>
@@ -155,5 +181,6 @@ const modalStyles = {
     cursor: 'pointer',
   },
 };
+
 
 export default EcoleEntreprise;
