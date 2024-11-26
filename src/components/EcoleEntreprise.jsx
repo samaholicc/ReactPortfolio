@@ -117,15 +117,8 @@ const styles = {
   description: {
     fontSize: '1rem',
   },
+
   missionButton: {
-    marginTop: '10px',
-    padding: '10px 20px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  },missionButton: {
     marginTop: '10px',
     padding: '10px 20px',
     backgroundColor: '#4CAF50',
