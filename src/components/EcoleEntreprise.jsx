@@ -67,7 +67,7 @@ const Card = ({ title, link, image, description, onMissionClick }) => {
       </a>
       <img src={image} alt={title} style={styles.image} />
       <p style={styles.description}>{description}</p>
-      <button onClick={onMissionClick} style={styles.missionButton}>
+      <button onClick={onMissionClick} className="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">
         Mes missions 
       </button>
     </div>
