@@ -65,7 +65,7 @@ const EcoleEntreprise = () => {
       {showModal && (
         <div style={modalStyles.overlay}>
           <div style={modalStyles.modal}>
-            <h3 style={modalStyles.modalTitle}>{Education.desc}</h3>
+            <h3 style={modalStyles.modalTitle}>{Entreprise.desc}</h3>
             <p>Voici les détails concernant les missions.</p>
             <button onClick={handleCloseModal} style={modalStyles.closeButton}>
               Fermer
