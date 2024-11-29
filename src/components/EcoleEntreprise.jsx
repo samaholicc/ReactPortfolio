@@ -61,7 +61,7 @@ const EcoleEntreprise = () => {
             link="#"
             image={entreprise.image}
             description={entreprise.desc}
-            onMissionClick={() => handleShowMissions(entreprise.missions)}
+            onMissionClick={entreprise.missions ? () => handleShowMissions(entreprise.missions) : null}
           />
         ))}
       </div>
