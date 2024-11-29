@@ -97,7 +97,7 @@ const Education = () => {
             transition={{ duration: 0.3 }}
             className="bg-white rounded-lg shadow-lg p-6 z-10 w-11/12 md:w-1/3"
           >
-                        <h3 className="text-2xl font-semibold text-gray-700 mb-4">Options</h3>
+          <h3 className="text-2xl font-semibold text-gray-700 mb-4">Options</h3>
             <ul className="space-y-2 text-gray-600">
               {selectedOptions.map((option, idx) => (
                 <li key={idx} className="text-lg">
