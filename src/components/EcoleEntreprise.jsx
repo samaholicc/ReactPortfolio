@@ -7,7 +7,8 @@ const EcoleEntreprise = () => {
   const [showModal, setShowModal] = useState(false);
 
   // Function to handle modal popup
-  const handleShowModal = () => {
+  const handleShowModal = (Entreprisedesc) => {
+    setSelectedOptions(Entreprisedesc);
     setShowModal(true);
   };
 
@@ -15,6 +16,7 @@ const EcoleEntreprise = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
   const Entreprise =[ {
   desc: "Alternance Support applicatif transverse",
   mission1 :  "Réceptionner les appels des utilisateurs pour qualifier et orienter les incidents et les demandes",
@@ -25,7 +27,7 @@ const EcoleEntreprise = () => {
   mission6 : "Reporting et diffusion des indicateurs de performance et de qualité"
   }, 
   {
-    desc: "Stage technicienne informatique",
+  desc: "Stage technicienne informatique",
   mission1 :  "Évaluer les besoins en matériel pour chaque salle de réunion ou d’activité.",
   mission2 : "Documenter les spécifications techniques et les procédures d'utilisation pour chaque pièce d’équipement.",
   mission3 :"Créer une base de connaissances en ligne avec des FAQ et des guides de dépannage pour des problèmes courants.",
@@ -66,7 +68,7 @@ const EcoleEntreprise = () => {
         <div style={modalStyles.overlay}>
           <div style={modalStyles.modal}>
             <h3 style={modalStyles.modalTitle}>{Entreprise.desc}</h3>
-            <p>Voici les détails concernant les missions.</p>
+            
             <button onClick={handleCloseModal} style={modalStyles.closeButton}>
               Fermer
             </button>
@@ -108,7 +110,7 @@ const Card = ({ title, link, image, description, onMissionClick }) => {
       <p style={styles.description}>{description}</p>
       {onMissionClick && (
         <button
-          onClick={onMissionClick}
+          onClick={() => handleShowOptions([Entreprise.mission1,Entreprise.mission2, Entreprise.mission3, Entreprise.mission4, Entreprise.mission5, Entreprise.mission6])}
           style={missionButtonStyles}
           onMouseOver={missionButtonMouseOver}
           onMouseOut={missionButtonMouseOut}
