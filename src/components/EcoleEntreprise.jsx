@@ -15,6 +15,25 @@ const EcoleEntreprise = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  const Entreprise =[ {
+  desc: "Alternance Support applicatif transverse",
+  mission1 :  "Réceptionner les appels des utilisateurs pour qualifier et orienter les incidents et les demandes",
+  mission2 : "Traiter, suivre et résoudre les incidents et les demandes",
+  mission3 :"Assurer la relance et l'escalade des tickets",
+  mission4 : "Contribuer à la formalisation des procédures liées au support d'assistance",
+  mission5 : "Escalade des tickets auprès du support niveau 2",
+  mission6 : "Reporting et diffusion des indicateurs de performance et de qualité"
+  }, 
+  {
+    desc: "Stage technicienne informatique",
+  mission1 :  "Évaluer les besoins en matériel pour chaque salle de réunion ou d’activité.",
+  mission2 : "Documenter les spécifications techniques et les procédures d'utilisation pour chaque pièce d’équipement.",
+  mission3 :"Créer une base de connaissances en ligne avec des FAQ et des guides de dépannage pour des problèmes courants.",
+  mission4 : "Suivre une formation ou un tutoriel sur l’outil ticketing utilisé dans l’entreprise : Mojo Helpdesk",
+  mission5 : "Mettre en place un suivi après l'intervention pour s'assurer que les problèmes sont résolus de manière satisfaisante.",
+  mission6 : "Analyser les données de ticketing pour identifier les tendances et les problèmes récurrents."
+  }
+  ]; 
 
   return (
     <div id="EcoleEntreprise" style={styles.wrapper}>
@@ -25,7 +44,6 @@ const EcoleEntreprise = () => {
           link="https://webitechparis.com/"
           image={webitechImage}
           description="Formation BTS SIO SLAM."
-          // This card does not include the onMissionClick prop
         />
         <Card
           title="Vinci SA"
@@ -170,6 +188,7 @@ const modalStyles = {
     maxWidth: '400px',
   },
   modalTitle: {
+    color: "black", 
     fontSize: '1.5rem',
     marginBottom: '10px',
   },
