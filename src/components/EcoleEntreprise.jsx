@@ -21,9 +21,7 @@ const EcoleEntreprise = () => {
   const entreprises = [
     {
       desc: "Webitech Paris",
-      missions: [
-        
-      ],
+     
       image: webitechImage,
     },
     {
