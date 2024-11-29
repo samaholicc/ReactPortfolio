@@ -161,6 +161,7 @@ const styles = {
     marginBottom: '10px',
   },
   description: {
+    color: "black", 
     fontSize: '1rem',
   },
 
