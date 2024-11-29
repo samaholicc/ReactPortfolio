@@ -8,7 +8,7 @@ const EcoleEntreprise = () => {
   const [SelectedMissions, setSelectedMissions] = useState([]);
 
   // Function to handle modal popup
-  const handleShowModal = (Entreprisedesc) => {
+  const handleShowMissions = (Entreprisedesc) => {
     setSelectedMissions(Entreprisedesc);
     setShowModal(true);
   };
