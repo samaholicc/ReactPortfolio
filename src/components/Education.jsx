@@ -47,7 +47,7 @@ const Education = () => {
             <motion.div
               key={index}
               initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1.05 }}
+              whileInView={{  opacity: 1, x: 0, scale: 1.05 }}
               viewport={{ once: true }}
               transition={{
                 type: "spring",
