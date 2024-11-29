@@ -111,7 +111,7 @@ const Card = ({ title, link, image, description, onMissionClick }) => {
       <p style={styles.description}>{description}</p>
       {onMissionClick && (
         <button
-          onClick={() => handleShowOptions([Entreprise.mission1,Entreprise.mission2, Entreprise.mission3, Entreprise.mission4, Entreprise.mission5, Entreprise.mission6])}
+          onClick={() => handleShowMissions([Entreprise.mission1,Entreprise.mission2, Entreprise.mission3, Entreprise.mission4, Entreprise.mission5, Entreprise.mission6])}
           style={missionButtonStyles}
           onMouseOver={missionButtonMouseOver}
           onMouseOut={missionButtonMouseOut}
