@@ -39,7 +39,7 @@ const EcoleEntreprise = () => {
           link="https://www.nd-grandchamp.fr/"
           image={ndgcImage}
           description="Stage Technicienne Informatique."
-          onMissionClick={handleShowModal}
+          
         />
       </div>
 
