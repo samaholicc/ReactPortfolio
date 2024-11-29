@@ -69,7 +69,13 @@ const EcoleEntreprise = () => {
         <div style={modalStyles.overlay}>
           <div style={modalStyles.modal}>
             <h3 style={modalStyles.modalTitle}>{Entreprise.desc}</h3>
-            
+            <ul className="space-y-2 text-gray-600">
+              {SelectedMissions.map((mission, idx) => (
+                <li key={idx} className="text-lg">
+                  • {mission}
+                </li>
+              ))}
+            </ul>
             <button onClick={handleCloseModal} style={modalStyles.closeButton}>
               Fermer
             </button>
