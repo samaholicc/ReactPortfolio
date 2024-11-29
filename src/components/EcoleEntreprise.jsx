@@ -53,14 +53,14 @@ const EcoleEntreprise = () => {
           link="https://www.vinci.com/"
           image={vinciImage}
           description="Alternance Support applicatif."
-          onMissionClick={handleShowModal}
+          onMissionClick={handleShowMissions}
         />
         <Card
           title="Notre Dame du Grand-Champ"
           link="https://www.nd-grandchamp.fr/"
           image={ndgcImage}
           description="Stage Technicienne Informatique."
-          onMissionClick={handleShowModal}
+          onMissionClick={handleShowMissions}
         />
       </div>
   
