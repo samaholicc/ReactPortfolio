@@ -5,11 +5,11 @@ import ndgcImage from '../assets/NDDGC.jpg';
 
 const EcoleEntreprise = () => {
   const [showModal, setShowModal] = useState(false);
-  const [SelectedMissions, setSelectedMissions] = useState([]);
+  const [selectedMissions, setSelectedMissions] = useState([]);
 
   // Function to handle modal popup
-  const handleShowMissions = (Entreprisedesc) => {
-    setSelectedMissions(Entreprisedesc);
+  const handleShowMissions = (missions) => {
+    setSelectedMissions(missions);
     setShowModal(true);
   };
 
@@ -18,59 +18,65 @@ const EcoleEntreprise = () => {
     setShowModal(false);
   };
 
-  const Entreprise =[ {
-  desc: "Alternance Support applicatif transverse",
-  mission1 :  "Réceptionner les appels des utilisateurs pour qualifier et orienter les incidents et les demandes",
-  mission2 : "Traiter, suivre et résoudre les incidents et les demandes",
-  mission3 :"Assurer la relance et l'escalade des tickets",
-  mission4 : "Contribuer à la formalisation des procédures liées au support d'assistance",
-  mission5 : "Escalade des tickets auprès du support niveau 2",
-  mission6 : "Reporting et diffusion des indicateurs de performance et de qualité"
-  }, 
-  {
-  desc: "Stage technicienne informatique",
-  mission1 :  "Évaluer les besoins en matériel pour chaque salle de réunion ou d’activité.",
-  mission2 : "Documenter les spécifications techniques et les procédures d'utilisation pour chaque pièce d’équipement.",
-  mission3 :"Créer une base de connaissances en ligne avec des FAQ et des guides de dépannage pour des problèmes courants.",
-  mission4 : "Suivre une formation ou un tutoriel sur l’outil ticketing utilisé dans l’entreprise : Mojo Helpdesk",
-  mission5 : "Mettre en place un suivi après l'intervention pour s'assurer que les problèmes sont résolus de manière satisfaisante.",
-  mission6 : "Analyser les données de ticketing pour identifier les tendances et les problèmes récurrents."
-  }
+  const entreprises = [
+    {
+      desc: "Webitech Paris",
+      missions: [
+        "Réceptionner les appels des utilisateurs pour qualifier et orienter les incidents et les demandes",
+        "Traiter, suivre et résoudre les incidents et les demandes",
+        "Assurer la relance et l'escalade des tickets",
+        "Contribuer à la formalisation des procédures liées au support d'assistance",
+        "Escalade des tickets auprès du support niveau 2",
+        "Reporting et diffusion des indicateurs de performance et de qualité"
+      ],
+      image: webitechImage,
+    },
+    {
+      desc: "Vinci SA",
+      missions: [
+        "Évaluer les besoins en matériel pour chaque salle de réunion ou d’activité.",
+        "Documenter les spécifications techniques et les procédures d'utilisation pour chaque pièce d’équipement.",
+        "Créer une base de connaissances en ligne avec des FAQ et des guides de dépannage pour des problèmes courants.",
+        "Suivre une formation ou un tutoriel sur l’outil ticketing utilisé dans l’entreprise : Mojo Helpdesk",
+        "Mettre en place un suivi après l'intervention pour s'assurer que les problèmes sont résolus de manière satisfaisante.",
+        "Analyser les données de ticketing pour identifier les tendances et les problèmes récurrents."
+      ],
+      image: vinciImage,
+    },
+    {
+      desc: "Notre Dame du Grand-Champ",
+      missions: [
+        "Évaluer les besoins en matériel pour chaque salle de réunion ou d’activité.",
+        "Documenter les spécifications techniques et les procédures d'utilisation pour chaque pièce d’équipement.",
+        "Créer une base de connaissances en ligne avec des FAQ et des guides de dépannage pour des problèmes courants."
+      ],
+      image: ndgcImage,
+    }
   ]; 
 
   return (
     <div id="EcoleEntreprise" style={styles.wrapper}>
       <h2 style={styles.heading}>École et Entreprise</h2>
       <div style={styles.container}>
-        <Card
-          title="Webitech Paris"
-          link="https://webitechparis.com/"
-          image={webitechImage}
-          description="Formation BTS SIO SLAM."
-        />
-        <Card
-          title="Vinci SA"
-          link="https://www.vinci.com/"
-          image={vinciImage}
-          description="Alternance Support applicatif."
-          onMissionClick={handleShowMissions}
-        />
-        <Card
-          title="Notre Dame du Grand-Champ"
-          link="https://www.nd-grandchamp.fr/"
-          image={ndgcImage}
-          description="Stage Technicienne Informatique."
-          onMissionClick={handleShowMissions}
-        />
+        {entreprises.map((entreprise, index) => (
+          <Card
+            key={index}
+            title={entreprise.desc}
+            link="#"
+            image={entreprise.image}
+            description={entreprise.desc}
+            onMissionClick={() => handleShowMissions(entreprise.missions)}
+          />
+        ))}
       </div>
   
       {/* Modal Popup */}
       {showModal && (
         <div style={modalStyles.overlay}>
           <div style={modalStyles.modal}>
-            <h3 style={modalStyles.modalTitle}>{Entreprise.desc}</h3>
+            <h3 style={modalStyles.modalTitle}>Missions</h3>
             <ul className="space-y-2 text-gray-600">
-              {SelectedMissions.map((mission, idx) => (
+              {selectedMissions.map((mission, idx) => (
                 <li key={idx} className="text-lg">
                   • {mission}
                 </li>
@@ -117,7 +123,7 @@ const Card = ({ title, link, image, description, onMissionClick }) => {
       <p style={styles.description}>{description}</p>
       {onMissionClick && (
         <button
-          onClick={() => handleShowMissions([Entreprise.mission1,Entreprise.mission2, Entreprise.mission3, Entreprise.mission4, Entreprise.mission5, Entreprise.mission6])}
+          onClick={onMissionClick}
           style={missionButtonStyles}
           onMouseOver={missionButtonMouseOver}
           onMouseOut={missionButtonMouseOut}
@@ -170,10 +176,8 @@ const styles = {
     marginBottom: '10px',
   },
   description: {
-    
     fontSize: '1rem',
   },
-
 };
 
 const modalStyles = {
@@ -212,6 +216,5 @@ const modalStyles = {
     cursor: 'pointer',
   },
 };
-
 
 export default EcoleEntreprise;
