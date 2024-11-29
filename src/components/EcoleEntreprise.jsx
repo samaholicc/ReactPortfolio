@@ -5,10 +5,11 @@ import ndgcImage from '../assets/NDDGC.jpg';
 
 const EcoleEntreprise = () => {
   const [showModal, setShowModal] = useState(false);
+  const [SelectedMissions, setSelectedMissions] = useState([]);
 
   // Function to handle modal popup
   const handleShowModal = (Entreprisedesc) => {
-    setSelectedOptions(Entreprisedesc);
+    setSelectedMissions(Entreprisedesc);
     setShowModal(true);
   };
 
