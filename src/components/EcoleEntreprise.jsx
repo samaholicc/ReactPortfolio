@@ -17,7 +17,7 @@ const EcoleEntreprise = () => {
   };
 
   return (
-    <div id ="EcoleEntreprise" style={styles.wrapper}>
+    <div id="EcoleEntreprise" style={styles.wrapper}>
       <h2 style={styles.heading}>École et Entreprise</h2>
       <div style={styles.container}>
         <Card
@@ -25,6 +25,7 @@ const EcoleEntreprise = () => {
           link="https://webitechparis.com/"
           image={webitechImage}
           description="Formation BTS SIO SLAM."
+          // This card does not include the onMissionClick prop
         />
         <Card
           title="Vinci SA"
@@ -41,7 +42,7 @@ const EcoleEntreprise = () => {
           onMissionClick={handleShowModal}
         />
       </div>
-
+  
       {/* Modal Popup */}
       {showModal && (
         <div style={modalStyles.overlay}>
@@ -87,14 +88,16 @@ const Card = ({ title, link, image, description, onMissionClick }) => {
       </a>
       <img src={image} alt={title} style={styles.image} />
       <p style={styles.description}>{description}</p>
-      <button
-        onClick={onMissionClick}
-        style={missionButtonStyles}
-        onMouseOver={missionButtonMouseOver}
-        onMouseOut={missionButtonMouseOut}
-      >
-        Mes missions 
-      </button>
+      {onMissionClick && (
+        <button
+          onClick={onMissionClick}
+          style={missionButtonStyles}
+          onMouseOver={missionButtonMouseOver}
+          onMouseOut={missionButtonMouseOut}
+        >
+          Mes missions
+        </button>
+      )}
     </div>
   );
 };
