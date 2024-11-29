@@ -22,6 +22,13 @@ const EcoleEntreprise = () => {
     {
       desc: "Webitech Paris",
       missions: [
+        
+      ],
+      image: webitechImage,
+    },
+    {
+      desc: "Vinci SA",
+      missions: [
         "Réceptionner les appels des utilisateurs pour qualifier et orienter les incidents et les demandes",
         "Traiter, suivre et résoudre les incidents et les demandes",
         "Assurer la relance et l'escalade des tickets",
@@ -29,26 +36,17 @@ const EcoleEntreprise = () => {
         "Escalade des tickets auprès du support niveau 2",
         "Reporting et diffusion des indicateurs de performance et de qualité"
       ],
-      image: webitechImage,
-    },
-    {
-      desc: "Vinci SA",
-      missions: [
-        "Évaluer les besoins en matériel pour chaque salle de réunion ou d’activité.",
-        "Documenter les spécifications techniques et les procédures d'utilisation pour chaque pièce d’équipement.",
-        "Créer une base de connaissances en ligne avec des FAQ et des guides de dépannage pour des problèmes courants.",
-        "Suivre une formation ou un tutoriel sur l’outil ticketing utilisé dans l’entreprise : Mojo Helpdesk",
-        "Mettre en place un suivi après l'intervention pour s'assurer que les problèmes sont résolus de manière satisfaisante.",
-        "Analyser les données de ticketing pour identifier les tendances et les problèmes récurrents."
-      ],
       image: vinciImage,
     },
     {
       desc: "Notre Dame du Grand-Champ",
       missions: [
-        "Évaluer les besoins en matériel pour chaque salle de réunion ou d’activité.",
+       "Évaluer les besoins en matériel pour chaque salle de réunion ou d’activité.",
         "Documenter les spécifications techniques et les procédures d'utilisation pour chaque pièce d’équipement.",
-        "Créer une base de connaissances en ligne avec des FAQ et des guides de dépannage pour des problèmes courants."
+        "Créer une base de connaissances en ligne avec des FAQ et des guides de dépannage pour des problèmes courants.",
+        "Suivre une formation ou un tutoriel sur l’outil ticketing utilisé dans l’entreprise : Mojo Helpdesk",
+        "Mettre en place un suivi après l'intervention pour s'assurer que les problèmes sont résolus de manière satisfaisante.",
+        "Analyser les données de ticketing pour identifier les tendances et les problèmes récurrents."
       ],
       image: ndgcImage,
     }
