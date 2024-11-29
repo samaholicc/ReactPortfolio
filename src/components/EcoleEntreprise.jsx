@@ -25,7 +25,6 @@ const EcoleEntreprise = () => {
           link="https://webitechparis.com/"
           image={webitechImage}
           description="Formation BTS SIO SLAM."
-          onMissionClick={handleShowModal}
         />
         <Card
           title="Vinci SA"
@@ -39,7 +38,7 @@ const EcoleEntreprise = () => {
           link="https://www.nd-grandchamp.fr/"
           image={ndgcImage}
           description="Stage Technicienne Informatique."
-          
+          onMissionClick={handleShowModal}
         />
       </div>
 
