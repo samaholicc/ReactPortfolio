@@ -21,16 +21,16 @@ const Projects = () => {
     <div id="projects" className="w-full px-[12%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Projets</h2>
       <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
-        Voici quelques-uns de mes projets récents, mettant en valeur mon
-        expertise dans le développement web et d'applications mobiles.
+        Voici quelques-uns de mes projets récents, mettant en valeur mon expertise
+        dans le développement web et d'applications mobiles.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
         {projects.map((project, index) => (
           <div key={index} className="relative group w-full h-64">
-            {/* Conteneur de Carte */}
+            {/* Card Container */}
             <div className="relative w-full h-full transition-transform duration-700 transform preserve-3d group-hover:rotate-y-180">
-              {/* Face avant */}
+              {/* Front Face */}
               <div className="absolute w-full h-full bg-white shadow-lg rounded-lg backface-hidden">
                 <img
                   src={project.image}
@@ -42,7 +42,7 @@ const Projects = () => {
                 </h3>
               </div>
 
-              {/* Face arrière */}
+              {/* Back Face */}
               <div className="absolute w-full h-full bg-purple-600 text-white text-center p-6 rounded-lg rotate-y-180 backface-hidden flex flex-col justify-center items-center">
                 <h3 className="text-lg font-bold mb-4">{project.name}</h3>
                 <p>{project.desc}</p>

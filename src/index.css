@@ -4,11 +4,14 @@
 
 .preserve-3d {
   transform-style: preserve-3d;
-  perspective: 1000px; /* added perspective */
+  perspective: 1000px; /* Perspective added here */
 }
 
 .backface-hidden {
   backface-visibility: hidden;
+  position: absolute; /* Needed for positioning */
+  width: 100%;       /* Full width for both sides */
+  height: 100%;      /* Full height for both sides */
 }
 
 .rotate-y-180 {
