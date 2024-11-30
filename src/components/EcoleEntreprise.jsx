@@ -197,8 +197,8 @@ const modalStyles = {
     borderRadius: '8px',
     padding: '20px',
     boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-    width: '80%',
-    maxWidth: '400px',
+    width: '100%',
+    maxWidth: '500px',
   },
   modalTitle: {
     color: "black", 
