@@ -31,7 +31,7 @@ const Projects = () => {
             {/* Card Container */}
             <div className="relative w-full h-full transition-transform duration-700 transform preserve-3d group-hover:rotate-y-180">
               {/* Front Face */}
-              <div className="absolute w-full h-full bg-white shadow-lg rounded-lg backface-hidden">
+              <div className="absolute w-full h-full bg-white shadow-lg rounded-lg ">
                 <img
                   src={project.image}
                   alt={project.name}
