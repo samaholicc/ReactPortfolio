@@ -23,6 +23,7 @@ const EcoleEntreprise = () => {
       desc: "Webitech Paris",
      
       image: webitechImage,
+      link: "https://webitechparis.com/"
     },
     {
       desc: "Vinci SA",
@@ -35,6 +36,7 @@ const EcoleEntreprise = () => {
         "Reporting et diffusion des indicateurs de performance et de qualité"
       ],
       image: vinciImage,
+      link: "https://www.vinci.com/"
     },
     {
       desc: "Notre Dame du Grand-Champ",
@@ -47,6 +49,7 @@ const EcoleEntreprise = () => {
         "Analyser les données de ticketing pour identifier les tendances et les problèmes récurrents."
       ],
       image: ndgcImage,
+      link: "https://www.nd-grandchamp.fr/"
     }
   ]; 
 
@@ -58,7 +61,7 @@ const EcoleEntreprise = () => {
           <Card
             key={index}
             title={entreprise.desc}
-            link="#"
+            link={entreprise.link}
             image={entreprise.image}
             description={entreprise.desc}
             onMissionClick={entreprise.missions ? () => handleShowMissions(entreprise.missions) : null}
