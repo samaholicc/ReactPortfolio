@@ -1,15 +1,8 @@
-.project-card {
-  position: relative; /* Ensure proper positioning for child elements */
-  width: 100%; /* Make sure it's correctly sized */
-  height: 100%;
-  perspective: 1000px; /* Add perspective for 3D effect */
+.preserve-3d {
+  transform-style: preserve-3d;
 }
 
 
-
-.backface-hidden {
-  backface-visibility: hidden; /* Hide back face when flipped */
-  position: absolute; /* Position both faces absolutely */
-  width: 100%;
-  height: 100%;
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
