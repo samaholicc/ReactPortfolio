@@ -2,7 +2,6 @@ import React from "react";
 import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
 
-
 const Projects = () => {
   const projects = [
     {
@@ -15,7 +14,6 @@ const Projects = () => {
       desc: "Description for project two",
       image: project2,
     },
-    
   ];
 
   return (
@@ -28,10 +26,10 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
         {projects.map((project, index) => (
-          <div key={index} className="relative group w-full h-64">
-            {/* Conteneur de Carte */}
-            <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-              {/* Face avant */}
+          <div key={index} className="relative project-card w-full h-64">
+            {/* Card Container */}
+            <div className="card-container">
+              {/* Front Face */}
               <div className="absolute w-full h-full bg-white shadow-lg rounded-lg backface-hidden">
                 <img
                   src={project.image}
@@ -43,8 +41,8 @@ const Projects = () => {
                 </h3>
               </div>
 
-              {/* Face arrière */}
-              <div className="absolute w-full h-full bg-purple-600 text-white text-center p-6 rounded-lg rotate-y-180 backface-hidden flex flex-col justify-center items-center">
+              {/* Back Face */}
+              <div className="absolute w-full h-full bg-purple-600 text-white text-center p-6 rounded-lg backface-hidden flex flex-col justify-center items-center rotate-y-180">
                 <h3 className="text-lg font-bold mb-4">{project.name}</h3>
                 <p>{project.desc}</p>
               </div>
