@@ -1,14 +1,25 @@
 import React from "react";
 import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
-import project3 from "../assets/project3.png";
+
 
 const Projects = () => {
-  const projects = [];
+  const projects = [
+    {
+      name: "Client leger",
+      desc: "zfhzefhz",
+      image: project1,
+    },
+    {
+      name: "Client lourd",
+      desc: "Description for project two",
+      image: project2,
+    },
+    
+  ];
 
   return (
     <div id="projects" className="w-full px-[12%] py-10 scroll-mt-20">
-    
       <h2 className="text-center text-5xl font-Ovo">Projets</h2>
       <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
         Voici quelques-uns de mes projets récents, mettant en valeur mon
