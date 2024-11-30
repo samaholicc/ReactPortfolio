@@ -13,7 +13,7 @@ const Work = () => {
 
       <div className="grid grid-cols-auto my-10 gap-5 dark:text-black">
         <div className="aspect-square bg-[url('./assets/task.jpg')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
-          <a href="https://github.com/samaholicc/Task_manager">
+          <a target="_blank" href="https://github.com/samaholicc/Task_manager">
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
                 <h2 className="font-semibold">Gestionnaire des tâches </h2>
@@ -27,7 +27,7 @@ const Work = () => {
         </div>
 
         <div className="aspect-square bg-[url('./assets/work-2.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
-          <a href="https://github.com/samaholicc/star_services_1">
+          <a target="_blank" href="https://github.com/samaholicc/star_services_1">
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
                 <h2 className="font-semibold">Application Web</h2>
@@ -41,7 +41,7 @@ const Work = () => {
         </div>
 
         <div className="aspect-square bg-[url('./assets/work-3.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
-          <a href="https://github.com/samaholicc/seomaster-1.0.0">
+          <a target="_blank"  href="https://github.com/samaholicc/seomaster-1.0.0">
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
                 <h2 className="font-semibold">Site Vitrine</h2>
@@ -55,7 +55,7 @@ const Work = () => {
         </div>
 
         <div className="aspect-square bg-[url('./assets/work-4.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
-          <a href="https://github.com/samaholicc/pfa">
+          <a target="_blank" href="https://github.com/samaholicc/pfa">
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
                 <h2 className="font-semibold">Application mobile</h2>
@@ -69,7 +69,7 @@ const Work = () => {
         </div>
       </div>
 
-      <a
+      <a target="_blank" 
         href="https://github.com/samaholicc"
         className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover"
       >
