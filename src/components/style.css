@@ -5,14 +5,7 @@
   perspective: 1000px; /* Add perspective for 3D effect */
 }
 
-.card-container {
-  transition: transform 0.7s; /* Add transition for smooth flipping */
-  transform-style: preserve-3d; /* Allow 3D transformations */
-}
 
-.card-container:hover {
-  transform: rotateY(180deg); /* Rotate on hover */
-}
 
 .backface-hidden {
   backface-visibility: hidden; /* Hide back face when flipped */
