@@ -4,6 +4,7 @@
 
 .preserve-3d {
   transform-style: preserve-3d;
+  perspective: 1000px; /* added perspective */
 }
 
 .backface-hidden {
@@ -13,4 +14,3 @@
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
-

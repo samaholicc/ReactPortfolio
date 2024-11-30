@@ -3,7 +3,6 @@ import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
 import '../index.css';
 
-
 const Projects = () => {
   const projects = [
     {
@@ -16,7 +15,6 @@ const Projects = () => {
       desc: "Description for project two",
       image: project2,
     },
-    
   ];
 
   return (
@@ -31,7 +29,7 @@ const Projects = () => {
         {projects.map((project, index) => (
           <div key={index} className="relative group w-full h-64">
             {/* Conteneur de Carte */}
-            <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+            <div className="relative w-full h-full transition-transform duration-700 transform preserve-3d group-hover:rotate-y-180">
               {/* Face avant */}
               <div className="absolute w-full h-full bg-white shadow-lg rounded-lg backface-hidden">
                 <img
