@@ -2,18 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-.preserve-3d {
-  transform-style: preserve-3d;
-  perspective: 1000px; /* Perspective added here */
-}
-
 .backface-hidden {
-  backface-visibility: hidden;
-  position: absolute; /* Needed for positioning */
-  width: 100%;       /* Full width for both sides */
-  height: 100%;      /* Full height for both sides */
+  backface-visibility: hidden; /* Prevents back face from being visible */
 }
 
 .rotate-y-180 {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg); /* Rotates the back face */
+}
+
+/* Add this if necessary to ensure the perspective works */
+.card-container {
+  perspective: 1000px; /* Perspective for the 3D effect */
 }

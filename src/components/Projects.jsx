@@ -24,14 +24,14 @@ const Projects = () => {
         Voici quelques-uns de mes projets récents, mettant en valeur mon expertise
         dans le développement web et d'applications mobiles.
       </p>
-
+  
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
         {projects.map((project, index) => (
           <div key={index} className="relative group w-full h-64">
             {/* Card Container */}
             <div className="relative w-full h-full transition-transform duration-700 transform preserve-3d group-hover:rotate-y-180">
               {/* Front Face */}
-              <div className="absolute w-full h-full bg-white shadow-lg rounded-lg ">
+              <div className="absolute w-full h-full bg-white shadow-lg rounded-lg backface-hidden">
                 <img
                   src={project.image}
                   alt={project.name}
@@ -41,9 +41,9 @@ const Projects = () => {
                   {project.name}
                 </h3>
               </div>
-
+  
               {/* Back Face */}
-              <div className="absolute w-full h-full bg-purple-600 text-white text-center p-6 rounded-lg rotate-y-180 backface-hidden flex flex-col justify-center items-center">
+              <div className="absolute w-full h-full bg-purple-600 text-white text-center p-6 rounded-lg backface-hidden rotate-y-180 flex flex-col justify-center items-center">
                 <h3 className="text-lg font-bold mb-4">{project.name}</h3>
                 <p>{project.desc}</p>
               </div>
@@ -53,6 +53,5 @@ const Projects = () => {
       </div>
     </div>
   );
-};
-
+}
 export default Projects;
