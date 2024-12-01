@@ -1,4 +1,3 @@
-
 import React from "react";
 import project1 from "../assets/project1.jpg"; // Ensure these image paths are correct
 import project2 from "../assets/project2.jpg"; // Ensure these image paths are correct
@@ -25,9 +24,10 @@ const Projects = () => {
         Voici quelques-uns de mes projets récents, mettant en valeur mon expertise dans le développement web et d'applications mobiles.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center flip-card-inner">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card  w-80 h-80"> {/* Adjust height and width here */}
+          <div key={index} className="flip-card w-80 h-80 relative"> {/* Added relative positioning */}
+            <div className="flip-card-inner"> {/* Added this wrapper for flip logic */}
               {/* Front Face */}
               <div className="flip-card-front card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md">
                 <img
@@ -46,6 +46,7 @@ const Projects = () => {
                 <p className="mb-4">{project.desc}</p>
                 <button className="flip-button bg-blue-500 text-white py-2 px-4 rounded">Lien Github</button>
               </div>
+            </div>
           </div>
         ))}
       </div>
