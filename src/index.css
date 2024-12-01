@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 .flip-card {
-  perspective: 1000px; /* Adds perspective to the card flipping */
+  perspective: 1000px;
+  background-color: white; /* Adds perspective to the card flipping */
 }
 
 .flip-card-inner {
   transition: transform 0.6s;
-  transform-style: preserve-3d;
+  
   position: relative; /* Positioning context for the child elements */
 }
 
