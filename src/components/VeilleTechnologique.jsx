@@ -86,13 +86,7 @@ const VeilleTechnologique = () => {
     { name: "Flipboard", logo: flipboard, link: "https://flipboard.com" },
   ];
 
-  const reactCommands = [
-    { title: "Importer React", code: `import React from 'react';` },
-    { title: "Composant Fonctionnel", code: `function MonComposant() { return <h1>Bonjour, monde!</h1>; }` },
-    { title: "useState Hook", code: `function Compteur() { const [count, setCount] = useState(0); return (<div><p>Vous avez cliqué {count} fois</p><button onClick={() => setCount(count + 1)}>Cliquez ici</button></div>); }` },
-    { title: "useEffect Hook", code: `function ExempleEffect() { useEffect(() => { /* effect code here */ }, []); return <div>
- <div>Regardez la console!</div>; }` },
-  ];
+ 
 
   return (
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
@@ -145,21 +139,7 @@ const VeilleTechnologique = () => {
           )}
         </div>
       </div>
-        {/* React Commands Section */}
-        <h4 className="w-full px-[12%] py-10 scroll-mt-20 text-center">Commandes de base en React</h4>
-        <div className="md:w-1/2 mx-auto"> {/* Center the container for better visibility */}
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
-            {reactCommands.map((command, index) => (
-              <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg max-w-md mx-auto">
-                <h5 className="text-lg font-bold">{command.title}</h5>
-                <pre className="text-sm min-h-[100px]"> {/* Set min-height to prevent card expansion */}
-                  <code className="text-green-500">{useTypingEffect(command.code, 50)}</code>
-                </pre>
-              </div>
-            ))}
-          </div>
-        </div>
+    
       
     </div>
   );
