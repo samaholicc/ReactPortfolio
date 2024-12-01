@@ -28,7 +28,6 @@ const Projects = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
           <div key={index} className="flip-card w-80 h-80"> {/* Adjust height and width here */}
-            <div className="flip-card-inner">
               {/* Front Face */}
               <div className="flip-card-front card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md">
                 <img
@@ -47,7 +46,6 @@ const Projects = () => {
                 <p className="mb-4">{project.desc}</p>
                 <button className="flip-button bg-blue-500 text-white py-2 px-4 rounded">Lien Github</button>
               </div>
-            </div>
           </div>
         ))}
       </div>
