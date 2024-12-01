@@ -24,7 +24,7 @@ const Projects = () => {
         Voici quelques-uns de mes projets récents, mettant en valeur mon expertise dans le développement web et d'applications mobiles.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 my-10 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2  gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
           <div key={index} className="flip-card max-w-xs mx-auto"> {/* Center each card */}
             <div className="flip-card-inner">
