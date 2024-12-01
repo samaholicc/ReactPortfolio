@@ -1,5 +1,4 @@
-jsx
-Copy
+
 import React from "react";
 import project1 from "../assets/project1.jpg"; // Ensure these image paths are correct
 import project2 from "../assets/project2.jpg"; // Ensure these image paths are correct
