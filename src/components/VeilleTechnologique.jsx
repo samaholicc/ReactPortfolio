@@ -3,7 +3,13 @@ import sampleImage5 from "../assets/atom.png";
 import Inoreader from "../assets/Inoreader.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick"; // Import the Slider component
+import Slider from "react-slick"; 
+import flipboard from "../assets/flipboard.png"
+
+import feedly from "../assets/feedly.png"
+import getpocket from "../assets/getpocket.png"
+
+// Import the Slider component
 
 const Card = ({ title, image, description }) => (
   <div className="relative w-full p-6 border border-gray-300 rounded-lg shadow-lg">
@@ -48,6 +54,12 @@ const VeilleTechnologique = () => {
     slidesToShow: 1,
     slidesToScroll: 1
   };
+  const tools = [
+    { name: "Inoreader", logo: Inoreader, link: "https://www.inoreader.com" },
+    { name: "Feedly", logo: feedly , link: "https://feedly.com" },
+    { name: "Pocket", logo: getpocket, link: "https://getpocket.com" },
+    { name: "Flipboard", logo: flipboard, link: "https://flipboard.com" },
+  ];
   const reactCommands = [
     { title: "Importer React", code: `import React from 'react';` },
     {
@@ -83,14 +95,24 @@ const VeilleTechnologique = () => {
       
       {/* Grid layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="col-span-1 mb-10">
-          {/* React Intro Section */}
-          <Card
-            title="React"
-            image={sampleImage5}
-            description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
-          />
-        </div>
+  <div className="col-span-1 mb-10">
+    {/* React Intro Section */}
+    <Card
+      title="React"
+      image={sampleImage5}
+      description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
+    />
+    
+    <p className="mt-8 text-lg font-semibold">Outils de ma veille:</p>
+    <div className="flex justify-center flex-wrap mt-4">
+      {tools.map((tool, index) => (
+        <a key={index} href={tool.link} target="_blank" rel="noopener noreferrer" className="mx-2 mb-2">
+          <img src={tool.logo} alt={tool.name} className="w-16 h-16 object-contain" /> {/* Adjust the size of the logos as needed */}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
 
         <div className="col-span-1 mb-10"> {/* Allow the RSS feed to occupy the remaining space */}
         {/* RSS Feed Section - left column */}
@@ -130,7 +152,8 @@ const VeilleTechnologique = () => {
           </div>
         </div>
       </div>
-    </div>
+
+    
   );
 };
 
