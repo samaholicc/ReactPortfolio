@@ -11,13 +11,22 @@ import getpocket from "../assets/getpocket.png";
 
 // Import the Slider component
 
-const Card = ({ title, image, description }) => (
+const Card = ({ title, image, description, tools }) => (
   <div className="relative w-full p-6 border border-gray-300 rounded-lg shadow-lg">
     <h2 className="text-2xl font-semibold mb-2">{title}</h2>
     <div className="flex justify-center">
       <img src={image} alt={`${title} Icon`} className="image-small rounded mb-4" />
     </div>
-    <p className="text-white-700">{description}</p>
+    <p className="text-black-700">{description}</p> {/* Fixed color for visibility */}
+
+    <p className="mt-8 text-lg font-semibold">Outils de ma veille:</p>
+    <div className="flex justify-center flex-wrap mt-4">
+      {tools.map((tool, index) => (
+        <a key={index} href={tool.link} target="_blank" rel="noopener noreferrer" className="mx-2 mb-2">
+          <img src={tool.logo} alt={tool.name} className="w-16 h-16 object-contain" /> {/* Adjust the size of the logos as needed */}
+        </a>
+      ))}
+    </div>
   </div>
 );
 
