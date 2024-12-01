@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.card-content {
+  padding: 1rem; /* Adjust as needed */
+}
 .flip-card {
   perspective: 1000px; /* Adds perspective to the card flipping */
 }
@@ -9,7 +12,8 @@
 .flip-card-inner {
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  position: relative; /* Positioning context for the child elements */
+  position: relative;
+  background: white; /* Positioning context for the child elements */
 }
 
 .flip-card:hover .flip-card-inner {
