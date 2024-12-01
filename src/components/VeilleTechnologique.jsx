@@ -4,10 +4,10 @@ import Inoreader from "../assets/Inoreader.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"; 
-import flipboard from "../assets/flipboard.png"
+import flipboard from "../assets/flipboard.png";
 
-import feedly from "../assets/feedly.png"
-import getpocket from "../assets/getpocket.png"
+import feedly from "../assets/feedly.png";
+import getpocket from "../assets/getpocket.png";
 
 // Import the Slider component
 
