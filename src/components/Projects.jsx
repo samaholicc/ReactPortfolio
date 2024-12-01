@@ -18,16 +18,15 @@ const Projects = () => {
   ];
 
   return (
-    <div id="projects" className="w-full px-[5%] py-10 scroll-mt-20">
+    <div id="projects" className="flex flex-col items-center w-full px-[5%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Projets</h2>
       <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
         Voici quelques-uns de mes projets récents, mettant en valeur mon expertise dans le développement web et d'applications mobiles.
       </p>
 
-      {/* Center the grid items */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card max-w-xs mx-auto"> {/* Set max width for the card and center it */}
+          <div key={index} className="flip-card max-w-xs mx-auto"> {/* Center each card */}
             <div className="flip-card-inner">
               {/* Front Face */}
               <div className="flip-card-front card-content">
