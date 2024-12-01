@@ -57,8 +57,31 @@ const VeilleTechnologique = () => {
     // Add more React articles here...
   ];
 
-  
-
+  const reactCommands = [
+    { title: "Importer React", code: `import React from 'react';` },
+    {
+      title: "Composant Fonctionnel",
+      code: `function MonComposant() { return <h1>Bonjour, monde!</h1>; }`,
+    },
+    {
+      title: "useState Hook",
+      code: `function Compteur() { const [count, setCount] = useState(0); 
+        return (
+          <div>
+            <p>Vous avez cliqué {count} fois</p>
+            <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
+          </div>
+        );
+      }`,
+    },
+    {
+      title: "useEffect Hook",
+      code: `function ExempleEffect() {
+        useEffect(() => { /* effect code here*/ }, []);
+        return <div>Regardez la console!</div>;
+      }`,
+    },
+  ];
 
   const NextArrow = (props) => {
     const { className, onClick } = props;
@@ -90,15 +113,14 @@ const VeilleTechnologique = () => {
     prevArrow: <PrevArrow />,
   };
 
-
   return (
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
       {/* Main heading */}
       <h2 className="text-4xl font-bold mb-4">Veille Technologique</h2>
       <p className="mb-8">Découvrez les dernières actualités et articles concernant React.</p>
-  
+
       <div className="flex flex-col md:flex-row gap-10">
-        <div className="md:w-1/2">
+      <div className="md:w-1/2">
           {/* React Intro Section */}
           <Card
             title="Ma veille technologique : React"
@@ -106,8 +128,8 @@ const VeilleTechnologique = () => {
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
           />
         </div>
-        <div >
-          {/* RSS Feed Section and React Commands Carousel */}
+        <div className="md:w-1/2">
+          {/* RSS Feed Section */}
           <div className="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg max-w-xs min-h-[100px] relative mb-10">
             <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
             <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
@@ -128,9 +150,19 @@ const VeilleTechnologique = () => {
             )}
           </div>
           
+          {/* React Commands Carousel */}
+          <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
+          <Slider {...settings} className="w-full relative">
+            {reactCommands.map((command, index) => (
+              <div key={index} className="p-4 bg-black text-white rounded-lg">
+                <h5 className="text-lg font-bold mb-2">{command.title}</h5>
+                <pre className="text-sm"><code>{command.code}</code></pre>
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
-  
+
       <h4 className="my-6 text-gray-700 font-bold dark:text-white/80">Articles React</h4>
       <div className="mt-10">
         {/* Articles Carousel */}
@@ -146,6 +178,6 @@ const VeilleTechnologique = () => {
       </div>
     </div>
   );
-}
-  
-  export default VeilleTechnologique;
+};
+
+export default VeilleTechnologique;
