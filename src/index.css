@@ -57,3 +57,6 @@
 .flip-button:hover {
     background-color: #e0b4e0; /* Change background color on button hover */
 }
+.flip-card {
+  margin: 10px; /* Adjust gap as needed */
+}
