@@ -100,17 +100,23 @@ const VeilleTechnologique = () => {
       <h2 className="text-4xl font-bold mb-4">Veille Technologique</h2>
       <p className="mb-8">La veille technologique est un processus systématique de collecte, d'analyse et d'interprétation d'informations concernant les nouvelles technologies, les innovations et les tendances du marché...</p>
       
-      {/* Grid layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+       {/* Grid layout */}
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* React Card */}
         <div className="col-span-1 mb-10">
           <Card
             title="React"
             image={sampleImage5}
-            description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
+            description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, 
+            notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI 
+            réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire 
+            du code semblable à HTML."
             tools={tools}
           />
         </div>
-        <div className="col-span-1 mb-10"> 
+
+        {/* RSS Feed Slider */}
+        <div className="col-span-1 mb-10">
           {isLoading ? (
             <p>Chargement des articles...</p>
           ) : error ? (
@@ -124,7 +130,14 @@ const VeilleTechnologique = () => {
                     <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
                     <h3 className="text-xl font-bold">{article.title}</h3>
                     <p>{article.description}</p>
-                    <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
+                    <a
+                      href={article.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      Lire l'article
+                    </a>
                   </div>
                 ))}
               </Slider>
@@ -132,23 +145,23 @@ const VeilleTechnologique = () => {
           )}
         </div>
 
-        <div className="md:w-1/2">
-  <h4 className="text-3xl mb-4 font-semibold text-center">Commandes de base en React</h4>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
-    {reactCommands.map((command, index) => (
-      <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg max-w-md mx-auto">
-        <h5 className="text-lg font-bold">{command.title}</h5>
-        <pre className="text-sm min-h-[100px]"> {/* Set min-height to prevent card expansion */}
-          <code className="text-green-500">{useTypingEffect(command.code, 50)}</code> {/* Typing effect here */}
-        </pre>
-      </div>
-    ))}
-  </div>
-</div>
+        {/* React Commands Section */}
+        <div className="md:w-1/2 mx-auto"> {/* Center the container for better visibility */}
+          <h4 className="text-3xl mb-4 font-semibold text-center">Commandes de base en React</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
+            {reactCommands.map((command, index) => (
+              <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg max-w-md mx-auto">
+                <h5 className="text-lg font-bold">{command.title}</h5>
+                <pre className="text-sm min-h-[100px]"> {/* Set min-height to prevent card expansion */}
+                  <code className="text-green-500">{useTypingEffect(command.code, 50)}</code>
+                </pre>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default VeilleTechnologique;
-
