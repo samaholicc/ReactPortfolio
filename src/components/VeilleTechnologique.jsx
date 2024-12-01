@@ -7,7 +7,6 @@ import Slider from "react-slick";
 import flipboard from "../assets/flipboard.png";
 
 import feedly from "../assets/feedly.png";
-import getpocket from "../assets/getpocket.png";
 
 // Import the Slider component
 
@@ -66,7 +65,6 @@ const VeilleTechnologique = () => {
   const tools = [
     { name: "Inoreader", logo: Inoreader, link: "https://www.inoreader.com" },
     { name: "Feedly", logo: feedly , link: "https://feedly.com" },
-    { name: "Pocket", logo: getpocket, link: "https://getpocket.com" },
     { name: "Flipboard", logo: flipboard, link: "https://flipboard.com" },
   ];
   const reactCommands = [
