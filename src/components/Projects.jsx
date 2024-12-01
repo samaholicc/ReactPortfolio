@@ -1,7 +1,7 @@
 import React from "react";
 import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
-import '../index.css'; // Make sure this file includes Tailwind and your custom styles
+import '../index.css'; // Ensure this file includes Tailwind and your custom styles
 
 const Projects = () => {
   const projects = [
@@ -24,9 +24,9 @@ const Projects = () => {
         Voici quelques-uns de mes projets récents, mettant en valeur mon expertise dans le développement web et d'applications mobiles.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 my-10 justify-items-center"> {/* Added justify-items-center for centering */}
         {projects.map((project, index) => (
-          <div key={index} className="flip-card mx-auto"> {/* Center align each card */}
+          <div key={index} className="flip-card">
             <div className="flip-card-inner">
               {/* Front Face */}
               <div className="flip-card-front card-content">
