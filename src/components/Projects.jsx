@@ -41,10 +41,10 @@ const Projects = () => {
               </div>
 
               {/* Back Face */}
-              <div className="flip-card-back card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md"> 
-                <h3 className="text-lg font-bold mb-2">{project.name}</h3>
-                <p className="mb-4">{project.desc}</p>
-                <button className="flip-button bg-blue-500 text-white py-2 px-4 rounded">Lien Github</button>
+              <div className="flip-card-back card-content flex flex-col items-center justify-center h-full bg-white rounded-lg shadow-md"> 
+                <h3 className="text-lg font-bold mb-2 text-center">{project.name}</h3>
+                <p className="mb-4 text-center">{project.desc}</p>
+                <button className="flip-button bg-blue-500 text-black text-sm py-1 px-2 rounded">Lien Github</button>
               </div>
             </div>
           </div>
