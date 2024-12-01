@@ -24,16 +24,16 @@ const Projects = () => {
         Voici quelques-uns de mes projets récents, mettant en valeur mon expertise dans le développement web et d'applications mobiles.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2  gap-10 my-10 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card max-w-s mx-s"> {/* Center each card */}
+          <div key={index} className="flip-card w-80 h-64"> {/* Updated width */}
             <div className="flip-card-inner">
               {/* Front Face */}
-              <div className="flip-card-front card-content">
+              <div className="flip-card-front card-content flex flex-col justify-between h-full">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full object-cover rounded-t-lg"
+                  className="w-full h-48 object-cover rounded-t-lg"
                 />
                 <h3 className="text-center text-lg font-semibold mt-4 text-gray-800">
                   {project.name}
@@ -41,10 +41,10 @@ const Projects = () => {
               </div>
 
               {/* Back Face */}
-              <div className="flip-card-back card-content flex flex-col justify-center items-center">
-                <h3 className="text-lg font-bold mb-4">{project.name}</h3>
-                <p>{project.desc}</p>
-                <button className="flip-button">Lien Github</button>
+              <div className="flip-card-back card-content flex flex-col justify-center items-center text-center h-full">
+                <h3 className="text-lg font-bold mb-2">{project.name}</h3>
+                <p className="mb-4">{project.desc}</p>
+                <button className="flip-button bg-blue-500 text-white py-2 px-4 rounded">Lien Github</button>
               </div>
             </div>
           </div>

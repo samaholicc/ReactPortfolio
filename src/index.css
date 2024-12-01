@@ -3,59 +3,32 @@
 @tailwind utilities;
 
 .flip-card {
-  perspective: 1000px; /* Perspective for the 3D effect */
-  width: 400px; /* Set consistent card width */
-  height: 300px; /* Set consistent card height */
-  margin: 20px; /* Optional: can be adjusted or removed */
+  perspective: 1000px; /* Adds perspective to the card flipping */
 }
 
-
 .flip-card-inner {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d; /* Maintain 3D effect */
-    transition: transform 0.5s; /* Smooth transition */
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative; /* Positioning context for the child elements */
 }
 
 .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg); /* Flip on hover */
+  transform: rotateY(180deg); /* Flip the card on hover */
 }
 
 .flip-card-front,
 .flip-card-back {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    position: absolute; /* Position on top of each other */
-    backface-visibility: hidden; /* Hide the back face when flipped */
-}
-
-.flip-card-front {
-    background-color: #d7fbda; /* Front card color */
-    color: green; /* Front card text color */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Prevents back face from being visible */
 }
 
 .flip-card-back {
-    background-color: #fbd7f8; /* Back card color */
-    color: black; /* Back card text color */
-    transform: rotateY(180deg);
-        /* Start the back face rotated */
+  transform: rotateY(180deg); /* Initially hide the back face */
 }
 
+/* Optional for better visuals */
 .card-content {
-    text-align: center; /* Center content within the card */
-}
-
-.flip-button {
-    width: 100px; /* Width of the button */
-    padding: 10px; /* Button padding */
-    font-size: 16px; /* Font size for the button text */
-    margin-top: 10px; /* Space above the button */
-    background-color: #f5d9fa; /* Background color of the button */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners for the button */
-    cursor: pointer; /* Cursor pointer on hover */
-}
-
-.flip-button:hover {
-    background-color: #f0f0f0; /* Change background color on button hover */
+  padding: 10px; /* Adjust padding for inner content */
 }
