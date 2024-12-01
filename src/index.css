@@ -37,22 +37,23 @@
 .flip-card-back {
     background-color: #fbd7f8; /* Back card color */
     color: blue; /* Back card text color */
-    transform: rotateY(180deg); /* Start with back face rotated */
+    transform: rotateY(180deg);
+        /* Start the back face rotated */
 }
 
 .card-content {
-    text-align: center; /* Center content */
+    text-align: center; /* Center content within the card */
 }
 
 .flip-button {
-    width: 100px; /* Button width */
+    width: 100px; /* Width of the button */
     padding: 10px; /* Button padding */
-    font-size: 16px; /* Button font size */
-    margin-top: 10px; /* Margin on top */
-    background-color: #f5d9fa; /* Button background color */
+    font-size: 16px; /* Font size for the button text */
+    margin-top: 10px; /* Space above the button */
+    background-color: #f5d9fa; /* Background color of the button */
     border: none; /* No border */
-    border-radius: 5px; /* Rounded button edges */
-    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners for the button */
+    cursor: pointer; /* Cursor pointer on hover */
 }
 
 .flip-button:hover {
