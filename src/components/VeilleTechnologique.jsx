@@ -133,18 +133,18 @@ const VeilleTechnologique = () => {
         </div>
 
         <div className="md:w-1/2">
-          <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
-            {reactCommands.map((command, index) => (
-              <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg max-w-md mx-auto">
-                <h5 className="text-lg font-bold">{command.title}</h5>
-                <pre className="text-sm">
-                  <code className="text-green-500">{useTypingEffect(command.code, 50)}</code> {/* Typing effect here */}
-                </pre>
-              </div>
-            ))}
-          </div>
-        </div>
+  <h4 className="text-3xl mb-4 font-semibold text-center">Commandes de base en React</h4>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
+    {reactCommands.map((command, index) => (
+      <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg max-w-md mx-auto">
+        <h5 className="text-lg font-bold">{command.title}</h5>
+        <pre className="text-sm min-h-[100px]"> {/* Set min-height to prevent card expansion */}
+          <code className="text-green-500">{useTypingEffect(command.code, 50)}</code> {/* Typing effect here */}
+        </pre>
+      </div>
+    ))}
+  </div>
+</div>
       </div>
     </div>
   );
