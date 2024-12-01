@@ -26,14 +26,14 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2  gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card max-w-xs mx-auto"> {/* Center each card */}
+          <div key={index} className="flip-card max-w-s mx-s"> {/* Center each card */}
             <div className="flip-card-inner">
               {/* Front Face */}
               <div className="flip-card-front card-content">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-48 object-cover rounded-t-lg"
+                  className="w-full object-cover rounded-t-lg"
                 />
                 <h3 className="text-center text-lg font-semibold mt-4 text-gray-800">
                   {project.name}

@@ -4,7 +4,7 @@
 
 .flip-card {
   perspective: 1000px; /* Perspective for the 3D effect */
-  width: 400px; /* Set consistent card width */
+  width: 290px; /* Set consistent card width */
   height: 300px; /* Set consistent card height */
   margin: 20px; /* Optional: can be adjusted or removed */
 }
