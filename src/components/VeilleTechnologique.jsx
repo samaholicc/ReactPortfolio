@@ -48,7 +48,23 @@ const VeilleTechnologique = () => {
     },
     // Add more React articles here...
   ];
-
+  const NextArrow = (props) => {
+    const { className, onClick } = props;
+    return (
+      <button className={`${className} absolute right-4 top-1/2 transform -translate-y-1/2`} onClick={onClick}>
+        Next
+      </button>
+    );
+  };
+  
+  const PrevArrow = (props) => {
+    const { className, onClick } = props;
+    return (
+      <button className={`${className} absolute left-4 top-1/2 transform -translate-y-1/2`} onClick={onClick}>
+        Previous
+      </button>
+    );
+  };
   const settings = {
     dots: false,
     infinite: true,
@@ -57,6 +73,8 @@ const VeilleTechnologique = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
@@ -77,25 +95,25 @@ const VeilleTechnologique = () => {
           />
         </div>
         <div className="md:w-1/2"> {/* RSS Feed Section */}
-        <div class="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg max-w-xs min-height: 100px;">
-            <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
-            <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
-            {isLoading ? (
-              <p>Chargement des articles...</p>
-            ) : error ? (
-              <p>Erreur lors du chargement des articles : {error.message}</p>
-            ) : (
-              <Slider {...settings} className="w-full">
-                {articles.map((article, index) => (
-                  <div key={index} className="p-4">
-                    <h3 className="text-xl font-bold">{article.title}</h3>
-                    <p>{article.description}</p>
-                    <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
-                  </div>
-                ))}
-              </Slider>
-            )}
-          </div>
+        <div className="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg max-w-xs min-h-[100px] relative">
+  <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
+  <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
+  {isLoading ? (
+    <p>Chargement des articles...</p>
+  ) : error ? (
+    <p>Erreur lors du chargement des articles : {error.message}</p>
+  ) : (
+    <Slider {...settings} className="w-full relative">
+      {articles.map((article, index) => (
+        <div key={index} className="p-4">
+          <h3 className="text-xl font-bold">{article.title}</h3>
+          <p>{article.description}</p>
+          <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
+        </div>
+      ))}
+    </Slider>
+  )}
+</div>
         </div>
       </div>
 
