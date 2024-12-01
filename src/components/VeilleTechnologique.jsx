@@ -5,10 +5,28 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"; 
 import flipboard from "../assets/flipboard.png";
-
 import feedly from "../assets/feedly.png";
 
-// Import the Slider component
+// Typing effect function
+const useTypingEffect = (text, speed) => {
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        setDisplayText(prev => prev + text.charAt(index));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, speed);
+
+    return () => clearInterval(interval);
+  }, [text, speed]);
+
+  return displayText;
+};
 
 const Card = ({ title, image, description, tools }) => (
   <div className="relative w-full p-6 border border-gray-300 rounded-lg shadow-lg">
@@ -22,7 +40,7 @@ const Card = ({ title, image, description, tools }) => (
     <div className="flex justify-center flex-wrap mt-4">
       {tools.map((tool, index) => (
         <a key={index} href={tool.link} target="_blank" rel="noopener noreferrer" className="mx-2 mb-2">
-          <img src={tool.logo} alt={tool.name} className="w-16 h-16 object-contain" /> {/* Adjust the size of the logos as needed */}
+          <img src={tool.logo} alt={tool.name} className="w-16 h-16 object-contain" />
         </a>
       ))}
     </div>
@@ -54,44 +72,26 @@ const VeilleTechnologique = () => {
     fetchRSS();
   }, []);
 
-  // Slider settings
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
+
   const tools = [
     { name: "Inoreader", logo: Inoreader, link: "https://www.inoreader.com" },
-    { name: "Feedly", logo: feedly , link: "https://feedly.com" },
+    { name: "Feedly", logo: feedly, link: "https://feedly.com" },
     { name: "Flipboard", logo: flipboard, link: "https://flipboard.com" },
   ];
+
   const reactCommands = [
     { title: "Importer React", code: `import React from 'react';` },
-    {
-      title: "Composant Fonctionnel",
-      code: `function MonComposant() { return <h1>Bonjour, monde!</h1>; }`,
-    },
-    {
-      title: "useState Hook",
-      code: `function Compteur() {
-        const [count, setCount] = useState(0);
-        return (
-          <div>
-            <p>Vous avez cliqué {count} fois</p>
-            <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
-          </div>
-        );
-      }`,
-    },
-    {
-      title: "useEffect Hook",
-      code: `function ExempleEffect() {
-        useEffect(() => { /* effect code here */ }, []);
-        return <div>Regardez la console!</div>;
-      }`,
-    },
+    { title: "Composant Fonctionnel", code: `function MonComposant() { return <h1>Bonjour, monde!</h1>; }` },
+    { title: "useState Hook", code: `function Compteur() { const [count, setCount] = useState(0); return (<div><p>Vous avez cliqué {count} fois</p><button onClick={() => setCount(count + 1)}>Cliquez ici</button></div>); }` },
+    { title: "useEffect Hook", code: `function ExempleEffect() { useEffect(() => { /* effect code here */ }, []); return <div>
+ <div>Regardez la console!</div>; }` },
   ];
 
   return (
@@ -102,59 +102,53 @@ const VeilleTechnologique = () => {
       
       {/* Grid layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-  <div className="col-span-1 mb-10">
-          {/* React Intro Section */}
+        <div className="col-span-1 mb-10">
           <Card
             title="React"
             image={sampleImage5}
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
-            tools={tools} // Pass the tools data here
+            tools={tools}
           />
         </div>
-        <div className="col-span-1 mb-10"> {/* Allow the RSS feed to occupy the remaining space */}
-        {/* RSS Feed Section - left column */}
-  {isLoading ? (
-    <p>Chargement des articles...</p>
-  ) : error ? (
-    <p>Erreur lors du chargement des articles : {error.message}</p>
-  ) : (
-    <div className="p-4 border border-gray-300 rounded-lg shadow-lg">
-      <Slider {...sliderSettings}>
-        {articles.map((article, index) => (
-          <div key={index} className="p-4 max-w-md mx-auto"> {/* Adjusted width */}
-            <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
-            <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
-            <h3 className="text-xl font-bold">{article.title}</h3>
-            <p>{article.description}</p>
-            <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
-          </div>
-        ))}
-      </Slider>
-    </div>
-  )}
-</div>
+        <div className="col-span-1 mb-10"> 
+          {isLoading ? (
+            <p>Chargement des articles...</p>
+          ) : error ? (
+            <p>Erreur lors du chargement des articles : {error.message}</p>
+          ) : (
+            <div className="p-4 border border-gray-300 rounded-lg shadow-lg">
+              <Slider {...sliderSettings}>
+                {articles.map((article, index) => (
+                  <div key={index} className="p-4 max-w-md mx-auto">
+                    <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
+                    <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
+                    <h3 className="text-xl font-bold">{article.title}</h3>
+                    <p>{article.description}</p>
+                    <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          )}
+        </div>
 
         <div className="md:w-1/2">
-          {/* React Commands Section - right column */}
           <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
-          <div className="grid gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
             {reactCommands.map((command, index) => (
-              <div key={index} className=" p-4 border border-gray-300 rounded-lg shadow-lg">
+              <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg">
                 <h5 className="text-lg font-bold">{command.title}</h5>
                 <pre className="text-sm">
-                  <code>{command.code}</code>
+                  <code className="text-green-500">{useTypingEffect(command.code, 50)}</code> {/* Apply typing effect here */}
                 </pre>
               </div>
             ))}
           </div>
         </div>
       </div>
-
     </div>
   );
 };
 
 export default VeilleTechnologique;
-
-
 
