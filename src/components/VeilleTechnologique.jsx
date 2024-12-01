@@ -181,5 +181,5 @@ const Card = ({ title, image, description }) => {
     </div>
   );
 };
-
+}
 export default VeilleTechnologique;
