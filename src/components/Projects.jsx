@@ -29,7 +29,7 @@ const Projects = () => {
           <div key={index} className="flip-card w-64 h-64 relative">
             <div className="flip-card-inner">
               {/* Front Face */}
-              <div className="flip-card-front card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md">
+              <div className="flip-card-front card-content flex flex-col justify-center h-full bg-white rounded-lg shadow-md">
                 <img
                   src={project.image}
                   alt={project.name}
@@ -41,7 +41,7 @@ const Projects = () => {
               </div>
 
               {/* Back Face */}
-              <div className="flip-card-back card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md"> 
+              <div className="flip-card-back card-content flex flex-col justify-center h-full bg-white rounded-lg shadow-md"> 
                 <h3 className="text-lg font-bold mb-2">{project.name}</h3>
                 <p className="mb-4">{project.desc}</p>
                 <button className="flip-button bg-blue-500 text-white py-2 px-4 rounded">Lien Github</button>
