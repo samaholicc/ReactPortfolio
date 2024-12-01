@@ -5,6 +5,15 @@ import Inoreader from "../assets/Inoreader.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const Card = ({ title, image, description }) => { // Card component moved here
+  return (
+    <div className="relative w-full max-w-md p-6 border border-gray-300 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+      <img src={image} alt={`${title} Icon`} className="w-full h-auto rounded mb-4" />
+      <p className="text-white-700">{description}</p>
+    </div>
+  );
+};
 const VeilleTechnologique = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -181,14 +190,6 @@ const VeilleTechnologique = () => {
     </div>
   );
 
-const Card = ({ title, image, description }) => {
-  return (
-    <div className="relative w-full max-w-md p-6 border border-gray-300 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-2">{title}</h2>
-      <img src={image} alt={`${title} Icon`} className="w-full h-auto rounded mb-4" />
-      <p className="text-white-700">{description}</p>
-    </div>
-  );
-};
+
 }
 export default VeilleTechnologique;
