@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
 import sampleImage5 from "../assets/atom.png";
 import Inoreader from "../assets/Inoreader.jpg";
 import "slick-carousel/slick/slick.css";
@@ -10,6 +9,14 @@ const Card = ({ title, image, description }) => (
     <h2 className="text-2xl font-semibold mb-2">{title}</h2>
     <img src={image} alt={`${title} Icon`} className="w-full h-auto rounded mb-4" />
     <p className="text-gray-700">{description}</p>
+  </div>
+);
+
+const FeaturedCard = ({ title, description, link }) => (
+  <div className="p-6 border border-gray-300 rounded-lg shadow-lg">
+    <h3 className="text-xl font-semibold">{title}</h3>
+    <p>{description}</p>
+    <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
   </div>
 );
 
@@ -54,7 +61,6 @@ const VeilleTechnologique = () => {
       description: "Description de l'article 3 sur React.",
       link: "https://www.example.com/react-article-3",
     },
-    // Add more React articles here...
   ];
 
   const reactCommands = [
@@ -83,54 +89,22 @@ const VeilleTechnologique = () => {
     },
   ];
 
-  const NextArrow = (props) => {
-    const { className, onClick } = props;
-    return (
-      <button className={`${className} absolute right-4 top-1/2 transform -translate-y-1/2`} onClick={onClick}>
-        Next
-      </button>
-    );
-  };
-
-  const PrevArrow = (props) => {
-    const { className, onClick } = props;
-    return (
-      <button className={`${className} absolute left-4 top-1/2 transform -translate-y-1/2`} onClick={onClick}>
-        Previous
-      </button>
-    );
-  };
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-  };
-
-  return (
+  return(
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
-      {/* Main heading */}
       <h2 className="text-4xl font-bold mb-4">Veille Technologique</h2>
       <p className="mb-8">Découvrez les dernières actualités et articles concernant React.</p>
 
       <div className="flex flex-col md:flex-row gap-10">
-      <div className="md:w-1/2">
-          {/* React Intro Section */}
+        <div className="md:w-1/2">
           <Card
             title="Ma veille technologique : React"
             image={sampleImage5}
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
-          />
-        </div>
-        <div className="md:w-1/2">
+            />
+            </div>
+            <div className="md:w-1/2">
           {/* RSS Feed Section */}
-          <div className="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg max-w-xs min-h-[100px] relative mb-10">
+          <div className="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg mb-10">
             <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
             <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
             {isLoading ? (
@@ -138,43 +112,42 @@ const VeilleTechnologique = () => {
             ) : error ? (
               <p>Erreur lors du chargement des articles : {error.message}</p>
             ) : (
-              <Slider {...settings} className="w-full relative">
+              <div className="p-4">
                 {articles.map((article, index) => (
-                  <div key={index} className="p-4">
+                  <div key={index} className="mb-4">
                     <h3 className="text-xl font-bold">{article.title}</h3>
                     <p>{article.description}</p>
                     <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
                   </div>
                 ))}
-              </Slider>
+              </div>
             )}
           </div>
-          
-          {/* React Commands Carousel */}
-          <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
-          <Slider {...settings} className="w-full relative">
-            {reactCommands.map((command, index) => (
-              <div key={index} className="p-4 bg-black text-white rounded-lg">
-                <h5 className="text-lg font-bold mb-2">{command.title}</h5>
-                <pre className="text-sm"><code>{command.code}</code></pre>
-              </div>
-            ))}
-          </Slider>
         </div>
       </div>
 
-      <h4 className="my-6 text-gray-700 font-bold dark:text-white/80">Articles React</h4>
-      <div className="mt-10">
-        {/* Articles Carousel */}
-        <Slider {...settings}>
-          {reactArticles.map((article, index) => (
-            <div key={index} className="p-4">
-              <h4 className="text-lg font-bold">{article.title}</h4>
-              <p>{article.description}</p>
-              <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
-            </div>
-          ))}
-        </Slider>
+      {/* Featured Section for Highlighted Articles */}
+      <h4 className="my-6 text-gray-700 font-bold">Articles à la Une</h4>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {reactArticles.map((article, index) => (
+          <FeaturedCard 
+            key={index}
+            title={article.title}
+            description={article.description}
+            link={article.link}
+          />
+        ))}
+      </div>
+
+      {/* Commands Section */}
+      <h4 className="my-6 text-gray-700 font-bold">Commandes de base en React</h4>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {reactCommands.map((command, index) => (
+          <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg">
+            <h5 className="text-lg font-bold">{command.title}</h5>
+            <pre className="text-sm"><code>{command.code}</code></pre>
+          </div>
+        ))}
       </div>
     </div>
   );
