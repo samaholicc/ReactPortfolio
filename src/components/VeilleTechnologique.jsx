@@ -77,8 +77,8 @@ const VeilleTechnologique = () => {
           />
         </div>
         <div className="md:w-1/2"> {/* RSS Feed Section */}
-          <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg">
-            <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
+        <div className="flex flex-col items-stretch p-4 border border-gray-300 rounded-lg shadow-lg max-w-xs">
+        <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
             <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
             {isLoading ? (
               <p>Chargement des articles...</p>
