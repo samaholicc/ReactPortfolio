@@ -2,15 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-.backface-hidden {
-  backface-visibility: hidden; /* Prevents back face from being visible */
+.flip-card {
+    perspective: 1000px; /* Perspective for the 3D effect */
+    width: 200px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s; /* Smooth transition */
 }
 
-.rotate-y-180 {
-  transform: rotateY(180deg); /* Rotates the back face */
+.flip-card.flipped {
+    transform: rotateY(180deg);
 }
 
-/* Add this if necessary to ensure the perspective works */
-.card-container {
-  perspective: 1000px; /* Perspective for the 3D effect */
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Maintain the 3D effect */
+}
+
+.flip-card-front,
+.flip-card-back {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    position: absolute; /* Position on top of each other */
+    backface-visibility: hidden; /* Hide the back face when flipped */
+}
+
+.flip-card-front {
+    background-color: #d7fbda; /* Front card background color */
+    color: green; /* Text color */
+}
+
+.flip-card-back {
+    background-color: #fbd7f8; /* Back card background color */
+    color: blue; /* Text color */
+    transform: rotateY(180deg); /* Start with back face rotated */
+}
+
+.card-content {
+    padding: 20px; /* Inner padding */
+    text-align: center; /* Center content */
+}
+
+.flip-button {
+    width: 100px; /* Button width */
+    padding: 10px; /* Button padding */
+    font-size: 16px; /* Button font size */
+    margin-top: 10px; /* Margin on top */
+    background-color: #f5d9fa; /* Background color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded button edges */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.flip-button:hover {
+    background-color: #e0b4e0; /* Change background color on hover */
 }
