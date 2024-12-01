@@ -119,8 +119,7 @@ const VeilleTechnologique = () => {
 
       <div className="mt-10">
         <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
-        <pre className="bg-gray-100 p-4 rounded-md text-left">
-          {`// Importer React
+        <pre className="bg-black p-4 rounded-md text-left">          {`// Importer React
 import React from 'react';
 
 // Créer un composant fonctionnel
