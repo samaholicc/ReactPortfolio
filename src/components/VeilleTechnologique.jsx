@@ -11,7 +11,7 @@ const Card = ({ title, image, description }) => (
     <div className="flex justify-center">
       <img src={image} alt={`${title} Icon`} className="image-small rounded mb-4" />
     </div>
-    <p className="text-gray-700">{description}</p>
+    <p className="text-white-700">{description}</p>
   </div>
 );
 
@@ -93,29 +93,27 @@ const VeilleTechnologique = () => {
         </div>
 
         <div className="md:w-1/2">
-          {/* RSS Feed Section - left column */}
-          
-          
-
-          {isLoading ? (
-            <p>Chargement des articles...</p>
-          ) : error ? (
-            <p>Erreur lors du chargement des articles : {error.message}</p>
-          ) : (
-            <div className="p-4 border border-gray-300 rounded-lg shadow-lg">
-              <Slider {...sliderSettings}>
-                {articles.map((article, index) => (
-                  <div key={index} className="p-4">
-                    <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
-                    <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />                    <h3 className="text-xl font-bold">{article.title}</h3>
-                    <p>{article.description}</p>
-                    <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          )}
-        </div>
+  {/* RSS Feed Section - left column */}
+  {isLoading ? (
+    <p>Chargement des articles...</p>
+  ) : error ? (
+    <p>Erreur lors du chargement des articles : {error.message}</p>
+  ) : (
+    <div className="p-4 border border-gray-300 rounded-lg shadow-lg">
+      <Slider {...sliderSettings}>
+        {articles.map((article, index) => (
+          <div key={index} className="p-4 max-w-md mx-auto"> {/* Adjusted width */}
+            <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
+            <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
+            <h3 className="text-xl font-bold">{article.title}</h3>
+            <p>{article.description}</p>
+            <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  )}
+</div>
 
         <div className="md:w-1/2">
           {/* React Commands Section - right column */}
