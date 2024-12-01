@@ -19,7 +19,6 @@ const FeaturedCard = ({ title, description, link }) => (
     <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
   </div>
 );
-
 const VeilleTechnologique = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -89,65 +88,56 @@ const VeilleTechnologique = () => {
     },
   ];
 
-  return(
+  return (
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
+      {/* Main heading */}
       <h2 className="text-4xl font-bold mb-4">Veille Technologique</h2>
       <p className="mb-8">Découvrez les dernières actualités et articles concernant React.</p>
 
-      <div className="flex flex-col md:flex-row gap-10">
-        <div className="md:w-1/2">
+      {/* Grid layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="col-span-1 md:col-span-2 mb-10">
+          {/* React Intro Section - occupying all columns */}
           <Card
             title="Ma veille technologique : React"
             image={sampleImage5}
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
-            />
+          />
+        </div>
+
+        <div className="md:w-1/2">
+          {/* RSS Feed Section - left column */}
+          <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
+          <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
+          {isLoading ? (
+            <p>Chargement des articles...</p>
+          ) : error ? (
+            <p>Erreur lors du chargement des articles : {error.message}</p>
+          ) : (
+            <div className="p-4 border border-gray-300 rounded-lg shadow-lg">
+              {articles.map((article, index) => (
+                <div key={index} className="mb-4">
+                  <h3 className="text-xl font-bold">{article.title}</h3>
+                  <p>{article.description}</p>
+                  <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
+                </div>
+              ))}
             </div>
-            <div className="md:w-1/2">
-          {/* RSS Feed Section */}
-          <div className="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg mb-10">
-            <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
-            <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
-            {isLoading ? (
-              <p>Chargement des articles...</p>
-            ) : error ? (
-              <p>Erreur lors du chargement des articles : {error.message}</p>
-            ) : (
-              <div className="p-4">
-                {articles.map((article, index) => (
-                  <div key={index} className="mb-4">
-                    <h3 className="text-xl font-bold">{article.title}</h3>
-                    <p>{article.description}</p>
-                    <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
-                  </div>
-                ))}
+          )}
+        </div>
+
+        <div className="md:w-1/2">
+          {/* React Commands Section - right column */}
+          <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
+          <div className="grid gap-6">
+            {reactCommands.map((command, index) => (
+              <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg">
+                <h5 className="text-lg font-bold">{command.title}</h5>
+                <pre className="text-sm"><code>{command.code}</code></pre>
               </div>
-            )}
+            ))}
           </div>
         </div>
-      </div>
-
-      {/* Featured Section for Highlighted Articles */}
-      <h4 className="my-6 text-gray-700 font-bold">Articles à la Une</h4>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {reactArticles.map((article, index) => (
-          <FeaturedCard 
-            key={index}
-            title={article.title}
-            description={article.description}
-            link={article.link}
-          />
-        ))}
-      </div>
-
-      {/* Commands Section */}
-      <h4 className="my-6 text-gray-700 font-bold">Commandes de base en React</h4>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {reactCommands.map((command, index) => (
-          <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg">
-            <h5 className="text-lg font-bold">{command.title}</h5>
-            <pre className="text-sm"><code>{command.code}</code></pre>
-          </div>
-        ))}
       </div>
     </div>
   );
