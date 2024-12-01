@@ -24,6 +24,10 @@
   backface-visibility: hidden; /* Prevents back face from being visible */
 }
 
+.flip-card-front {
+  z-index: 2; /* Ensure front is visible above back */
+}
+
 .flip-card-back {
   transform: rotateY(180deg); /* Initially hide the back face */
 }
