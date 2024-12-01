@@ -25,9 +25,9 @@ const Projects = () => {
         Voici quelques-uns de mes projets récents, mettant en valeur mon expertise dans le développement web et d'applications mobiles.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center flip-card-inner">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card w-80 h-80"> {/* Adjust height and width here */}
+          <div key={index} className="flip-card  w-80 h-80"> {/* Adjust height and width here */}
               {/* Front Face */}
               <div className="flip-card-front card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md">
                 <img
