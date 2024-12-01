@@ -93,14 +93,14 @@ const VeilleTechnologique = () => {
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
       {/* Main heading */}
       <h2 className="text-4xl font-bold mb-4">Veille Technologique</h2>
-      <p className="mb-8">Découvrez les dernières actualités et articles concernant React.</p>
+      
 
       {/* Grid layout */}
       <div className="grid grid-cols-1 gap-10">
         <div className="col-span-1 mb-10">
           {/* React Intro Section - occupying all columns */}
           <Card
-            title="Ma veille technologique : React"
+            title="React"
             image={sampleImage5}
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
           />
