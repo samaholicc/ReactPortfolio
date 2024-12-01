@@ -57,43 +57,8 @@ const VeilleTechnologique = () => {
     // Add more React articles here...
   ];
 
-  const reactCommands = [
-    { title: "Importer React", code: `import React from 'react';` },
-    {
-      title: "Composant Fonctionnel",
-      code: `function MonComposant() { return <h1>Bonjour, monde!</h1>; }`,
-    },
-    {
-      title: "useState Hook",
-      code: `function Compteur() { const [count, setCount] = useState(0); 
-        return (
-          <div>
-            <p>Vous avez cliqué {count} fois</p>
-            <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
-          </div>
-        );
-      }`,
-    },
-    {
-      title: "useEffect Hook",
-      code: `function ExempleEffect() { 
-        useEffect(() => { /* effect code here*/ }, []); 
-        return <div>Regardez la console!</div>;
-      }`,
-    },
-  ];
+  
 
-  const commandSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 3000,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-  };
 
   const NextArrow = (props) => {
     const { className, onClick } = props;
@@ -162,18 +127,7 @@ const VeilleTechnologique = () => {
               </Slider>
             )}
           </div>
-          <div className="mt-10">
-            {/* React Commands Carousel */}
-            <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
-            <Slider {...commandSettings} className="w-full relative">
-              {reactCommands.map((command, index) => (
-                <div key={index} className="p-4 bg-black text-white rounded-lg">
-                  <h5 className="text-lg font-bold mb-2">{command.title}</h5>
-                  <pre className="text-sm"><code>{command.code}</code></pre>
-                </div>
-              ))}
-            </Slider>
-          </div>
+          
         </div>
       </div>
   
