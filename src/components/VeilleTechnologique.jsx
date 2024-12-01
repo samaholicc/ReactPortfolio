@@ -106,7 +106,7 @@ const VeilleTechnologique = () => {
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
           />
         </div>
-        <div className="md:w-1/2">
+        <div >
           {/* RSS Feed Section and React Commands Carousel */}
           <div className="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg max-w-xs min-h-[100px] relative mb-10">
             <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
