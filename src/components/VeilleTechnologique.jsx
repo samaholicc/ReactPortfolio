@@ -48,6 +48,32 @@ const VeilleTechnologique = () => {
     slidesToShow: 1,
     slidesToScroll: 1
   };
+  const reactCommands = [
+    { title: "Importer React", code: `import React from 'react';` },
+    {
+      title: "Composant Fonctionnel",
+      code: `function MonComposant() { return <h1>Bonjour, monde!</h1>; }`,
+    },
+    {
+      title: "useState Hook",
+      code: `function Compteur() {
+        const [count, setCount] = useState(0);
+        return (
+          <div>
+            <p>Vous avez cliqué {count} fois</p>
+            <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
+          </div>
+        );
+      }`,
+    },
+    {
+      title: "useEffect Hook",
+      code: `function ExempleEffect() {
+        useEffect(() => { /* effect code here */ }, []);
+        return <div>Regardez la console!</div>;
+      }`,
+    },
+  ];
 
   return (
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
