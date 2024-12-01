@@ -30,3 +30,8 @@
 }
 
 /* Optional for better visuals */
+.image-small {
+  max-width: 150px; /* Set your desired maximum width */
+  width: auto; /* Keep the width responsive */
+  height: auto; /* Maintain the aspect ratio */
+}
