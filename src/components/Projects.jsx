@@ -44,7 +44,7 @@ const Projects = () => {
               <div className="flip-card-back card-content flex flex-col justify-center items-center">
                 <h3 className="text-lg font-bold mb-4">{project.name}</h3>
                 <p>{project.desc}</p>
-                <button href="#">Lien Github</button>
+                <button className="flip-button">Lien Github</button>
               </div>
             </div>
           </div>
