@@ -119,8 +119,36 @@ const VeilleTechnologique = () => {
 
 
       <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">
-            Outils et langages que j'utilise
-          </h4>
+        Outils et langages que j'utilise
+      </h4>
+      <ul className="flex items-center gap-3 sm:gap-5">
+        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+          <SiVisualstudiocode className="w-5 h-5 sm:w-7 sm:h-7 text-blue-600" />
+        </li>
+        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+          <SiJavascript className="w-5 h-5 sm:w-7 sm:h-7 text-yellow-400" />
+        </li>
+        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+          <SiHtml5 className="w-5 h-5 sm:w-7 sm:h-7 text-orange-500" />
+        </li>
+        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+          <SiCss3 className="w-5 h-5 sm:w-7 sm:h-7 text-blue-600" />
+        </li>
+        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+          <SiPhp className="w-5 h-5 sm:w-7 sm:h-7 text-indigo-600" />
+        </li>
+        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+          <SiLaravel className="w-5 h-5 sm:w-7 sm:h-7 text-red-600" />
+        </li>
+        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+          <SiPython className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" />
+        </li>
+        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+          <SiReact className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" />
+        </li>
+      </ul>
+    
+
       <div className="mt-10"> {/*Articles Carousel*/}
         <h3 className="text-3xl mb-4 font-semibold">Articles React</h3>
         <Slider {...settings}>
