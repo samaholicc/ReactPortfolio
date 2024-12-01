@@ -96,24 +96,14 @@ const VeilleTechnologique = () => {
       {/* Grid layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
   <div className="col-span-1 mb-10">
-    {/* React Intro Section */}
-    <Card
-      title="React"
-      image={sampleImage5}
-      description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
-      tools={tools} />
-    
-    <p className="mt-8 text-lg font-semibold">Outils de ma veille:</p>
-    <div className="flex justify-center flex-wrap mt-4">
-      {tools.map((tool, index) => (
-        <a key={index} href={tool.link} target="_blank" rel="noopener noreferrer" className="mx-2 mb-2">
-          <img src={tool.logo} alt={tool.name} className="w-16 h-16 object-contain" /> {/* Adjust the size of the logos as needed */}
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
-
+          {/* React Intro Section */}
+          <Card
+            title="React"
+            image={sampleImage5}
+            description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
+            tools={tools} // Pass the tools data here
+          />
+        </div>
         <div className="col-span-1 mb-10"> {/* Allow the RSS feed to occupy the remaining space */}
         {/* RSS Feed Section - left column */}
   {isLoading ? (
