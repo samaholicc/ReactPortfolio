@@ -24,9 +24,9 @@ const Projects = () => {
         Voici quelques-uns de mes projets récents, mettant en valeur mon expertise dans le développement web et d'applications mobiles.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center width: 700px; height: 250px;">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card w-80 h-80 relative"> {/* Added relative positioning */}
+          <div key={index} className="flip-card w-64 h-64 relative"> {/* Reduced width and height */}
             <div className="flip-card-inner"> {/* Added this wrapper for flip logic */}
               {/* Front Face */}
               <div className="flip-card-front card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md">
