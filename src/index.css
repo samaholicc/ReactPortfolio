@@ -36,7 +36,7 @@
 
 .flip-card-back {
     background-color: #fbd7f8; /* Back card color */
-    color: blue; /* Back card text color */
+    color: black; /* Back card text color */
     transform: rotateY(180deg);
         /* Start the back face rotated */
 }
@@ -57,5 +57,5 @@
 }
 
 .flip-button:hover {
-    background-color: #e0b4e0; /* Change background color on button hover */
+    background-color: #f0f0f0; /* Change background color on button hover */
 }
