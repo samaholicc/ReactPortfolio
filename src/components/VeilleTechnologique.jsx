@@ -48,6 +48,36 @@ const VeilleTechnologique = () => {
     },
     // Add more React articles here...
   ];
+  const reactCommands = [
+    { title: "Importer React", code: `import React from 'react';` },
+    {
+      title: "Composant Fonctionnel",
+      code: `function MonComposant() { return <h1>Bonjour, monde!</h1>; }`,
+    },
+    {
+      title: "useState Hook",
+      code: `function Compteur() { const [count, setCount] = useState(0); ... }`,
+    },
+    {
+      title: "useEffect Hook",
+      code: `function ExempleEffect() { useEffect(() => { ... }); ... }`,
+    },
+  ]; 
+
+  
+  const commandSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 3000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
+
+
   const NextArrow = (props) => {
     const { className, onClick } = props;
     return (
@@ -79,106 +109,68 @@ const VeilleTechnologique = () => {
 
   return (
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
-      <h2 className="text-5xl font-Ovo">Veille technologique</h2>
-      <p className="max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
-        La veille technologique est un processus systématique de collecte, d'analyse et de diffusion d'informations pertinentes
-        sur les évolutions techniques et les innovations dans un domaine spécifique. Elle permet aux professionnels de rester informés
-        des tendances, des nouvelles technologies et des meilleures pratiques, afin d'anticiper les changements et d'améliorer
-        leur prise de décision.J'utilise Inoreader comme outil de veille technologique pour rester informé des dernières tendances et nouveautés dans le domaine.
-      </p>
+      {/* ... your existing code (h2, p tags, first flex div) ... */}
+  
       <div className="flex flex-col md:flex-row gap-10">
-        <div className="md:w-1/2"> {/* React Intro Section */}
+        <div className="md:w-1/2">
+          {/* React Intro Section */}
           <Card
             title="Ma veille technologique : React"
             image={sampleImage5}
             description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
           />
         </div>
-        <div className="md:w-1/2"> {/* RSS Feed Section */}
-        <div className="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg max-w-xs min-h-[100px] relative">
-  <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
-  <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
-  {isLoading ? (
-    <p>Chargement des articles...</p>
-  ) : error ? (
-    <p>Erreur lors du chargement des articles : {error.message}</p>
-  ) : (
-    <Slider {...settings} className="w-full relative">
-      {articles.map((article, index) => (
-        <div key={index} className="p-4">
-          <h3 className="text-xl font-bold">{article.title}</h3>
-          <p>{article.description}</p>
-          <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
-        </div>
-      ))}
-    </Slider>
-  )}
-</div>
+        <div className="md:w-1/2">
+          {/* RSS Feed Section and React Commands Carousel */}
+          <div className="flex flex-col items-stretch border border-gray-300 rounded-lg shadow-lg max-w-xs min-h-[100px] relative mb-10">
+            <h3 className="text-3xl mb-4 font-semibold">Flux RSS Inoreader</h3>
+            <img src={Inoreader} alt="Inoreader" className="mb-4 w-full" />
+            {isLoading ? (
+              <p>Chargement des articles...</p>
+            ) : error ? (
+              <p>Erreur lors du chargement des articles : {error.message}</p>
+            ) : (
+              <Slider {...settings} className="w-full relative">
+                {articles.map((article, index) => (
+                  <div key={index} className="p-4">
+                    <h3 className="text-xl font-bold">{article.title}</h3>
+                    <p>{article.description}</p>
+                    <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
+                  </div>
+                ))}
+              </Slider>
+            )}
+          </div>
+          <div className="mt-10">
+            {/* React Commands Carousel */}
+            <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
+            <Slider {...commandSettings} className="w-full relative">
+              {reactCommands.map((command, index) => (
+                <div key={index} className="p-4 bg-black text-white rounded-lg">
+                  <h5 className="text-lg font-bold mb-2">{command.title}</h5>
+                  <pre className="text-sm"><code>{command.code}</code></pre>
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
-
-      <div className="mt-10">
-        <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
-        <pre className="bg-black p-4 rounded-md text-left">          {`// Importer React
-import React from 'react';
-
-// Créer un composant fonctionnel
-function MonComposant() {
-  return <h1>Bonjour, monde!</h1>;
-}
-
-// Exporter le composant pour l'utiliser ailleurs
-export default MonComposant;
-
-// Utilisation du Hook useState
-import React, { useState } from 'react';
-
-function Compteur() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>Vous avez cliqué {count} fois</p>
-      <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
-    </div>
-  );
-}
-
-// Utilisation du Hook useEffect
-import React, { useEffect } from 'react';
-
-function ExempleEffect() {
-  useEffect(() => {
-    console.log('Composant monté');
-
-    return () => {
-      console.log('Composant démonté');
-    };
-  }, []);
-
-  return <div>Regardez la console!</div>;
-}
-`}
-        </pre>
-      </div>
-
+  
       <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">Articles React</h4>
-      <div className="mt-10"> {/* Articles Carousel */}
+      <div className="mt-10">
+        {/* Articles Carousel */}
         <Slider {...settings}>
           {reactArticles.map((article, index) => (
             <div key={index} className="p-4">
               <h4 className="text-lg font-bold">{article.title}</h4>
               <p>{article.description}</p>
-              <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                Lire l'article
-              </a>
+              <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
             </div>
           ))}
         </Slider>
       </div>
     </div>
   );
-};
 
 const Card = ({ title, image, description }) => {
   return (
