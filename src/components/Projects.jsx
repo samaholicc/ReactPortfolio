@@ -1,6 +1,6 @@
 import React from "react";
-import project1 from "../assets/project1.png";
-import project2 from "../assets/project2.png";
+import project1 from "../assets/project1.jpg";
+import project2 from "../assets/project2.jpg";
 import '../index.css'; // Ensure this file includes Tailwind and your custom styles
 
 const Projects = () => {
