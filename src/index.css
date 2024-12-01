@@ -7,6 +7,7 @@
     width: 400px; /* Card width */
     height: 300px; /* Card height */
     position: static;
+    margin: 20px; /* Margin to create space between cards */
 }
 
 .flip-card-inner {
@@ -56,7 +57,4 @@
 
 .flip-button:hover {
     background-color: #e0b4e0; /* Change background color on button hover */
-}
-.flip-card {
-  margin: 10px; /* Adjust gap as needed */
 }

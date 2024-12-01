@@ -26,7 +26,7 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card">
+          <div key={index} className="flip-card mx-auto"> {/* Center align each card */}
             <div className="flip-card-inner">
               {/* Front Face */}
               <div className="flip-card-front card-content">
