@@ -132,7 +132,7 @@ const VeilleTechnologique = () => {
           )}
         </div>
 
-        <div className="md:w-1/2">
+        <div className="w-full px-[12%] py-10 scroll-mt-20 text-center">
           <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
             {reactCommands.map((command, index) => (
