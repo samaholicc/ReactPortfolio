@@ -2,6 +2,7 @@ import React from "react";
 import project1 from "../assets/project1.jpg"; // Ensure these image paths are correct
 import project2 from "../assets/project2.jpg"; // Ensure these image paths are correct
 import '../index.css'; // Ensure this file includes Tailwind and your custom styles
+import { FaGithub } from 'react-icons/fa';
 
 const Projects = () => {
   const projects = [
@@ -44,8 +45,10 @@ const Projects = () => {
               <div className="flip-card-back card-content flex flex-col items-center justify-center h-full bg-white rounded-lg shadow-md"> 
                 <h3 className="text-lg font-bold text-black	 mb-2 text-center">{project.name}</h3>
                 <p className="mb-4 text-black	text-center">{project.desc}</p>
-                <button className="flip-button bg-blue-500 text-black text-sm py-1 px-2 rounded">Lien Github</button>
-              </div>
+                <button className="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">
+                  <FaGithub className="w-4 h-4" /> {/* Icon size can be adjusted */}
+                  Lien Github
+                </button>              </div>
             </div>
           </div>
         ))}
