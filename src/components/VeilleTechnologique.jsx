@@ -9,7 +9,7 @@ const Card = ({ title, image, description }) => (
   <div className="relative w-full max-w-md p-6 border border-gray-300 rounded-lg shadow-lg">
     <h2 className="text-2xl font-semibold mb-2">{title}</h2>
     <img src={image} alt={`${title} Icon`} className="w-full h-auto rounded mb-4" />
-    <p className="text-white-700">{description}</p>
+    <p className="text-gray-700">{description}</p>
   </div>
 );
 
@@ -56,6 +56,7 @@ const VeilleTechnologique = () => {
     },
     // Add more React articles here...
   ];
+
   const reactCommands = [
     { title: "Importer React", code: `import React from 'react';` },
     {
@@ -64,7 +65,7 @@ const VeilleTechnologique = () => {
     },
     {
       title: "useState Hook",
-      code: `function Compteur() { const [count, setCount] = useState(0);  // useState is not available here, it's for illustration only
+      code: `function Compteur() { const [count, setCount] = useState(0); 
         return (
           <div>
             <p>Vous avez cliqué {count} fois</p>
@@ -75,13 +76,13 @@ const VeilleTechnologique = () => {
     },
     {
       title: "useEffect Hook",
-      code: `function ExempleEffect() { useEffect(() => { /* effect code here*/ }, []);  //useEffect is not available here, it's for illustration only
+      code: `function ExempleEffect() { 
+        useEffect(() => { /* effect code here*/ }, []); 
         return <div>Regardez la console!</div>;
       }`,
     },
   ];
 
-  
   const commandSettings = {
     dots: true,
     infinite: true,
@@ -94,7 +95,6 @@ const VeilleTechnologique = () => {
     prevArrow: <PrevArrow />,
   };
 
-
   const NextArrow = (props) => {
     const { className, onClick } = props;
     return (
@@ -103,7 +103,7 @@ const VeilleTechnologique = () => {
       </button>
     );
   };
-  
+
   const PrevArrow = (props) => {
     const { className, onClick } = props;
     return (
@@ -112,6 +112,7 @@ const VeilleTechnologique = () => {
       </button>
     );
   };
+
   const settings = {
     dots: false,
     infinite: true,
@@ -124,9 +125,12 @@ const VeilleTechnologique = () => {
     prevArrow: <PrevArrow />,
   };
 
+
   return (
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
-      {/* ... your existing code (h2, p tags, first flex div) ... */}
+      {/* Main heading */}
+      <h2 className="text-4xl font-bold mb-4">Veille Technologique</h2>
+      <p className="mb-8">Découvrez les dernières actualités et articles concernant React.</p>
   
       <div className="flex flex-col md:flex-row gap-10">
         <div className="md:w-1/2">
@@ -134,7 +138,7 @@ const VeilleTechnologique = () => {
           <Card
             title="Ma veille technologique : React"
             image={sampleImage5}
-            description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML. "
+            description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
           />
         </div>
         <div className="md:w-1/2">
@@ -173,7 +177,7 @@ const VeilleTechnologique = () => {
         </div>
       </div>
   
-      <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">Articles React</h4>
+      <h4 className="my-6 text-gray-700 font-bold dark:text-white/80">Articles React</h4>
       <div className="mt-10">
         {/* Articles Carousel */}
         <Slider {...settings}>
@@ -188,7 +192,6 @@ const VeilleTechnologique = () => {
       </div>
     </div>
   );
-
-
 }
-export default VeilleTechnologique;
+  
+  export default VeilleTechnologique;
