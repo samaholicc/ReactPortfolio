@@ -144,7 +144,7 @@ const VeilleTechnologique = () => {
             </div>
           )}
         </div>
-
+      </div>
         {/* React Commands Section */}
         <h4 className="text-3xl mb-4 font-semibold text-center">Commandes de base en React</h4>
         <div className="md:w-1/2 mx-auto"> {/* Center the container for better visibility */}
@@ -160,7 +160,7 @@ const VeilleTechnologique = () => {
             ))}
           </div>
         </div>
-      </div>
+      
     </div>
   );
 };
