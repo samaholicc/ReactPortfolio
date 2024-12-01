@@ -26,7 +26,7 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card w-80 h-64"> {/* Set width */}
+          <div key={index} className="flip-card w-100 h-64"> {/* Set width */}
             <div className="flip-card-inner">
               {/* Front Face */}
               <div className="flip-card-front card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md">
