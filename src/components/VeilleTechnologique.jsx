@@ -56,13 +56,22 @@ const VeilleTechnologique = () => {
     },
     {
       title: "useState Hook",
-      code: `function Compteur() { const [count, setCount] = useState(0); ... }`,
+      code: `function Compteur() { const [count, setCount] = useState(0);  // useState is not available here, it's for illustration only
+        return (
+          <div>
+            <p>Vous avez cliqué {count} fois</p>
+            <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
+          </div>
+        );
+      }`,
     },
     {
       title: "useEffect Hook",
-      code: `function ExempleEffect() { useEffect(() => { ... }); ... }`,
+      code: `function ExempleEffect() { useEffect(() => { /* effect code here*/ }, []);  //useEffect is not available here, it's for illustration only
+        return <div>Regardez la console!</div>;
+      }`,
     },
-  ]; 
+  ];
 
   
   const commandSettings = {
