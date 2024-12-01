@@ -6,7 +6,7 @@
     perspective: 1000px; /* Perspective for the 3D effect */
     width: 400px; /* Card width */
     height: 300px; /* Card height */
-    position: relative;
+    position: static;
 }
 
 .flip-card-inner {
@@ -40,7 +40,6 @@
 }
 
 .card-content {
-    padding: 20px; /* Inner padding */
     text-align: center; /* Center content */
 }
 
