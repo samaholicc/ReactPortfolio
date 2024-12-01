@@ -132,14 +132,14 @@ const VeilleTechnologique = () => {
           )}
         </div>
 
-        <div className="w-full px-[12%] py-10 scroll-mt-20 text-center">
+        <div className="md:w-1/2">
           <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
             {reactCommands.map((command, index) => (
-              <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg">
+              <div key={index} className="p-4 border border-gray-300 rounded-lg shadow-lg max-w-md mx-auto">
                 <h5 className="text-lg font-bold">{command.title}</h5>
                 <pre className="text-sm">
-                  <code className="text-green-500">{useTypingEffect(command.code, 50)}</code> {/* Apply typing effect here */}
+                  <code className="text-green-500">{useTypingEffect(command.code, 50)}</code> {/* Typing effect here */}
                 </pre>
               </div>
             ))}
