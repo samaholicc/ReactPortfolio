@@ -6,9 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Card = ({ title, image, description }) => (
   <div className="relative w-full  p-6 border border-gray-300 rounded-lg shadow-lg">
-    <h2 className="text-2xl font-semibold mb-2">{title}</h2>
-    <img src={image} alt={`${title} Icon`} className="image-small rounded mb-4" />
-    <p className="text-gray-700">{description}</p>
+  <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+  <div className="flex justify-center">
+  <img src={image} alt={`${title} Icon`} className="image-small rounded mb-4" />
+  </div>    <p className="text-white-700">{description}</p>
   </div>
 );
 
