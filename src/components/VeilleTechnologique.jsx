@@ -101,7 +101,7 @@ const VeilleTechnologique = () => {
       title="React"
       image={sampleImage5}
       description="React est une bibliothèque JavaScript populaire utilisée pour créer des interfaces utilisateur, notamment pour les applications à page unique. Développée par Facebook, elle permet de créer des composants UI réutilisables, de gérer efficacement l'état des applications via un DOM virtuel et d'utiliser JSX pour écrire du code semblable à HTML."
-    />
+      tools={tools} />
     
     <p className="mt-8 text-lg font-semibold">Outils de ma veille:</p>
     <div className="flex justify-center flex-wrap mt-4">
