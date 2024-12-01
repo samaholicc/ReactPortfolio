@@ -146,7 +146,7 @@ const VeilleTechnologique = () => {
         </div>
       </div>
         {/* React Commands Section */}
-        <h4 className="text-3xl mb-4 font-semibold text-center">Commandes de base en React</h4>
+        <h4 className="w-full px-[12%] py-10 scroll-mt-20 text-center">Commandes de base en React</h4>
         <div className="md:w-1/2 mx-auto"> {/* Center the container for better visibility */}
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Two-column layout */}
