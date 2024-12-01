@@ -117,46 +117,62 @@ const VeilleTechnologique = () => {
         </div>
       </div>
 
+      <div className="mt-10">
+        <h4 className="text-3xl mb-4 font-semibold">Commandes de base en React</h4>
+        <pre className="bg-gray-100 p-4 rounded-md text-left">
+          {`// Importer React
+import React from 'react';
 
-      <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">
-        Outils et langages que j'utilise
-      </h4>
-      <ul className="flex items-center gap-3 sm:gap-5">
-        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-          <SiVisualstudiocode className="w-5 h-5 sm:w-7 sm:h-7 text-blue-600" />
-        </li>
-        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-          <SiJavascript className="w-5 h-5 sm:w-7 sm:h-7 text-yellow-400" />
-        </li>
-        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-          <SiHtml5 className="w-5 h-5 sm:w-7 sm:h-7 text-orange-500" />
-        </li>
-        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-          <SiCss3 className="w-5 h-5 sm:w-7 sm:h-7 text-blue-600" />
-        </li>
-        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-          <SiPhp className="w-5 h-5 sm:w-7 sm:h-7 text-indigo-600" />
-        </li>
-        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-          <SiLaravel className="w-5 h-5 sm:w-7 sm:h-7 text-red-600" />
-        </li>
-        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-          <SiPython className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" />
-        </li>
-        <li className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-          <SiReact className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" />
-        </li>
-      </ul>
-    
+// Créer un composant fonctionnel
+function MonComposant() {
+  return <h1>Bonjour, monde!</h1>;
+}
 
-      <div className="mt-10"> {/*Articles Carousel*/}
-        <h3 className="text-3xl mb-4 font-semibold">Articles React</h3>
+// Exporter le composant pour l'utiliser ailleurs
+export default MonComposant;
+
+// Utilisation du Hook useState
+import React, { useState } from 'react';
+
+function Compteur() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Vous avez cliqué {count} fois</p>
+      <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
+    </div>
+  );
+}
+
+// Utilisation du Hook useEffect
+import React, { useEffect } from 'react';
+
+function ExempleEffect() {
+  useEffect(() => {
+    console.log('Composant monté');
+
+    return () => {
+      console.log('Composant démonté');
+    };
+  }, []);
+
+  return <div>Regardez la console!</div>;
+}
+`}
+        </pre>
+      </div>
+
+      <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">Articles React</h4>
+      <div className="mt-10"> {/* Articles Carousel */}
         <Slider {...settings}>
           {reactArticles.map((article, index) => (
             <div key={index} className="p-4">
               <h4 className="text-lg font-bold">{article.title}</h4>
               <p>{article.description}</p>
-              <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Lire l'article</a>
+              <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                Lire l'article
+              </a>
             </div>
           ))}
         </Slider>
