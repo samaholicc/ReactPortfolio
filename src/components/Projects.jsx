@@ -1,6 +1,8 @@
+jsx
+Copy
 import React from "react";
-import project1 from "../assets/project1.jpg";
-import project2 from "../assets/project2.jpg";
+import project1 from "../assets/project1.jpg"; // Ensure these image paths are correct
+import project2 from "../assets/project2.jpg"; // Ensure these image paths are correct
 import '../index.css'; // Ensure this file includes Tailwind and your custom styles
 
 const Projects = () => {
@@ -26,7 +28,7 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 justify-items-center">
         {projects.map((project, index) => (
-          <div key={index} className="flip-card w-100 h-64"> {/* Set width */}
+          <div key={index} className="flip-card w-80 h-80"> {/* Adjust height and width here */}
             <div className="flip-card-inner">
               {/* Front Face */}
               <div className="flip-card-front card-content flex flex-col justify-between h-full bg-white rounded-lg shadow-md">
