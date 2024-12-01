@@ -117,6 +117,10 @@ const VeilleTechnologique = () => {
         </div>
       </div>
 
+
+      <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">
+            Outils et langages que j'utilise
+          </h4>
       <div className="mt-10"> {/*Articles Carousel*/}
         <h3 className="text-3xl mb-4 font-semibold">Articles React</h3>
         <Slider {...settings}>
