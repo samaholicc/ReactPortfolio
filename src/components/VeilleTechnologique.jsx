@@ -95,8 +95,8 @@ const VeilleTechnologique = () => {
       <p className="mb-8">Découvrez les dernières actualités et articles concernant React.</p>
 
       {/* Grid layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="col-span-1 md:col-span-2 mb-10">
+      <div className="grid grid-cols-1 gap-10">
+        <div className="col-span-1 mb-10">
           {/* React Intro Section - occupying all columns */}
           <Card
             title="Ma veille technologique : React"
