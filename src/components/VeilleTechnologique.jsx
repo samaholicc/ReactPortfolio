@@ -94,8 +94,7 @@ const VeilleTechnologique = () => {
       {/* Main heading */}
       <h2 className="text-4xl font-bold mb-4">Veille Technologique</h2>
       <p className="mb-8">La veille technologique est un processus systématique de collecte, d'analyse et d'interprétation d'informations concernant les nouvelles technologies, les innovations et les tendances du marché. Elle permet aux entreprises et aux professionnels de rester informés des évolutions dans leur domaine, d'anticiper les changements, d'identifier les opportunités et les menaces, et d'améliorer leur compétitivité. En surveillant les avancées technologiques et les comportements des consommateurs, la veille technologique aide à prendre
-
-
+      </p>
       {/* Grid layout */}
       <div className="grid grid-cols-1 gap-10">
         <div className="col-span-1 mb-10">
