@@ -4,21 +4,20 @@
 
 .flip-card {
     perspective: 1000px; /* Perspective for the 3D effect */
-    width: 200px; /* Adjust as needed */
-    height: 300px; /* Adjust as needed */
+    width: 400px; /* Card width */
+    height: 300px; /* Card height */
     position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.5s; /* Smooth transition */
-}
-
-.flip-card.flipped {
-    transform: rotateY(180deg);
 }
 
 .flip-card-inner {
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d; /* Maintain the 3D effect */
+    transform-style: preserve-3d; /* Maintain 3D effect */
+    transition: transform 0.5s; /* Smooth transition */
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg); /* Flip on hover */
 }
 
 .flip-card-front,
@@ -30,13 +29,13 @@
 }
 
 .flip-card-front {
-    background-color: #d7fbda; /* Front card background color */
-    color: green; /* Text color */
+    background-color: #d7fbda; /* Front card color */
+    color: green; /* Front card text color */
 }
 
 .flip-card-back {
-    background-color: #fbd7f8; /* Back card background color */
-    color: blue; /* Text color */
+    background-color: #fbd7f8; /* Back card color */
+    color: blue; /* Back card text color */
     transform: rotateY(180deg); /* Start with back face rotated */
 }
 
@@ -50,12 +49,12 @@
     padding: 10px; /* Button padding */
     font-size: 16px; /* Button font size */
     margin-top: 10px; /* Margin on top */
-    background-color: #f5d9fa; /* Background color */
+    background-color: #f5d9fa; /* Button background color */
     border: none; /* No border */
     border-radius: 5px; /* Rounded button edges */
     cursor: pointer; /* Pointer cursor on hover */
 }
 
 .flip-button:hover {
-    background-color: #e0b4e0; /* Change background color on hover */
+    background-color: #e0b4e0; /* Change background color on button hover */
 }

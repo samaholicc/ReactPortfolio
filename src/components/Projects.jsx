@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // Import useState to handle card flipping state
+import React from "react";
 import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
 import '../index.css'; // Make sure this file includes Tailwind and your custom styles
@@ -17,13 +17,6 @@ const Projects = () => {
     },
   ];
 
-  // State to handle the flipped state of cards
-  const [flippedIndex, setFlippedIndex] = useState(null);
-
-  const handleFlip = (index) => {
-    setFlippedIndex(flippedIndex === index ? null : index);
-  };
-
   return (
     <div id="projects" className="w-full px-[12%] py-10 scroll-mt-20">
       <h2 className="text-center text-5xl font-Ovo">Projets</h2>
@@ -33,20 +26,25 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
         {projects.map((project, index) => (
-          <div key={index} className={`flip-card ${flippedIndex === index ? 'flipped' : ''}`} onClick={() => handleFlip(index)}>
+          <div key={index} className="flip-card">
             <div className="flip-card-inner">
               {/* Front Face */}
               <div className="flip-card-front card-content">
-                <img src={project.image} alt={project.name} className="w-full h-48 object-cover rounded-t-lg" />
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                />
                 <h3 className="text-center text-lg font-semibold mt-4 text-gray-800">
                   {project.name}
                 </h3>
               </div>
+
               {/* Back Face */}
               <div className="flip-card-back card-content flex flex-col justify-center items-center">
                 <h3 className="text-lg font-bold mb-4">{project.name}</h3>
                 <p>{project.desc}</p>
-                <button className="flip-button" onClick={() => handleFlip(index)}>Flip Back</button>
+                <button className="flip-button">Flip Back</button>
               </div>
             </div>
           </div>
