@@ -92,7 +92,7 @@ const VeilleTechnologique = () => {
     <div id="VeilleTechnologique" className="w-full px-[12%] py-10 scroll-mt-20 text-center">
       {/* Main heading */}
       <h2 className="text-4xl font-bold mb-4">Veille Technologique</h2>
-      <p className="mb-8">La veille technologique est un processus systématique de collecte, d'analyse et d'interprétation d'informations concernant les nouvelles technologies, les innovations et les tendances du marché...</p>
+      <p className="mb-8">La veille technologique est un processus systématique et continu de surveillance des avancées technologiques, des innovations et des tendances dans un domaine spécifique. Elle vise à collecter, analyser et diffuser des informations pertinentes pour aider les entreprises, les organisations ou les individus à prendre des décisions éclairées.</p>
       
        {/* Grid layout */}
        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
