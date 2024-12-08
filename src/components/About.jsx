@@ -18,7 +18,7 @@ import {
   SiCss3,
   SiReact
 } from "react-icons/si"; // Importer les autres icônes d'outils
-import user_image from "../assets/Samia2.jpg";
+import user_image from "../asset/samia.jpg";
 import circular_text from "../assets/ev.png";
 
 const About = () => {
